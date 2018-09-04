@@ -1,0 +1,72 @@
+<html>
+
+<head>
+	<title>Simple Javascript MVC</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+	 crossorigin="anonymous" />
+	<link rel="stylesheet" href="./src/styles.scss" />
+</head>
+
+<body>
+	<!-- Bootstrap CSS -->
+
+
+
+
+	<div id="app">
+
+		<!-- START : Header -->
+		<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+			<h5 class="my-0 mr-md-auto font-weight-normal">Company name</h5>
+			<nav class="my-2 my-md-0 mr-md-3">
+				<a class="p-2 text-dark" href="#">Features</a>
+				<a class="p-2 text-dark" href="#">Enterprise</a>
+				<a class="p-2 text-dark" href="#">Support</a>
+				<a class="p-2 text-dark" href="#">Pricing</a>
+			</nav>
+		</div>
+		<!-- END : Header -->
+
+		<div class="container">
+			<a class="btn btn-outline-primary" onclick="displayUserList()" href="javascript:;">Display User List</a>
+
+			<ul id="userListContainer" class="list-group">
+			</ul>
+		</div>
+	</div>
+
+	<script>
+		// Import stylesheets
+		// import './style.css';
+
+		let users;
+
+		// SERVICE
+		function fetchUsersService() {
+			return fetch('https://jsonplaceholder.typicode.com/users', {
+				method: 'get'
+			})
+				.then((response) => response.json())
+		}
+
+		// COMPONENT
+		function displayUserList() {
+			let userListContainer = document.querySelector('#userListContainer');
+
+			fetchUsersService().then(data => {
+				let user = "";
+				data.forEach(item => {
+					user += `<li class="list-group-item">${item.name}</li>`
+				});
+
+				userListContainer.innerHTML = user;
+			});
+
+		}
+
+					//displayUserList();
+	</script>
+
+</body>
+
+</html>
