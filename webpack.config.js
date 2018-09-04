@@ -18,6 +18,7 @@ if (!fs.existsSync(MARKDOWN_OUTPUT_DIR)) {
     fs.mkdirSync(MARKDOWN_OUTPUT_DIR);
 }
 
+
 /*
 * Generates an Array with the following data:
 * [
