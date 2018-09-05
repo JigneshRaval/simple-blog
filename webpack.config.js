@@ -153,7 +153,7 @@ module.exports = {
         // hot: true,
         watchOptions: {
             aggregateTimeout: 1500,
-            poll: 1500
+            poll: 1000
         },
         historyApiFallback: true
     },

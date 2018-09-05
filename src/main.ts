@@ -5,7 +5,7 @@ function getName(name: String) {
     return name;
 }
 
-console.log(getName('krunal Dave'));
+console.log(getName('Simple function log'));
 
-let hero = new Hero('Jignesh Raval 654123');
+let hero = new Hero('Simple Blog');
 console.log(hero.myName());
