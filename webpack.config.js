@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 // Markdown file converter
 const showdown = require('showdown');
@@ -15,6 +16,7 @@ const ASSETS_PATH = './src/assets'
 
 // Check if MARKDOWN_OUTPUT_DIR is exist, if not then create directory first
 if (!fs.existsSync(MARKDOWN_OUTPUT_DIR)) {
+    fs.mkdirSync('dist');
     fs.mkdirSync(MARKDOWN_OUTPUT_DIR);
 }
 
@@ -68,10 +70,11 @@ const makeHtmlConfig = ({ filename, markdown }) => ({
 
 module.exports = {
     entry: {
-        'app': './src/main.js',
+        'app': './src/main.ts',
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
+        publicPath: '/dist/',
         filename: '[name].bundle.js'
     },
     module: {
@@ -96,26 +99,62 @@ module.exports = {
                         }
                     ]
                 })
+            },
+            // Compile .ts files written in ES6+
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/
             }
         ]
     },
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js']
+    },
+    performance: {
+        hints: false
+    },
     devtool: "source-map",
     plugins: [
-        // Extract CSS from javascript file and put it into another CSS file in dist folder
-        new ExtractTextPlugin({
-            // define where to save the file
-            filename: 'assets/css/[name].bundle.css',
-            allChunks: true
-        }),
         // Copy all the static files like images, html, fonts etc.., from SRC folder to DIST folder
         new CopyWebpackPlugin([
-            { from: './index.html', to: './' },
+            // { from: './index.html', to: './' },
             // { from: './src/pages/**/*.html', to: './pages/[name].[ext]' },
             {
                 from: './src/assets/images',
                 to: 'assets/images',
                 ignore: ['*.scss']
             }
-        ], { debug: 'info' })
-    ]
+        ], { debug: 'info' }),
+
+        // Extract CSS from javascript file and put it into another CSS file in dist folder
+        new ExtractTextPlugin({
+            // define where to save the file
+            filename: 'assets/css/[name].bundle.css',
+            allChunks: true
+        }),
+
+        /* new HtmlWebpackPlugin({
+            inject: false,
+            // hash: true,
+            template: './index.html',
+            filename: 'index.html'
+        }) */
+    ],
+    devServer: {
+        //contentBase: "dist",
+        watchContentBase: true,
+        clientLogLevel: "none",
+        publicPath: "/dist/",
+        compress: true,
+        // host: 'localhost',
+        port: 3000,
+        stats: 'errors-only',
+        // hot: true,
+        watchOptions: {
+            aggregateTimeout: 1500,
+            poll: 1500
+        },
+        historyApiFallback: true
+    },
 };
