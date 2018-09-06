@@ -1,0 +1,28 @@
+<html>
+
+<head>
+	<title>
+		<%= htmlWebpackPlugin.options.title %>
+	</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+	 crossorigin="anonymous" />
+	<link rel="stylesheet" href="./dist/assets/css/app.bundle.css" />
+</head>
+
+<body>
+	<!-- Bootstrap CSS -->
+
+	<div id="app">
+
+		<%= htmlWebpackPlugin.options.header %>
+
+		<%= htmlWebpackPlugin.options.bodyHTML %>
+
+		<!-- all your standard template here -->
+		<%= htmlWebpackPlugin.options.footer %>
+	</div>
+
+	<script src="./dist/app.bundle.js"></script>
+</body>
+
+</html>

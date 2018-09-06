@@ -9,6 +9,9 @@
     "include": [
         "./src/**/*"
     ],
+    "files": [
+        "typings.d.ts"
+    ],
     "exclude": [
         "node_modules", // don't run on any code in the node_modules directory
         "**/*.spec.ts"

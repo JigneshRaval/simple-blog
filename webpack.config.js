@@ -1,81 +1,47 @@
-// const webpack = require('webpack'); //to access built-in plugins
+const webpack = require('webpack'); //to access built-in plugins
 const fs = require('fs');
 const path = require('path');
+const showdown = require('showdown');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-var HtmlWebpackPlugin = require('html-webpack-plugin')
-
-// Markdown file converter
-const showdown = require('showdown');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+const ConvertMarkdown = require('./configs/markdown-convertor');
 const converter = new showdown.Converter();
+const headerTemplate = fs.readFileSync(__dirname + '/src/templates/header.html');
+const footerTemplate = fs.readFileSync(__dirname + '/src/templates/footer.html');
 
-// Assuming I add a bunch of .md files in my ./md dir.
-const MARKDOWN_FILE_DIR = './src/pages';
-const MARKDOWN_OUTPUT_DIR = './dist/pages/';
-const ASSETS_PATH = './src/assets'
+let test = ConvertMarkdown();
 
-// Check if MARKDOWN_OUTPUT_DIR is exist, if not then create directory first
-if (!fs.existsSync(MARKDOWN_OUTPUT_DIR)) {
-    fs.mkdirSync('dist');
-    fs.mkdirSync(MARKDOWN_OUTPUT_DIR);
+const makeHtmlConfig = ({ filename, markdown, frontmatter }, index) => (
+    new HtmlWebpackPlugin({
+        cache: true,
+        chunks: ['main'],
+        template: './src/index.html',
+        filename: `pages/${filename}.html`, //relative to root of the application
+        title: frontmatter.attributes.title,
+        header: headerTemplate,
+        footer: footerTemplate,
+        // Parses the markdown string and converts to HTML string
+        bodyHTML: converter.makeHtml(frontmatter.body)
+    })
+);
+// console.log('TEsT ::', test);
+
+const myTest = () => {
+    console.log('DireName :', __dirname);
 }
-
-
-/*
-* Generates an Array with the following data:
-* [
-*   {
-*     filename: '{markdownFilename}.md',
-*     markdown: '{ markdownString }`
-*   }
-* ]
-*/
-const markdownFilesData = fs
-    // Read directory contents
-    .readdirSync(MARKDOWN_FILE_DIR)
-    // Take only .md files
-    .filter(filename => /\.md$/.test(filename))
-    // Normalize file data.
-    .map(filename => {
-        let fileNameWithoutExt = filename.split('.')[0];
-        return {
-            markdown: fs.readFileSync(
-                path.join(MARKDOWN_FILE_DIR, fileNameWithoutExt + '.md'), "utf8"
-            ),
-            filename,
-            fileNameWithoutExt
-        }
-    });
-
-
-markdownFilesData.map((data) => {
-    let html = converter.makeHtml(data.markdown);
-    fs.writeFile(`./dist/pages/${data.fileNameWithoutExt + '.html'}`, html, function (err, data) {
-        if (err) console.log(err);
-    });
-})
-
-
-/*
-const makeHtmlConfig = ({ filename, markdown }) => ({
-    template: 'pug!templates/index.pug',
-    cache: true,
-    chunks: [ 'main' ],
-    title: `Page Number ${n}`,
-    filename: `pages/${filename}.html`,
-    // Parses the markdown string and converts to HTML string
-    bodyHTML: marked(markdown)
-}); */
-
 
 module.exports = {
     entry: {
         'app': './src/main.ts',
+        //vendor: ['jquery', 'bootstrap'],
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/dist/',
-        filename: '[name].bundle.js'
+        filename: '[name].bundle.js',
+        //chunkFilename: "[id].chunk.js",
+        libraryTarget: "umd", // universal module definition
     },
     module: {
         rules: [
@@ -114,12 +80,42 @@ module.exports = {
     performance: {
         hints: false
     },
+    optimization: {
+        minimize: true,
+        splitChunks: {
+            chunks: 'all',
+            name: true,
+            /* name(module) {
+                console.log('RXJS :::', module.resource, '====', module.resource && module.resource.startsWith('\\assets\\js\\'));
+
+			    return module.resource && (module.resource.startsWith('\\assets\\js\\'));
+
+            }, */
+
+            cacheGroups: {
+                vendors: {
+                    test: /[\\/]assets\\js[\\/]/,
+                    name: 'vendor',
+                    chunks: 'all',
+                }
+                /* vendor: {
+                    test(chunks) {
+                        console.log('RXJS :::', chunks.resource, '====', chunks.resource && chunks.resource.startsWith(__dirname + '\\src\\assets\\js'));
+
+                        return chunks.resource && (chunks.resource.startsWith(__dirname + '\\src\\assets\\js'));
+                    }
+                } */
+            }
+        }
+    },
     devtool: "source-map",
     plugins: [
+
         // Copy all the static files like images, html, fonts etc.., from SRC folder to DIST folder
         new CopyWebpackPlugin([
             // { from: './index.html', to: './' },
             // { from: './src/pages/**/*.html', to: './pages/[name].[ext]' },
+            { from: './src/assets/js', to: 'assets/js' },
             {
                 from: './src/assets/images',
                 to: 'assets/images',
@@ -133,13 +129,14 @@ module.exports = {
             filename: 'assets/css/[name].bundle.css',
             allChunks: true
         }),
-
+        ...test.map(makeHtmlConfig)
         /* new HtmlWebpackPlugin({
-            inject: false,
-            // hash: true,
-            template: './index.html',
-            filename: 'index.html'
-        }) */
+            template: './src/index.html',
+            filename: `${__dirname + '/index.html'}`, //relative to root of the application
+            header: headerTemplate,
+            footer: footerTemplate
+        }), */
+
     ],
     devServer: {
         //contentBase: "dist",
