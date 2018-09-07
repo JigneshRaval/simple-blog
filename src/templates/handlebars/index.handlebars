@@ -14,25 +14,26 @@
 
 <body>
     {{{htmlWebpackPlugin.options.header}}}
-{{#each htmlWebpackPlugin.options.posts}}
-  <h2>{{title}}</h2>
 
-  {{/each}}
+    <!-- Example of inline partials -->
+    {{#* inline "fullName"}}{{htmlWebpackPlugin.options.firstName}} {{htmlWebpackPlugin.options.lastName}}{{/inline}}
+    <h1>Hello {{> fullName}}</h1>
+
+    <!-- START: Display list of Posts -->
+    {{#if htmlWebpackPlugin.options.posts}}
+        {{#each htmlWebpackPlugin.options.posts}}
+        <h2>{{title}}</h2>
+        {{/each}}
+    {{/if}}
+    <!-- END: Display list of Posts -->
 
     <div class="wrapper">
         <div class="content">
-{{htmlWebpackPlugin.options.post.title}} === {{htmlWebpackPlugin.options.post.path}}
-
             {{{htmlWebpackPlugin.options.bodyHTML}}}
-
-        </div>
-        <div class="visual">
-
-            <!-- all your standard template here -->
-            {{{htmlWebpackPlugin.options.footer}}}
-
         </div>
     </div>
+
+    {{{htmlWebpackPlugin.options.footer}}}
 </body>
 
 </html>

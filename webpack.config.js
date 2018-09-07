@@ -8,16 +8,21 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 const ConvertMarkdown = require('./configs/markdown-convertor');
 const converter = new showdown.Converter();
 
+
 const PATHS = {
     src: __dirname + '/src',
     dist: __dirname + '/dist',
     templates: __dirname + '/src/templates',
 }
 console.log('PATHS :', PATHS)
+
+
 // HTML Templates
-const indexTemplate = fs.readFileSync(`${PATHS.templates}/html/index.html`);
-const headerTemplate = fs.readFileSync(`${PATHS.templates}/html/header.html`);
-const footerTemplate = fs.readFileSync(`${PATHS.templates}/html/footer.html`);
+const TEMPLATE_TYPE = 'handlebars'; // handlebars, ejs, html
+
+const indexTemplate = fs.readFileSync(`${PATHS.templates}/${TEMPLATE_TYPE}/index.${TEMPLATE_TYPE}`);
+const headerTemplate = fs.readFileSync(`${PATHS.templates}/${TEMPLATE_TYPE}/header.${TEMPLATE_TYPE}`);
+const footerTemplate = fs.readFileSync(`${PATHS.templates}/${TEMPLATE_TYPE}/footer.${TEMPLATE_TYPE}`);
 
 let test = ConvertMarkdown();
 
@@ -213,7 +218,9 @@ module.exports = {
             filename: `${__dirname}/index.html`, //relative to root of the application
             header: headerTemplate,
             footer: footerTemplate,
-            posts: postLists
+            posts: postLists,
+            firstName: 'Simple',
+            lastName: 'Blog'
         }),
 
     ],
