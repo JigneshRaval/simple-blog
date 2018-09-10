@@ -30,55 +30,119 @@ const MarkdownConvertor = () => {
     *   }
     * ]
     */
-    const markdownFilesData = fs
-        // Read directory contents
-        .readdirSync(MARKDOWN_FILE_DIR)
-        // Take only .md files
-        .filter(filename => /\.md$/.test(filename))
-        // Normalize file data.
-        .map(filename => {
+    /*  const markdownFilesData = fs
+         // Read directory contents
+         .readdirSync(MARKDOWN_FILE_DIR)
+         // Take only .md files
+         .filter(filename => /\.md$/.test(filename))
+         // Normalize file data.
+         .map(filename => {
+             console.log('1 . filename :', filename);
+
+             let fileNameWithoutExt = filename.split('.')[0];
+             return {
+                 markdown: fs.readFileSync(
+                     path.join(MARKDOWN_FILE_DIR, fileNameWithoutExt + '.md'), "utf8"
+                 ),
+                 frontmatter: frontMatter(fs.readFileSync(
+                     path.join(MARKDOWN_FILE_DIR, fileNameWithoutExt + '.md'), "utf8"
+                 )),
+                 filename,
+                 fileNameWithoutExt
+             }
+         });
+  */
+    const walkSync = (dir) => fs.readdirSync(dir)
+        .reduce((filelist, file) => {
+            // let fileNameWithoutExt = file.split('.')[0];
+            console.log('Walksync :', filelist, file);
+
+            if (fs.statSync(path.join(dir, file)).isDirectory()) {
+                return filelist.concat(walkSync(path.join(dir, file), filelist));
+            } else {
+                console.log('File List 123 :', filelist);
+                return filelist.concat(path.join(dir, file));
+            }
+        }, [])
+    /* .reduce(function (prev, curr) {
+        return prev.concat(curr);
+    })
+    // Normalize file data.
+    .map(filename => {
+        console.log('2 . Mapping....... :', filename);
+
+        if (filename) {
             let fileNameWithoutExt = filename.split('.')[0];
-
-            /* let frontmatter = frontMatter(fs.readFileSync(
-                path.join(MARKDOWN_FILE_DIR, fileNameWithoutExt + '.md'), "utf8"
-            ));
-            console.log('Front Matter ::', frontmatter); */
-
             return {
                 markdown: fs.readFileSync(
-                    path.join(MARKDOWN_FILE_DIR, fileNameWithoutExt + '.md'), "utf8"
+                    path.join(filename), "utf8"
                 ),
                 frontmatter: frontMatter(fs.readFileSync(
-                    path.join(MARKDOWN_FILE_DIR, fileNameWithoutExt + '.md'), "utf8"
+                    path.join(filename), "utf8"
                 )),
                 filename,
                 fileNameWithoutExt
             }
-        });
-
-
-    /* markdownFilesData.map((data) => {
-        let matter = frontMatter(data.markdown);
-        let html = converter.makeHtml(data.markdown);
-        fs.writeFile(`./dist/pages/${data.fileNameWithoutExt + '.html'}`, matter.body, function (err, data) {
-            if (err) console.log(err);
-        });
+        }
     }) */
+    /*  const walkDirSync = (directory, fileList = []) => {
+         fs
+             // Read directory contents
+             .readdirSync(directory)
+             // Take only .md files
+             .filter(filename => {
+                 if (fs.statSync(directory + "/" + filename).isDirectory()) {
+                     console.log('Is Directory :');
+                     fileList = walkDirSync(directory + '/' + filename, fileList);
+                 } else {
+                     console.log('Not Directory :');
+                     fileList.push(filename);
+                     return /\.md$/.test(filename)
+                 }
+             })
+             // Normalize file data.
+             .map(filename => {
+                 let fileNameWithoutExt = filename.split('.')[0];
+                 return {
+                     markdown: fs.readFileSync(
+                         path.join(MARKDOWN_FILE_DIR, fileNameWithoutExt + '.md'), "utf8"
+                     ),
+                     frontmatter: frontMatter(fs.readFileSync(
+                         path.join(MARKDOWN_FILE_DIR, fileNameWithoutExt + '.md'), "utf8"
+                     )),
+                     filename,
+                     fileNameWithoutExt
+                 }, fileList
+             });
+     }
 
+     walkDirSync(MARKDOWN_FILE_DIR); */
 
-    /* const makeHtmlConfig = ({ filename, markdown }) => ({
-        cache: true,
-        chunks: ['main'],
-        template: './src/index.html',
-        filename: `pages/${filename}.html`, //relative to root of the application
-        title: `Page Number ${n}`,
-        header: headerTemplate,
-        footer: footerTemplate,
-        // Parses the markdown string and converts to HTML string
-        bodyHTML: converter.makeHtml(data.markdown)
-    }); */
+    let markdownFilesData = walkSync(MARKDOWN_FILE_DIR);
 
-    return markdownFilesData;
+    let finalData = markdownFilesData
+        .filter(filename => /\.md$/.test(filename))
+        .map(filename => {
+
+            let frontmatter = frontMatter(fs.readFileSync(
+                path.join(process.cwd(), filename), "utf8"
+            ));
+
+            let fileNameWithoutExt = filename.split('.')[0];
+            return {
+                markdown: fs.readFileSync(
+                    path.join(process.cwd(), filename), "utf8"
+                ),
+                frontmatter: frontMatter(fs.readFileSync(
+                    path.join(process.cwd(), filename), "utf8"
+                )),
+                filename,
+                fileNameWithoutExt
+            }
+            //}
+        })
+
+    return finalData;
 }
 
 module.exports = MarkdownConvertor;

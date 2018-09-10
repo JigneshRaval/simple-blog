@@ -1,5 +1,5 @@
 ---
-path: "/blog/authentication-with-redirect"
+path: "/authentication-with-redirect"
 date: "2018-05-21"
 title: "Authentication with Redirect"
 tags: ["React", "Authentication", "Redirect"]

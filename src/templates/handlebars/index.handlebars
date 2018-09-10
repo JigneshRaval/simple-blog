@@ -21,26 +21,27 @@
 
     <!-- Example of inline partials -->
     {{#* inline "fullName"}}{{htmlWebpackPlugin.options.firstName}} {{htmlWebpackPlugin.options.lastName}}{{/inline}}
-    <h1>Hello {{> fullName}}</h1>
-
-    <!-- START: Display list of Posts -->
-    {{#if htmlWebpackPlugin.options.posts}} {{#each htmlWebpackPlugin.options.posts}}
-    <h2>{{title}}</h2>
-    {{/each}} {{/if}}
-    <!-- END: Display list of Posts -->
+    <!-- <h1>Hello {{> fullName}}</h1>-->
 
     <div class="wrapper">
-        <div class="content">
+        <div class="container">
+
+            <!-- START: Display list of Posts -->
+            {{#if htmlWebpackPlugin.options.posts}}
+            <ul>
+            {{#each htmlWebpackPlugin.options.posts}}
+            <li><a href="/dist/pages{{path}}.html">{{title}}</a></li>
+            {{/each}}
+            </ul>
+             {{/if}}
+            <!-- END: Display list of Posts -->
+
             {{{htmlWebpackPlugin.options.bodyHTML}}}
         </div>
     </div>
 
     {{{htmlWebpackPlugin.options.footer}}}
-    <script>
-        $(document).ready(function () {
-            alert('jQuery Loaded');
-        });
-    </script>
+
 </body>
 
 </html>

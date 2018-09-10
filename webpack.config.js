@@ -14,8 +14,6 @@ const PATHS = {
     dist: __dirname + '/dist',
     templates: __dirname + '/src/templates',
 }
-console.log('PATHS :', PATHS)
-
 
 // HTML Templates
 const TEMPLATE_TYPE = 'handlebars'; // handlebars, ejs, html
@@ -25,21 +23,6 @@ const headerTemplate = fs.readFileSync(`${PATHS.templates}/${TEMPLATE_TYPE}/head
 const footerTemplate = fs.readFileSync(`${PATHS.templates}/${TEMPLATE_TYPE}/footer.${TEMPLATE_TYPE}`);
 
 let test = ConvertMarkdown();
-
-/* const makeHtmlConfig = ({ filename, markdown, frontmatter }, index) => (
-    new HtmlWebpackPlugin({
-        cache: false,
-        chunks: ['main'],
-        template: './src/templates/handlebars/index.handlebars',
-        filename: `pages/${filename}.html`, //relative to root of the application
-        title: frontmatter.attributes.title,
-        header: headerTemplate,
-        footer: footerTemplate,
-        // Parses the markdown string and converts to HTML string
-        bodyHTML: converter.makeHtml(frontmatter.body)
-    })
-); */
-// console.log('TEsT ::', test);
 
 let postLists = [];
 
@@ -62,7 +45,7 @@ module.exports = {
     module: {
         rules: [
             {
-                // sass / scss loader for webpack
+                // SCSS Compilation : sass / scss loader for webpack
                 test: /\.(sass|scss)$/i,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
@@ -82,7 +65,7 @@ module.exports = {
                     ]
                 })
             },
-            // Compile .ts files written in ES6+
+            // Typescript Compilation : Compile .ts files written in ES6+
             {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
@@ -105,62 +88,8 @@ module.exports = {
         minimize: false,
         splitChunks: {
             chunks: 'all',
-            /*  name(module) {
-                 console.log('RXJS :::', module.resource, '====', module.resource && module.resource.startsWith('\\assets\\js\\'));
-
-                 return module.resource && (module.resource.startsWith('\\assets\\js\\'));
-
-             }, */
             cacheGroups: {
                 default: false,
-                /* default: false,
-                vendors: false, */
-                /* vendor: {
-                    name: "vendor",
-                    chunks: "all",
-                    reuseExistingChunk: true,
-                }, */
-                /* vendor: {
-                    test: (module, chunks) => {
-                        const names = chunks
-                            .map(c => {
-                                console.log('C :::', c, c.name);
-                                return c.name
-                            })
-                            .filter(Boolean);
-                        console.log('names ===> ', names);
-                        return names.some(name => name === 'vendor');
-                    },
-                    name: "vendor",
-                    chunks: "all",
-                    minChunks: 1,
-                    minSize: 0,
-                }, */
-                /* vendor: {
-                    chunks: 'initial',
-                    name: 'vendor',
-                    test: 'vendor',
-                    enforce: true
-                }, */
-                /* vendors: {
-                    test: /[\\/]assets\\js[\\/]/,
-                    name: 'vendor',
-                    chunks: 'all',
-                } */
-                /* commons: {
-                    test: /jquery/,
-                    name: "jquery",
-                    chunks: "all",
-                    minSize: 1,
-                    reuseExistingChunk: true
-                },
-                commons: {
-                    test: /(popper|bootstrap)/,
-                    name: "vendor",
-                    chunks: "all",
-                    minSize: 1,
-                    reuseExistingChunk: true
-                }, */
                 /* vendor: {
                     chunks: 'all',
                     name: 'vendor',
@@ -176,11 +105,6 @@ module.exports = {
     },
     devtool: "source-map",
     plugins: [
-        new webpack.ProvidePlugin({
-            $: "jquery",
-            jQuery: "jquery",
-            'window.jQuery': "jquery"
-        }),
         // Copy all the static files like images, html, fonts etc.., from SRC folder to DIST folder
         new CopyWebpackPlugin([
             // { from: './index.html', to: './' },
@@ -199,23 +123,17 @@ module.exports = {
             filename: 'assets/css/[name].bundle.css',
             allChunks: true
         }),
-        /* new HtmlWebpackPlugin({
-            template: './src/index.html',
-            filename: `${__dirname}/index.html`, //relative to root of the application
-            header: headerTemplate,
-            footer: footerTemplate
-        }), */
+
         // Generate Template for each .md files
-        ...test.map(({ filename, markdown, frontmatter }, index) => {
-            // console.log('frontmatter.attributes ::: === ', frontmatter.attributes);
+        ...test.map(({ filename, fileNameWithoutExt, markdown, frontmatter }, index) => {
+            console.log('frontmatter.attributes === ', frontmatter.attributes);
             postLists.push(frontmatter.attributes);
             return (
-
                 new HtmlWebpackPlugin({
                     cache: false,
                     chunks: ['main'],
                     template: './src/templates/handlebars/index.handlebars',
-                    filename: `pages/${filename}.html`, //relative to root of the application
+                    filename: `pages/${fileNameWithoutExt}.html`, //relative to root of the application
                     title: frontmatter.attributes.title,
                     header: headerTemplate,
                     footer: footerTemplate,

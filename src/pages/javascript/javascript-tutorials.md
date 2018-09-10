@@ -1,7 +1,7 @@
 ---
-path: "/getting-unique-values-in-javascript-arrays"
+path: "/javascript-tutorials"
 date: "2018-05-21"
-title: "Getting unique values in JavaScript arrays"
+title: "Javascript Example"
 tags: ["JavaScript", "Array"]
 category: "JavaScript"
 categoryColor: '#F3C610'
@@ -10,6 +10,9 @@ coverImage: '/images/fpxoowbr6ls-matthew-henry.jpg'
 sourceUrl: 'https://medium.com/front-end-hacking/getting-unique-values-in-javascript-arrays-17063080f836'
 type: 'Snippet'
 ---
+
+#Javascript Example
+
 
 ## Method 1: ES5 Syntax
 
