@@ -7,10 +7,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>My awesome service</title>
+    <link href="/dist/assets/css/app.bundle.css" rel="stylesheet">
+
+    <script type="text/javascript" src="/dist/vendor.bundle.js"></script>
+    <script type="text/javascript" src="/dist/app.bundle.js"></script>
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-<link href="/dist/assets/css/main.bundle.css" rel="stylesheet"></head>
+</head>
 
 <body>
     <!-- START : Header -->
@@ -31,10 +35,15 @@
     <h1>Hello Simple Blog</h1>
 
     <!-- START: Display list of Posts -->
-        <h2>Zero to Deploy: A Practical Guide to Static Sites with Gatsby.js</h2>
-        <h2>Authentication with Redirect</h2>
-        <h2>Getting unique values in JavaScript arrays</h2>
-        <h2>Redirecting in React</h2>
+     
+    <h2>Zero to Deploy: A Practical Guide to Static Sites with Gatsby.js</h2>
+    
+    <h2>Authentication with Redirect</h2>
+    
+    <h2>Getting unique values in JavaScript arrays</h2>
+    
+    <h2>Redirecting in React</h2>
+     
     <!-- END: Display list of Posts -->
 
     <div class="wrapper">
@@ -47,6 +56,11 @@
     <p>Handlebar Template Footer</p>
 </footer>
 
-<script type="text/javascript" src="/dist/main.bundle.js"></script></body>
+    <script>
+        $(document).ready(function () {
+            alert('jQuery Loaded');
+        });
+    </script>
+</body>
 
 </html>

@@ -41,21 +41,16 @@ let test = ConvertMarkdown();
 ); */
 // console.log('TEsT ::', test);
 
-const myTest = () => {
-    console.log('======================= postLists :', postLists);
-}
 let postLists = [];
 
 module.exports = {
     context: __dirname,
     mode: 'development',
     entry: {
-        main: [
-            './src/vendor.ts',
-            './src/main.ts'
-        ],
-        //vendor: ['./src/assets/js/jquery.js', './src/assets/js/bootstrap.js'],
-        // app: './src/main.ts'
+        vendor: './src/vendor.ts',
+        // vendor: ['./src/assets/js/jquery.js', './src/assets/js/popper.min.js', './src/assets/js/bootstrap.js'],
+        // vendor: ['jquery', 'popper.js', 'bootstrap'],
+        app: './src/main.ts'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -106,8 +101,8 @@ module.exports = {
         hints: false
     },
     optimization: {
-        occurrenceOrder: true,
-        minimize: true,
+        occurrenceOrder: false,
+        minimize: false,
         splitChunks: {
             chunks: 'all',
             /*  name(module) {
@@ -117,11 +112,13 @@ module.exports = {
 
              }, */
             cacheGroups: {
+                default: false,
+                /* default: false,
+                vendors: false, */
                 /* vendor: {
-                    test: /[\\/]assets\\js[\\/]/,
                     name: "vendor",
-                    chunks: "initial",
-                    enforce: true
+                    chunks: "all",
+                    reuseExistingChunk: true,
                 }, */
                 /* vendor: {
                     test: (module, chunks) => {
@@ -150,9 +147,26 @@ module.exports = {
                     name: 'vendor',
                     chunks: 'all',
                 } */
+                /* commons: {
+                    test: /jquery/,
+                    name: "jquery",
+                    chunks: "all",
+                    minSize: 1,
+                    reuseExistingChunk: true
+                },
+                commons: {
+                    test: /(popper|bootstrap)/,
+                    name: "vendor",
+                    chunks: "all",
+                    minSize: 1,
+                    reuseExistingChunk: true
+                }, */
                 /* vendor: {
+                    chunks: 'all',
+                    name: 'vendor',
+                    reuseExistingChunk: true,
                     test(chunks) {
-                        console.log('RXJS :::', chunks.resource, '====', chunks.resource && chunks.resource.startsWith(__dirname + '\\src\\assets\\js'));
+                        console.log('VENDOR === :::', chunks.resource, '====', chunks.resource && chunks.resource.startsWith(__dirname + '\\src\\assets\\js'));
 
                         return chunks.resource && (chunks.resource.startsWith(__dirname + '\\src\\assets\\js'));
                     }
@@ -165,18 +179,18 @@ module.exports = {
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery",
-            jquery: "jquery"
+            'window.jQuery': "jquery"
         }),
         // Copy all the static files like images, html, fonts etc.., from SRC folder to DIST folder
         new CopyWebpackPlugin([
             // { from: './index.html', to: './' },
             // { from: './src/pages/**/*.html', to: './pages/[name].[ext]' },
-            { from: './src/assets/js', to: 'assets/js' },
+            /* { from: './src/assets/js', to: 'assets/js' },
             {
                 from: './src/assets/images',
                 to: 'assets/images',
                 ignore: ['*.scss']
-            }
+            } */
         ], { debug: 'info' }),
 
         // Extract CSS from javascript file and put it into another CSS file in dist folder
@@ -193,7 +207,7 @@ module.exports = {
         }), */
         // Generate Template for each .md files
         ...test.map(({ filename, markdown, frontmatter }, index) => {
-            console.log('frontmatter.attributes ::: === ', frontmatter.attributes);
+            // console.log('frontmatter.attributes ::: === ', frontmatter.attributes);
             postLists.push(frontmatter.attributes);
             return (
 
@@ -213,6 +227,7 @@ module.exports = {
         }),
         // Generate Template for Index.html in root folder
         new HtmlWebpackPlugin({
+            inject: false,
             title: 'My awesome service',
             template: './src/templates/handlebars/index.handlebars',
             filename: `${__dirname}/index.html`, //relative to root of the application

@@ -1,4 +1,6 @@
 import './assets/styles/styles.scss';
+
+
 import { Hero } from './test'
 
 function getName(name: String) {

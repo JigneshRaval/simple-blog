@@ -7,6 +7,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{htmlWebpackPlugin.options.title}}</title>
+    <link href="/dist/assets/css/app.bundle.css" rel="stylesheet">
+
+    <script type="text/javascript" src="/dist/vendor.bundle.js"></script>
+    <script type="text/javascript" src="/dist/app.bundle.js"></script>
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -20,11 +24,9 @@
     <h1>Hello {{> fullName}}</h1>
 
     <!-- START: Display list of Posts -->
-    {{#if htmlWebpackPlugin.options.posts}}
-        {{#each htmlWebpackPlugin.options.posts}}
-        <h2>{{title}}</h2>
-        {{/each}}
-    {{/if}}
+    {{#if htmlWebpackPlugin.options.posts}} {{#each htmlWebpackPlugin.options.posts}}
+    <h2>{{title}}</h2>
+    {{/each}} {{/if}}
     <!-- END: Display list of Posts -->
 
     <div class="wrapper">
@@ -34,6 +36,11 @@
     </div>
 
     {{{htmlWebpackPlugin.options.footer}}}
+    <script>
+        $(document).ready(function () {
+            alert('jQuery Loaded');
+        });
+    </script>
 </body>
 
 </html>
