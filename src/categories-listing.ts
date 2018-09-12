@@ -2,9 +2,10 @@ import * as Handlebars from 'handlebars';
 import { CommonService } from './categories.service'
 let headerTemplate = require("./templates/handlebars/header.handlebars");
 
+
 export class CategoriesListingComponent {
     public uniqeCategories: any;
-    public context: any = {};
+    // public context: any = {};
 
     constructor(private commonService = new CommonService()) {
         this.getUniqueCategories();
@@ -25,11 +26,11 @@ export class CategoriesListingComponent {
     }
 
     displayCategories(categories: any) {
-         /* var source = document.querySelector("header").innerHTML;
-         var template = Handlebars.compile(source);
-         var context = { title: "My New Post", body: "This is my first post!" };
-         var html = template(context);
-         $('#handlebars-output').html(html); */
+        /* var source = document.querySelector("header").innerHTML;
+        var template = Handlebars.compile(source);
+        var context = { title: "My New Post", body: "This is my first post!" };
+        var html = template(context);
+        $('#handlebars-output').html(html); */
 
         let context = {
             categories: categories

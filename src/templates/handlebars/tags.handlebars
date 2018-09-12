@@ -1,9 +1,13 @@
+<!-- START : Partial template for Tags -->
 {{#if tags}}
-<nav class="my-2 my-md-0 mr-md-3">
+<ul class="tag-list">
     {{#each tags}}
-    <a class="p-2 text-dark" href="/dist/pages/{{this}}/index.html">
-        {{this}}
-    </a>
+    <li class="tag-list__item">
+        <a href="/dist/pages/{{this}}/index.html">
+            {{this}}
+        </a>
+    </li>
     {{/each}}
-</nav>
+</ul>
 {{/if}}
+<!-- END : Partial template for Tags -->

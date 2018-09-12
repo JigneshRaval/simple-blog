@@ -7,9 +7,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>My awesome service</title>
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
 <link href="/dist/assets/css/app.bundle.css" rel="stylesheet"></head>
 
 <body>
@@ -17,33 +14,92 @@
 
     </header>
 
-    <ul class="tag-list">
-    </ul>
+    <nav class="tags-wrapper tags-wrapper--top">
+
+    </nav>
 
 
     <!-- Example of inline partials -->
     
     <!-- <h1>Hello Simple Blog</h1>-->
 
-    <div class="wrapper">
-        <div class="container">
+    <main class="wrapper">
+        <div class="container-fluid">
 
-            <!-- START: Display list of Posts -->
-            <ul>
-                <li><a href="/dist/pages/a-practical-guide-to-static-sites-with-gatsby-js.md.html">Zero to Deploy: A Practical Guide to Static Sites with Gatsby.js</a></li>
-                <li><a href="/dist/pages/authentication-with-redirect.md.html">Authentication with Redirect</a></li>
-                <li><a href="/dist/pages/getting-unique-values-in-javascript-arrays.md.html">Getting unique values in JavaScript arrays</a></li>
-                <li><a href="/dist/pages/javascript-tutorials.md.html">Javascript Example</a></li>
-                <li><a href="/dist/pages/redirecting-in-react.md.html">Redirecting in React</a></li>
-            </ul>
-            <!-- END: Display list of Posts -->
+            <aside class="tags-wrapper tags-wrapper--aside">
+
+            </aside>
+
+            <section class="post-list__wrapper">
+
+                <!-- START: Display list of Posts -->
+                <ul class="post-list">
+                    <li class="post-list__item">
+                        <div class="post-list__cover-image">
+                            <img src="/dist/assets/images/paper_boat_by_eredel.jpg" />
+                        </div>
+                        <div class="post-list__content">
+                            <em>Static Site</em>
+                            <h2 class="post-list__title"><a href="/dist/pages/a-practical-guide-to-static-sites-with-gatsby-js.md.html">Zero to Deploy: A Practical Guide to Static Sites with Gatsby.js</a></h2>
+                            <p class="post-list__excerpt">Since the advent of the modern web, performance has been a key consideration when designing a website or a web app. When a website requires no server interaction whatsoever, what is hosted on the web is served to a user as is, this is referred to as a static site.</p>
+                        </div>
+
+                    </li>
+                    <li class="post-list__item">
+                        <div class="post-list__cover-image">
+                            <img src="/dist/assets/images/paper_boat_by_eredel.jpg" />
+                        </div>
+                        <div class="post-list__content">
+                            <em>React</em>
+                            <h2 class="post-list__title"><a href="/dist/pages/authentication-with-redirect.md.html">Authentication with Redirect</a></h2>
+                            <p class="post-list__excerpt">Since the advent of the modern web, performance has been a key consideration when designing a website or a web app. When a website requires no server interaction whatsoever, what is hosted on the web is served to a user as is, this is referred to as a static site.</p>
+                        </div>
+
+                    </li>
+                    <li class="post-list__item">
+                        <div class="post-list__cover-image">
+                            <img src="/dist/assets/images/Image00001.jpg" />
+                        </div>
+                        <div class="post-list__content">
+                            <em>JavaScript</em>
+                            <h2 class="post-list__title"><a href="/dist/pages/getting-unique-values-in-javascript-arrays.md.html">Getting unique values in JavaScript arrays</a></h2>
+                            <p class="post-list__excerpt">Since the advent of the modern web, performance has been a key consideration when designing a website or a web app. When a website requires no server interaction whatsoever, what is hosted on the web is served to a user as is, this is referred to as a static site.</p>
+                        </div>
+
+                    </li>
+                    <li class="post-list__item">
+                        <div class="post-list__cover-image">
+                            <img src="/dist/images/fpxoowbr6ls-matthew-henry.jpg" />
+                        </div>
+                        <div class="post-list__content">
+                            <em>JavaScript</em>
+                            <h2 class="post-list__title"><a href="/dist/pages/javascript-tutorials.md.html">Javascript Example</a></h2>
+                            <p class="post-list__excerpt">Since the advent of the modern web, performance has been a key consideration when designing a website or a web app. When a website requires no server interaction whatsoever, what is hosted on the web is served to a user as is, this is referred to as a static site.</p>
+                        </div>
+
+                    </li>
+                    <li class="post-list__item">
+                        <div class="post-list__cover-image">
+                            <img src="/dist/assets/images/Image00001.jpg" />
+                        </div>
+                        <div class="post-list__content">
+                            <em>React</em>
+                            <h2 class="post-list__title"><a href="/dist/pages/redirecting-in-react.md.html">Redirecting in React</a></h2>
+                            <p class="post-list__excerpt">Since the advent of the modern web, performance has been a key consideration when designing a website or a web app. When a website requires no server interaction whatsoever, what is hosted on the web is served to a user as is, this is referred to as a static site.</p>
+                        </div>
+
+                    </li>
+                </ul>
+                <!-- END: Display list of Posts -->
+
+            </section>
 
             
         </div>
-    </div>
+    </main>
 
-    <footer class="footer">
-    <p>Handlebar Template Footer</p>
+    <footer class="footer-main">
+    <p>Template Footer</p>
 </footer>
 
 

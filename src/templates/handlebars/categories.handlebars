@@ -1,7 +1,13 @@
-<nav class="my-2 my-md-0 mr-md-3">
+<!-- START : Partial template for Categories -->
+{{#if categories}}
+<ul class="category-list">
     {{#each categories}}
-    <a class="p-2 text-dark" href="/dist/pages/{{this}}/index.html">
-        {{this}}
-    </a>
+    <li class="category-list__item">
+        <a href="/dist/pages/{{this}}/index.html">
+            {{this}}
+        </a>
+    </li>
     {{/each}}
-</nav>
+</ul>
+{{/if}}
+<!-- END : Partial template for Categories -->

@@ -7,9 +7,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{htmlWebpackPlugin.options.title}}</title>
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
 </head>
 
 <body>
@@ -17,9 +14,9 @@
 
     </header>
 
-    <ul class="tag-list">
-        {{> tags}}
-    </ul>
+    <nav class="tags-wrapper tags-wrapper--top">
+
+    </nav>
 
     {{!-- {{{htmlWebpackPlugin.options.header}}} {{{htmlWebpackPlugin.options.categories}}} --}}
 
@@ -27,22 +24,42 @@
     {{#* inline "fullName"}}{{htmlWebpackPlugin.options.firstName}} {{htmlWebpackPlugin.options.lastName}}{{/inline}}
     <!-- <h1>Hello {{> fullName}}</h1>-->
 
-    <div class="wrapper">
-        <div class="container">
+    <main class="wrapper">
+        <div class="container-fluid">
 
-            <!-- START: Display list of Posts -->
-            {{#if htmlWebpackPlugin.options.posts}}
-            <ul>
-                {{#each htmlWebpackPlugin.options.posts}}
-                <li><a href="/dist/pages{{path}}.md.html">{{title}}</a></li>
-                {{/each}}
-            </ul>
-            {{/if}}
-            <!-- END: Display list of Posts -->
+            <aside class="tags-wrapper tags-wrapper--aside">
+
+            </aside>
+
+            <section class="post-list__wrapper">
+
+                <!-- START: Display list of Posts -->
+                {{#if htmlWebpackPlugin.options.posts}}
+                <ul class="post-list">
+                    {{#each htmlWebpackPlugin.options.posts}}
+                    <li class="post-list__item">
+                        {{#if coverImage}}
+                        <div class="post-list__cover-image">
+                            <img src="/dist{{coverImage}}" />
+                        </div>
+                        {{/if}}
+                        <div class="post-list__content">
+                            <em>{{category}}</em>
+                            <h2 class="post-list__title"><a href="/dist/pages{{path}}.md.html">{{title}}</a></h2>
+                            <p class="post-list__excerpt">{{excerpt}}</p>
+                        </div>
+
+                    </li>
+                    {{/each}}
+                </ul>
+                {{/if}}
+                <!-- END: Display list of Posts -->
+
+            </section>
 
             {{{htmlWebpackPlugin.options.bodyHTML}}}
         </div>
-    </div>
+    </main>
 
     {{{htmlWebpackPlugin.options.footer}}}
 

@@ -178,7 +178,7 @@ module.exports = {
                 new HtmlWebpackPlugin({
                     inject: true,
                     title: frontmatter.attributes.title,
-                    template: './src/templates/handlebars/index.handlebars',
+                    template: './src/templates/handlebars/article.handlebars',
                     filename: `${filePath}.html`, //relative to root of the application
                     header: headerTemplate,
                     footer: footerTemplate,
