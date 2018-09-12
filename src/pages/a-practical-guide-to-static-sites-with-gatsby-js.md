@@ -1,5 +1,5 @@
 ---
-path: "/practical-guide-to-static-sites-with-gatsby-js"
+path: "/a-practical-guide-to-static-sites-with-gatsby-js"
 date: "2018-05-20"
 title: "Zero to Deploy: A Practical Guide to Static Sites with Gatsby.js"
 tags: ["React", "Gatsby", "Static Site"]

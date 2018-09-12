@@ -8,7 +8,6 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 const ConvertMarkdown = require('./configs/markdown-convertor');
 const converter = new showdown.Converter();
 
-
 const PATHS = {
     src: __dirname + '/src',
     dist: __dirname + '/dist',
@@ -21,10 +20,59 @@ const TEMPLATE_TYPE = 'handlebars'; // handlebars, ejs, html
 const indexTemplate = fs.readFileSync(`${PATHS.templates}/${TEMPLATE_TYPE}/index.${TEMPLATE_TYPE}`);
 const headerTemplate = fs.readFileSync(`${PATHS.templates}/${TEMPLATE_TYPE}/header.${TEMPLATE_TYPE}`);
 const footerTemplate = fs.readFileSync(`${PATHS.templates}/${TEMPLATE_TYPE}/footer.${TEMPLATE_TYPE}`);
+const categoriesTemplate = fs.readFileSync(`${PATHS.templates}/${TEMPLATE_TYPE}/categories.${TEMPLATE_TYPE}`);
 
-let test = ConvertMarkdown();
+let markdownFileList = ConvertMarkdown();
 
 let postLists = [];
+
+// Generate index pages for posts matching by Tags
+// ====================================================
+let tags = [], uniqueTags = [];
+markdownFileList.map(({ frontmatter }, index) => {
+    tags.push(...frontmatter.attributes.tags);
+    uniqueTags = [...new Set(tags)];
+});
+
+const pagesByTags = (tag) => {
+    return new HtmlWebpackPlugin({
+        inject: true,
+        title: 'Post list by tag',
+        template: './src/templates/handlebars/posts-by-tag.handlebars',
+        filename: `pages/${tag.toLowerCase()}/index.html`, //relative to root of the application
+        header: headerTemplate,
+        footer: footerTemplate,
+        posts: postLists.filter(post => {
+            if (post.tags.includes(tag)) {
+                return post
+            }
+        })
+    })
+};
+
+// Generate index pages for posts matching by Tags
+// ====================================================
+let categories = [], uniqueCategories = [];
+markdownFileList.map(({ frontmatter }, index) => {
+    categories.push(frontmatter.attributes.category.toLowerCase());
+    uniqueCategories = [...new Set(categories)];
+});
+
+const pagesByCategories = (category) => {
+    return new HtmlWebpackPlugin({
+        inject: true,
+        title: 'Post list by Category',
+        template: './src/templates/handlebars/posts-by-tag.handlebars',
+        filename: `pages/${category.toLowerCase()}/index.html`, //relative to root of the application
+        header: headerTemplate,
+        footer: footerTemplate,
+        posts: postLists.filter(post => {
+            if (post.category.toLowerCase() === category) {
+                return post
+            }
+        })
+    })
+};
 
 module.exports = {
     context: __dirname,
@@ -85,7 +133,7 @@ module.exports = {
     },
     optimization: {
         occurrenceOrder: false,
-        minimize: false,
+        minimize: true,
         splitChunks: {
             chunks: 'all',
             cacheGroups: {
@@ -95,8 +143,6 @@ module.exports = {
                     name: 'vendor',
                     reuseExistingChunk: true,
                     test(chunks) {
-                        console.log('VENDOR === :::', chunks.resource, '====', chunks.resource && chunks.resource.startsWith(__dirname + '\\src\\assets\\js'));
-
                         return chunks.resource && (chunks.resource.startsWith(__dirname + '\\src\\assets\\js'));
                     }
                 } */
@@ -125,32 +171,59 @@ module.exports = {
         }),
 
         // Generate Template for each .md files
-        ...test.map(({ filename, fileNameWithoutExt, markdown, frontmatter }, index) => {
-            console.log('frontmatter.attributes === ', frontmatter.attributes);
+        ...markdownFileList.map(({ fileName, filePath, fileNameWithoutExt, markdown, frontmatter }, index) => {
             postLists.push(frontmatter.attributes);
+
             return (
                 new HtmlWebpackPlugin({
-                    cache: false,
-                    chunks: ['main'],
-                    template: './src/templates/handlebars/index.handlebars',
-                    filename: `pages/${fileNameWithoutExt}.html`, //relative to root of the application
+                    inject: true,
                     title: frontmatter.attributes.title,
+                    template: './src/templates/handlebars/index.handlebars',
+                    filename: `${filePath}.html`, //relative to root of the application
                     header: headerTemplate,
                     footer: footerTemplate,
+                    categories: categoriesTemplate,
                     post: frontmatter.attributes,
                     // Parses the markdown string and converts to HTML string
                     bodyHTML: converter.makeHtml(frontmatter.body)
                 })
             )
         }),
+
+        function generatePostListJson() {
+            var obj = {
+                posts: postLists
+            };
+
+            fs.writeFile('posts.json', JSON.stringify(obj), 'utf8');
+        },
+        /*  new HtmlWebpackPlugin({
+             inject: true,
+             title: 'Post list by tags 123',
+             template: './src/templates/handlebars/posts-by-tag.handlebars',
+             filename: `pages/${tag}/index.html`, //relative to root of the application
+             header: headerTemplate,
+             footer: footerTemplate,
+             posts: postLists.filter(post => {
+                 if (post.tags.includes(tag)) {
+                     return post
+                 }
+             })
+         }), */
+
+        ...uniqueTags.map(pagesByTags),
+
+        ...uniqueCategories.map(pagesByCategories),
+
         // Generate Template for Index.html in root folder
         new HtmlWebpackPlugin({
-            inject: false,
+            inject: true,
             title: 'My awesome service',
             template: './src/templates/handlebars/index.handlebars',
             filename: `${__dirname}/index.html`, //relative to root of the application
             header: headerTemplate,
             footer: footerTemplate,
+            categories: categoriesTemplate,
             posts: postLists,
             firstName: 'Simple',
             lastName: 'Blog'

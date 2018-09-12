@@ -1,0 +1,9 @@
+{{#if tags}}
+<nav class="my-2 my-md-0 mr-md-3">
+    {{#each tags}}
+    <a class="p-2 text-dark" href="/dist/pages/{{this}}/index.html">
+        {{this}}
+    </a>
+    {{/each}}
+</nav>
+{{/if}}

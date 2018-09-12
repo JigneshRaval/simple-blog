@@ -21,12 +21,6 @@
         {{> tags}}
     </ul>
 
-    {{!-- {{{htmlWebpackPlugin.options.header}}} {{{htmlWebpackPlugin.options.categories}}} --}}
-
-    <!-- Example of inline partials -->
-    {{#* inline "fullName"}}{{htmlWebpackPlugin.options.firstName}} {{htmlWebpackPlugin.options.lastName}}{{/inline}}
-    <!-- <h1>Hello {{> fullName}}</h1>-->
-
     <div class="wrapper">
         <div class="container">
 
@@ -39,8 +33,6 @@
             </ul>
             {{/if}}
             <!-- END: Display list of Posts -->
-
-            {{{htmlWebpackPlugin.options.bodyHTML}}}
         </div>
     </div>
 
