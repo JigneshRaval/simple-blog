@@ -1,6 +1,12 @@
+// Bootstrap 4.1
 @import './bootstrap.min.css';
-@import './atom-one-light.css';
+
+// Highlight.js for Syntax highlighting
+@import './highlight-themes/atom-one-light.css';
+
+// Custom font face
 @import './fonts';
+
 @import './variables';
 
 @import './styles';
