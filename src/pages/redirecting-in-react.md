@@ -1,5 +1,5 @@
 ---
-path: "/redirecting-in-react"
+path: "redirecting-in-react"
 date: "2018-05-21"
 title: "Redirecting in React"
 tags: ["React", "Authentication", "Redirect"]
@@ -11,7 +11,7 @@ sourceUrl: 'https://medium.com/@anneeb/redirecting-in-react-4de5e517354a'
 type: 'Post'
 ---
 
-# Redirecting in React
+<!-- # Redirecting in React -->
 
 ## Sometimes you just want to get away…
 

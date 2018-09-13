@@ -1,5 +1,5 @@
 ---
-path: "/javascript-tutorials"
+path: "javascript/javascript-tutorials"
 date: "2018-05-21"
 title: "Javascript Example"
 tags: ["JavaScript", "Array"]

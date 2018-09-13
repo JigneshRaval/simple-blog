@@ -1,10 +1,13 @@
+// webpack.config.js
+// =================================
+
 const webpack = require('webpack'); //to access built-in plugins
 const fs = require('fs');
 const path = require('path');
 const showdown = require('showdown');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ConvertMarkdown = require('./configs/markdown-convertor');
 const converter = new showdown.Converter();
 
@@ -26,10 +29,12 @@ let markdownFileList = ConvertMarkdown();
 
 let postLists = [];
 
+
 // Generate index pages for posts matching by Tags
 // ====================================================
 let tags = [], uniqueTags = [];
 markdownFileList.map(({ frontmatter }, index) => {
+    postLists.push(frontmatter.attributes);
     tags.push(...frontmatter.attributes.tags);
     uniqueTags = [...new Set(tags)];
 });
@@ -50,6 +55,7 @@ const pagesByTags = (tag) => {
     })
 };
 
+
 // Generate index pages for posts matching by Tags
 // ====================================================
 let categories = [], uniqueCategories = [];
@@ -62,7 +68,7 @@ const pagesByCategories = (category) => {
     return new HtmlWebpackPlugin({
         inject: true,
         title: 'Post list by Category',
-        template: './src/templates/handlebars/posts-by-tag.handlebars',
+        template: './src/templates/handlebars/posts-by-category.handlebars',
         filename: `pages/${category.toLowerCase()}/index.html`, //relative to root of the application
         header: headerTemplate,
         footer: footerTemplate,
@@ -74,6 +80,8 @@ const pagesByCategories = (category) => {
     })
 };
 
+
+/* START : Webpack 4 configuration Object */
 module.exports = {
     context: __dirname,
     mode: 'development',
@@ -112,6 +120,16 @@ module.exports = {
                         }
                     ]
                 })
+            },
+            {
+                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'assets/fonts/'
+                    }
+                }]
             },
             // Typescript Compilation : Compile .ts files written in ES6+
             {
@@ -155,12 +173,12 @@ module.exports = {
         new CopyWebpackPlugin([
             // { from: './index.html', to: './' },
             // { from: './src/pages/**/*.html', to: './pages/[name].[ext]' },
-            /* { from: './src/assets/js', to: 'assets/js' },
+            { from: './src/assets/js/highlight.pack.js', to: 'assets/js' },
             {
                 from: './src/assets/images',
                 to: 'assets/images',
                 ignore: ['*.scss']
-            } */
+            }
         ], { debug: 'info' }),
 
         // Extract CSS from javascript file and put it into another CSS file in dist folder
@@ -172,7 +190,7 @@ module.exports = {
 
         // Generate Template for each .md files
         ...markdownFileList.map(({ fileName, filePath, fileNameWithoutExt, markdown, frontmatter }, index) => {
-            postLists.push(frontmatter.attributes);
+            // postLists.push(frontmatter.attributes);
 
             return (
                 new HtmlWebpackPlugin({
@@ -213,7 +231,7 @@ module.exports = {
 
         ...uniqueTags.map(pagesByTags),
 
-        ...uniqueCategories.map(pagesByCategories),
+        // ...uniqueCategories.map(pagesByCategories),
 
         // Generate Template for Index.html in root folder
         new HtmlWebpackPlugin({

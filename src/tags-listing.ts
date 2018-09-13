@@ -13,16 +13,12 @@ export class TagsListingComponent {
     getUniqueTags() {
         this.commonService.getCategories().then((data: any) => {
 
-            this.uniqeTags = data.posts.reduce((uniqtags: any, post: any) => {
-
-                post.tags.forEach((tag: string) => {
-                    if (uniqtags.indexOf(tag) === -1) {
-                        uniqtags.push(tag);
-                    }
-                });
-
-                return uniqtags;
-            }, []);
+            this.uniqeTags = data.posts.map((post: any) => post.tags)
+                .reduce((allTags: any, tags: any) => allTags.concat(tags), [])
+                .reduce((uniqtags: any, tag: any) => {
+                    uniqtags[tag] = (uniqtags[tag] || 0) + 1
+                    return uniqtags;
+                }, {});
 
             this.displayTags(this.uniqeTags)
         });
@@ -35,7 +31,7 @@ export class TagsListingComponent {
         }
 
         let taglistContainer = document.querySelectorAll('.tags-wrapper');
-        [].forEach.call(taglistContainer, (container) => {
+        [].forEach.call(taglistContainer, (container: any) => {
             container.innerHTML = tagsTemplate(context);
 
         })

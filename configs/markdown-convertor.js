@@ -1,17 +1,14 @@
 const fs = require('fs');
 const path = require('path');
-const showdown = require('showdown');
 const frontMatter = require('front-matter');
+
 
 const MarkdownConvertor = () => {
     console.log('Initiated Markdown Convertor...');
-    // Markdown file converter
-    const converter = new showdown.Converter();
 
-    // Assuming I add a bunch of .md files in my ./md dir.
+    // Assuming I add a bunch of .md files in my ./pages dir.
     const MARKDOWN_FILE_DIR = './src/pages';
     const MARKDOWN_OUTPUT_DIR = './dist/pages/';
-    const ASSETS_PATH = './src/assets'
 
     // Check if MARKDOWN_OUTPUT_DIR is exist, if not then create directory first
     if (!fs.existsSync(MARKDOWN_OUTPUT_DIR)) {
@@ -46,9 +43,6 @@ const MarkdownConvertor = () => {
         .filter(file => /\.md$/.test(file))
         .map(file => {
             let fileNameWithoutExt = path.basename(file).split('.')[0];
-            // let fileName = path.basename(file);
-
-            console.log('Files :: ==== ', fileNameWithoutExt);
 
             return {
                 markdown: fs.readFileSync(

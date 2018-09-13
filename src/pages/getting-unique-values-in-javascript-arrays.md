@@ -1,5 +1,5 @@
 ---
-path: "/getting-unique-values-in-javascript-arrays"
+path: "getting-unique-values-in-javascript-arrays"
 date: "2018-05-21"
 title: "Getting unique values in JavaScript arrays"
 tags: ["JavaScript", "Array"]
