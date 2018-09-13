@@ -3,8 +3,8 @@
 <ul class="tag-list">
     {{#each tags}}
     <li class="tag-list__item">
-        <a href="/dist/pages/{{@key}}/index.html">
-            {{@key}} {{this}}
+        <a href="/pages/{{@key}}/index.html">
+            {{@key}} <span class="post-counts">{{this}}</span>
         </a>
     </li>
     {{/each}}

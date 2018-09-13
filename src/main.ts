@@ -1,4 +1,5 @@
 import './assets/styles/main.scss';
+import { Utils } from './utils';
 import * as Handlebars from 'handlebars';
 import { CategoriesListingComponent } from './categories-listing';
 import { TagsListingComponent } from './tags-listing';
@@ -7,7 +8,7 @@ declare var $: any
 
 class App {
 
-    constructor() {
+    constructor(private utils = new Utils()) {
         this.init();
     }
 
@@ -21,7 +22,21 @@ class App {
                 (<any>window).hljs.highlightBlock(block);
             });
         });
+
+        window.addEventListener('scroll', () => {
+            this.utils.getScrollPosition('scrollToTop');
+        });
+
+        let scrollTopLink = document.querySelector('#scrollToTop');
+        if (scrollTopLink) {
+            scrollTopLink.addEventListener('click', () => {
+                this.utils.sgScrollToTop();
+            });
+        }
+
     }
+
+
 
 }
 

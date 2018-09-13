@@ -9,16 +9,15 @@
     <title>{{htmlWebpackPlugin.options.title}}</title>
 </head>
 
-<body>
+<body class="isIndexNavOpened">
     <header>
 
     </header>
 
-    {{!-- <nav class="tags-wrapper tags-wrapper--top">
+    {{!--
+    <nav class="tags-wrapper tags-wrapper--top">
 
-    </nav> --}}
-
-    {{!-- {{{htmlWebpackPlugin.options.header}}} {{{htmlWebpackPlugin.options.categories}}} --}}
+    </nav> --}} {{!-- {{{htmlWebpackPlugin.options.header}}} {{{htmlWebpackPlugin.options.categories}}} --}}
 
     <!-- Example of inline partials -->
     {{#* inline "fullName"}}{{htmlWebpackPlugin.options.firstName}} {{htmlWebpackPlugin.options.lastName}}{{/inline}}
@@ -40,12 +39,12 @@
                     <li class="post-list__item">
                         {{#if coverImage}}
                         <div class="post-list__cover-image">
-                            <img src="/dist{{coverImage}}" />
+                            <img src="{{coverImage}}" />
                         </div>
                         {{/if}}
                         <div class="post-list__content">
-                            <em>{{category}}</em>
-                            <h2 class="post-list__title"><a href="/dist/pages{{path}}.md.html">{{title}}</a></h2>
+                            <span class="post-list__category">{{category}}</em>
+                            <h2 class="post-list__title"><a href="/pages/{{path}}.md.html">{{title}}</a></h2>
                             <p class="post-list__excerpt">{{excerpt}}</p>
                         </div>
 

@@ -93,7 +93,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        publicPath: '/dist/',
+        publicPath: '/',
         filename: '[name].bundle.js',
         chunkFilename: "[name].bundle.js",
         libraryTarget: "umd", // universal module definition
@@ -171,7 +171,8 @@ module.exports = {
     plugins: [
         // Copy all the static files like images, html, fonts etc.., from SRC folder to DIST folder
         new CopyWebpackPlugin([
-            // { from: './index.html', to: './' },
+            { from: './server.js', to: './' },
+            { from: './index.html', to: './' },
             // { from: './src/pages/**/*.html', to: './pages/[name].[ext]' },
             { from: './src/assets/js/highlight.pack.js', to: 'assets/js' },
             {
@@ -213,7 +214,7 @@ module.exports = {
                 posts: postLists
             };
 
-            fs.writeFile('posts.json', JSON.stringify(obj), 'utf8');
+            fs.writeFile('./dist/posts.json', JSON.stringify(obj), 'utf8');
         },
         /*  new HtmlWebpackPlugin({
              inject: true,
@@ -238,7 +239,7 @@ module.exports = {
             inject: true,
             title: 'My awesome service',
             template: './src/templates/handlebars/index.handlebars',
-            filename: `${__dirname}/index.html`, //relative to root of the application
+            filename: `${__dirname}/dist/index.html`, //relative to root of the application
             header: headerTemplate,
             footer: footerTemplate,
             categories: categoriesTemplate,
@@ -249,18 +250,18 @@ module.exports = {
 
     ],
     devServer: {
-        //contentBase: "dist",
+        contentBase: "dist",
         watchContentBase: true,
         clientLogLevel: "none",
-        publicPath: "/dist/",
+        // publicPath: "/dist/",
         compress: true,
         // host: 'localhost',
-        port: 3000,
+        port: 4000,
         stats: 'errors-only',
         // hot: true,
         watchOptions: {
             aggregateTimeout: 2500,
-            poll: 3000
+            poll: 1000
         },
         historyApiFallback: true
     },
