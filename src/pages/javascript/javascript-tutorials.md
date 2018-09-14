@@ -11,9 +11,6 @@ sourceUrl: 'https://medium.com/front-end-hacking/getting-unique-values-in-javasc
 type: 'Snippet'
 ---
 
-#Javascript Example
-
-
 ## Method 1: ES5 Syntax
 
     const unique = (value, index, self) => {

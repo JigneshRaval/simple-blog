@@ -208,7 +208,28 @@ h1, h2, h3, h4, h5, h6 {
 	line-height: 1.8;
 }
 .article__header {
-	padding: 1.5em 0;
+	margin: 3em 0;
+	padding: 1em 0;
+	position: relative;
+	text-align: center
+}
+.article__header::after {
+    content: "";
+    position: absolute;
+    background-color: #ccc;
+    height: 4px;
+    left: 50%;
+    width: 10%;
+    transform: translateX(-50%);
+}
+.article__header::before {
+	top: 0%;
+}
+.article__header::after {
+	bottom: 0%;
+}
+.article__header h1 {
+	font-weight: bold;
 }
 .article__content {
 	padding: 2em 0;

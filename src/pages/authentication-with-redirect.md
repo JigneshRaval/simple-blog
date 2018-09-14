@@ -11,9 +11,6 @@ sourceUrl: 'https://scotch.io/courses/using-react-router-4/authentication-with-r
 type: 'Post'
 ---
 
-Authentication with Redirect
-============================
-
 There will be times that we need to protect certain pages or routes so only authorized people can access them. We can use the `Redirect` component supplied to us by `react-router-dom` to direct users away from pages they shouldn't be able to get to. Returning a `Redirect` component will cause the page to redirect to the page we desire.
 
 To demonstrate this, let's add a login form to protect our CMS from unauthenticated users. This will be a very simple login form. In a real scenario, you will want to talk to a backend database to validate user credentials and have a form of authorization in place to make sure logged-in users have the corect permissions to change things. Also, all permissions should be doublechecked on the backend server as well before allowing changes to happen. However, the conecpt of using the `Redirect` component will be the same.

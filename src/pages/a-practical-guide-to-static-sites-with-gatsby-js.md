@@ -11,6 +11,7 @@ sourceUrl: 'https://scotch.io/tutorials/zero-to-deploy-a-practical-guide-to-stat
 type: 'Post'
 ---
 
+
 Since the advent of the modern web, performance has been a key consideration when designing a website or a web app. When a website requires no server interaction whatsoever, what is hosted on the web is served to a user as is, this is referred to as a static site.
 
 In this post, we will simply be explaining the basics of Gatsby.js and build out a simple static blog in the process. The Blog will be deployed to the web using [Netlify](https://www.netlify.com/). Blog posts will be written in [Markdown](https://daringfireball.net/projects/markdown/syntax) and [GraphQL](http://graphql.org/) will be used to query markdown data into the blog. The final product will look like this:

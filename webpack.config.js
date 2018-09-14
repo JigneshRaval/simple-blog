@@ -191,7 +191,7 @@ module.exports = {
 
         // Generate Template for each .md files
         ...markdownFileList.map(({ fileName, filePath, fileNameWithoutExt, markdown, frontmatter }, index) => {
-            // postLists.push(frontmatter.attributes);
+            console.log(fileName, '=====', filePath)
 
             return (
                 new HtmlWebpackPlugin({
@@ -199,6 +199,7 @@ module.exports = {
                     title: frontmatter.attributes.title,
                     template: './src/templates/handlebars/article.handlebars',
                     filename: `${filePath}.html`, //relative to root of the application
+                    path: filePath,
                     header: headerTemplate,
                     footer: footerTemplate,
                     categories: categoriesTemplate,
@@ -235,6 +236,7 @@ module.exports = {
         // ...uniqueCategories.map(pagesByCategories),
 
         // Generate Template for Index.html in root folder
+        // This page will display list of all the posts
         new HtmlWebpackPlugin({
             inject: true,
             title: 'My awesome service',
@@ -260,8 +262,8 @@ module.exports = {
         stats: 'errors-only',
         // hot: true,
         watchOptions: {
-            aggregateTimeout: 2500,
-            poll: 1000
+            aggregateTimeout: 3000,
+            poll: 1500
         },
         historyApiFallback: true
     },
