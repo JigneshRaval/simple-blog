@@ -6,7 +6,7 @@
 export class Utils {
     scrollDuration: number = 250;
 
-    constructor() {}
+    constructor() { }
 
     public sgScrollToTop() {
         let scrollStep = -window.scrollY / (this.scrollDuration / 15);
@@ -27,10 +27,12 @@ export class Utils {
     public getScrollPosition(elementId: any) {
         let scrollElement = document.getElementById(elementId);
 
-        if (window.pageYOffset > 300) {
-            scrollElement.classList.add('isVisible');
-        } else {
-            scrollElement.classList.remove('isVisible');
+        if (scrollElement) {
+            if (window.pageYOffset > 300) {
+                scrollElement.classList.add('isVisible');
+            } else {
+                scrollElement.classList.remove('isVisible');
+            }
         }
 
         if (window.pageYOffset > 150) {

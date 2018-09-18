@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{htmlWebpackPlugin.options.title}}</title>
+</head>
+
+<body class="isIndexNavOpened">
+    <header>
+
+    </header>
+    {{!-- {{{htmlWebpackPlugin.options.header}}} --}}
+
+    <main class="wrapper">
+        <div class="container-fluid">
+
+            <div class="html-to-markdown-convertor">
+
+                <h1>{{htmlWebpackPlugin.options.title}}</h1>
+
+                <form name="formHtmltoMd" id="formHtmltoMd" method="POST" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-sm-6">
+                            <div class="form-group">
+                                <label for="txtPostTitle">Title</label>
+                                <input type="text" class="form-control" name="txtPostTitle" id="txtPostTitle" placeholder="Post Title" required>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-2 col-sm-6">
+                            <div class="form-group">
+                                <label for="txtCategory">Category</label>
+                                <input type="text" class="form-control" name="txtCategory" id="txtCategory" placeholder="Category" value="JavaScript" required>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-2 col-sm-6">
+                            <div class="form-group">
+                                <label for="txtTags">Tags</label>
+                                <input type="text" class="form-control" name="txtTags" id="txtTags" placeholder="Tags" value="JavaScript, ES6" required>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-2 col-sm-6">
+                            <div class="form-group">
+                                <label for="txtPostDate">Date</label>
+                                <input type="date" class="form-control" name="txtPostDate" id="txtPostDate" placeholder="Tags">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-sm-6">
+                            <div class="form-group">
+                                <label for="txtWebsiteUrl">Website URL</label>
+                                <input type="text" class="form-control" name="txtWebsiteUrl" id="txtWebsiteUrl" placeholder="Website URL" required>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                <label for="txtSavePostToPath">Path to Save</label>
+                                <input type="text" class="form-control" name="txtSavePostToPath" id="txtSavePostToPath" value="my-md-file" required/>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-2 col-sm-6">
+                            <div class="form-group">
+                                <label for="txtPostType">Post Type</label>
+                                <input type="text" class="form-control" name="txtPostType" id="txtPostType" value="Post" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-sm-6">
+                            <div class="form-group">
+                                <label for="txtCoverImage">Cover Image</label>
+                                <input type="text" class="form-control" name="txtCoverImage" id="txtCoverImage" placeholder="Image path...">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-sm-6">
+                            <div class="form-group">
+                                <label for="txtareaHtmlCode">HTML code</label>
+                                <textarea class="form-control" rows="10" name="txtareaHtmlCode" id="txtareaHtmlCode" required></textarea>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-sm-6">
+                            <div class="form-group">
+                                <label for="txtareaMarkdownCode">Markdown code</label>
+                                <textarea class="form-control" rows="10" name="txtareaMarkdownCode" id="txtareaMarkdownCode"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button id="convertToMarkdown" class="btn btn-primary">Convert</button>
+                </form>
+
+            </div>
+
+        </div>
+    </main>
+
+    {{{htmlWebpackPlugin.options.footer}}}
+</body>
+
+</html>

@@ -6,9 +6,12 @@
 // REF : https://adrianmejia.com/blog/2016/08/24/building-a-node-js-static-file-server-files-over-http-using-es6/
 
 const http = require('http');
+const https = require('https');
 const url = require('url');
 const fs = require('fs');
 const path = require('path');
+var request = require('request');
+var querystring = require('querystring');
 
 // you can pass the parameter in the command line. e.g. node static_server.js 3000
 const port = process.argv[2] || 3000;
@@ -66,6 +69,132 @@ http.createServer(function (req, res) {
             }
         });
     });
+
+    if (req.method === 'POST') {
+
+        let body = [];
+
+        req.
+            on('error', (err) => {
+                console.error(err);
+            }).
+            on('data', (chunk) => {
+                body.push(chunk);
+            }).on('end', () => {
+                body = Buffer.concat(body).toString();
+
+                let parsedData = JSON.parse(body);
+
+                let filePath = '../src/' + parsedData.filePath || '../src/pages/test.html'
+                let markdownCode = parsedData.frontmatter + parsedData.markdownCode;
+                let imageNewName = cleanImageName(parsedData.coverImage);
+
+                // Save image to disk from URL
+                if (imageNewName) {
+                    saveImageToDisk(parsedData.coverImage, `../src/assets/images/${imageNewName}`);
+                    // downloadImageToUrl(parsedData.coverImage, `../src/assets/images/${'123_'+imageNewName}`, function () {});
+                }
+
+                fs.exists(path.join(__dirname, `../src/pages/${parsedData.category}`), function (exists) {
+
+                    if (!exists) {
+                        fs.mkdirSync(path.join(__dirname, `../src/pages/${parsedData.category}`));
+                        // Generate .md file
+                        fs.writeFile(filePath, markdownCode, 'utf8', function (err) {
+
+                            if (err) {
+                                return console.log(err);
+                            }
+                            console.log("The file was saved!");
+                        });
+                    } else {
+                        // Generate .md file
+                        fs.writeFile(filePath, markdownCode, 'utf8', function (err) {
+
+                            if (err) {
+                                return console.log(err);
+                            }
+                            console.log("The file was saved!");
+                        });
+                    }
+                });
+
+
+                /* let responseBody = {
+                    'message': 'success'
+                }
+                res.write(JSON.stringify(responseBody));
+				res.end(); */
+            });
+    } else {
+        // res.statusCode = 404;
+        //res.end();
+    }
+
 }).listen(parseInt(port));
 
-console.log(`Server listening on port ${port}`);
+function cleanImageName(imagename) {
+    let imageName = imagename.split('/').pop();
+    if (imageName.includes('?')) {
+        imageName = imageName.split('?')[0]
+    }
+    imageName = imageName.replace(/[*!@#$%^&()\[\]_]/, '-');
+    return imageName;
+}
+
+// Method 1 : Node.js Function to save image from External URL.
+// Note : Getting error in writing file to local disk while behind VPN
+// ==============================
+
+function saveImageToDisk(url, localPath) {
+    // var fullUrl = url;
+    var file = fs.createWriteStream(localPath);
+
+    var client = http;
+    if (url.toString().indexOf("https") === 0) {
+        client = https;
+    }
+
+    var request = client.get(url, function (resp, body, error) {
+        if (error) return resp.end('Resp Error :', error.message);
+        resp.pipe(file);
+    }).on('error', function (e) {
+        console.log(e)
+    }).end();
+
+    // this is the classic api
+    file
+        .on('data', function (data) { console.log('Data!', data); })
+        .on('error', function (err) { console.error('Error', err); })
+        .on('end', function () { console.log('All done!'); });
+}
+
+/*
+// Method 2 :
+// Note : Getting error in writing file to local disk while behind VPN
+// ==============================
+
+var Stream = require('stream').Transform;
+
+var downloadImageToUrl = (url, filename, callback) => {
+
+    var client = http;
+    if (url.toString().indexOf("https") === 0) {
+        client = https;
+    }
+
+    client.request(url, function (response) {
+        var data = new Stream();
+
+        response.on('data', function (chunk) {
+            data.push(chunk);
+        });
+
+        response.on('end', function () {
+            fs.writeFileSync(filename, data.read());
+        });
+    }).end();
+};
+*/
+
+console.log(`Server listening on port http://localhost:${port}`);

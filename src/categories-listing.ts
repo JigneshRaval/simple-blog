@@ -36,7 +36,9 @@ export class CategoriesListingComponent {
             categories: categories
         }
         let header = document.querySelector('header');
-        header.innerHTML = headerTemplate(context);
+        if (header) {
+            header.innerHTML = headerTemplate(context);
+        }
     }
 
 }

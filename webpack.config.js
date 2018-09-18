@@ -250,6 +250,15 @@ module.exports = {
             lastName: 'Blog'
         }),
 
+        new HtmlWebpackPlugin({
+            inject: true,
+            title: 'HTML to Markdown conversion',
+            template: './src/templates/handlebars/html-to-markdown.handlebars',
+            filename: `${__dirname}/dist/html-to-markdown.html`, //relative to root of the application
+            header: headerTemplate,
+            footer: footerTemplate
+        }),
+
     ],
     devServer: {
         contentBase: "dist",

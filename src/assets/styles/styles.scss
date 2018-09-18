@@ -320,3 +320,25 @@ pre:after {
 .hljs {
 	background-color: transparent;
 }
+
+.html-to-markdown-convertor {
+	width: 100%;
+	margin: 2em;
+
+	#formHtmltoMd {
+		label {
+			font-weight: bold;
+		}
+	}
+	/* text-align: center;
+
+	.markdown-editor {
+		display: flex;
+	}
+
+	textarea {
+		width: 50%;
+		margin: 0 2em;
+		border: 1px solid #EEE;
+	} */
+}

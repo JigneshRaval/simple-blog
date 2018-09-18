@@ -1,6 +1,9 @@
 import './assets/styles/main.scss';
 import { Utils } from './utils';
 import * as Handlebars from 'handlebars';
+
+import { HtmlToMarkdown } from './html-to-markdown';
+
 import { CategoriesListingComponent } from './categories-listing';
 import { TagsListingComponent } from './tags-listing';
 
@@ -15,6 +18,7 @@ class App {
     init() {
         let categoryListing = new CategoriesListingComponent();
         let tagListing = new TagsListingComponent();
+        let htmlToMarkdown = new HtmlToMarkdown();
 
         // Highlight code blocks
         $(document).ready(function () {
@@ -34,9 +38,9 @@ class App {
             });
         }
 
+        htmlToMarkdown.init();
+
     }
-
-
 
 }
 
