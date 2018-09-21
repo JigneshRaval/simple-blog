@@ -2,6 +2,7 @@
 // =================================
 
 const webpack = require('webpack'); //to access built-in plugins
+// const compiler = new webpack.Compiler();
 const fs = require('fs');
 const path = require('path');
 const showdown = require('showdown');
@@ -10,6 +11,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ConvertMarkdown = require('./configs/markdown-convertor');
 const converter = new showdown.Converter();
+converter.setOption('ghCompatibleHeaderId', true);
 
 const PATHS = {
     src: __dirname + '/src',
@@ -28,6 +30,21 @@ const categoriesTemplate = fs.readFileSync(`${PATHS.templates}/${TEMPLATE_TYPE}/
 let markdownFileList = ConvertMarkdown();
 
 let postLists = [];
+
+/* class MyPlugin {
+    constructor(options) {
+        this.options = options;
+      }
+    apply() {
+        if ('hooks' in compiler) {
+            compiler.hooks.shouldEmit.tap('MyPlugin', compilation => {
+                console.log('Synchronously tapping the compile hook.');
+                console.log('should I emit?');
+                return true;
+            });
+        }
+    }
+} */
 
 
 // Generate index pages for posts matching by Tags
@@ -85,6 +102,12 @@ const pagesByCategories = (category) => {
 module.exports = {
     context: __dirname,
     mode: 'development',
+    watch: true,
+    watchOptions: {
+        aggregateTimeout: 300,
+        poll: 1000,
+        ignored: ['node_modules']
+    },
     entry: {
         vendor: './src/vendor.ts',
         // vendor: ['./src/assets/js/jquery.js', './src/assets/js/popper.min.js', './src/assets/js/bootstrap.js'],
@@ -169,6 +192,7 @@ module.exports = {
     },
     devtool: "source-map",
     plugins: [
+        // new MyPlugin(),
         // Copy all the static files like images, html, fonts etc.., from SRC folder to DIST folder
         new CopyWebpackPlugin([
             { from: './server.js', to: './' },
@@ -178,6 +202,11 @@ module.exports = {
             {
                 from: './src/assets/images',
                 to: 'assets/images',
+                ignore: ['*.scss']
+            },
+            {
+                from: './src/assets/fonts',
+                to: 'assets/fonts',
                 ignore: ['*.scss']
             }
         ], { debug: 'info' }),

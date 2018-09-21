@@ -5,7 +5,7 @@ title: "Zero to Deploy: A Practical Guide to Static Sites with Gatsby.js"
 tags: ["React", "Gatsby", "Static Site"]
 category: "Static Site"
 categoryColor: '#F3C610'
-excerpt: "Since the advent of the modern web, performance has been a key consideration when designing a website or a web app. When a website requires no server interaction whatsoever, what is hosted on the web is served to a user as is, this is referred to as a static site."
+excerpt: "Since the advent of the modern web, performance has been a key consideration when designing a website or a web app."
 coverImage: '/assets/images/paper_boat_by_eredel.jpg'
 sourceUrl: 'https://scotch.io/tutorials/zero-to-deploy-a-practical-guide-to-static-sites-with-gatsbyjs'
 type: 'Post'

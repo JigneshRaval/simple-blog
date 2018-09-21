@@ -150,3 +150,29 @@ request(options, function (error, response, body) {
     }
 });
 ```
+
+```
+// Get modules node
+const fs   = require('fs');
+const path = require('path');
+
+// Create
+function mkdirpath(dirPath)
+{
+    if(!fs.existsSync(dirPath))
+    {
+        try
+        {
+            fs.mkdirSync(dirPath);
+        }
+        catch(e)
+        {
+            mkdirpath(path.dirname(dirPath));
+            mkdirpath(dirPath);
+        }
+    }
+}
+
+// Create folder path
+mkdirpath('my/new/folder/create');
+```

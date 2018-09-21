@@ -1,11 +1,11 @@
 ---
-path: "css/cascade-and-specificity-in-CSS.md"
+path: "css/cascade-and-specificity-in-CSS"
 date: "2018-09-20"
 title: "Understanding the cascade (and specificity) in CSS"
 tags: ["css"]
 category: "css"
 categoryColor: "#F3C610"
-excerpt: "Since the advent of the modern web, performance has been a key consideration when designing a website or a web app. When a website requires no server interaction whatsoever, what is hosted on the web is served to a user as is, this is referred to as a static site."
+excerpt: "Since the advent of the modern web, performance has been a key consideration when designing a website or a web app."
 coverImage: ""
 sourceUrl: "https://gomakethings.com/understanding-the-cascade-and-specificity-in-css/"
 type: "Post"
@@ -14,7 +14,7 @@ type: "Post"
 Last week, [Max Stroiber tweeted this poll](https://twitter.com/mxstbr/status/1038073603311448064?s=21).
 
 > How well do you know CSS? 👨🏼‍🏫
-> 
+>
 > Given these classes:
 
     .red {
@@ -53,11 +53,11 @@ Let’s say your stylesheet looks like this.
     p {
     	color: red;
     }
-    
+
     p {
     	color: blue;
     }
-    
+
     p {
     	color: purple;
     }
@@ -67,11 +67,11 @@ Your paragraph `color` will always be `purple`, because that’s the last one th
     p {
     	color: red;
     }
-    
+
     p {
     	color: purple;
     }
-    
+
     p {
     	color: blue;
     }
@@ -87,7 +87,7 @@ Given these two classes:
     .red {
     	color: red;
     }
-    
+
     .blue {
     	color: blue;
     }
@@ -108,11 +108,11 @@ The “cascade” also means that unless specifically overridden, styles “casc
     	font-weight: bold;
     	size: 2em;
     }
-    
+
     .blue {
     	color: blue;
     }
-    
+
     p {
     	font-style: italic;
     }
@@ -151,15 +151,15 @@ This can get weird and complex, but there’s some general rules to make it easi
     p {
     	color: red;
     }
-    
+
     .override.orange {
     	color: orange;
     }
-    
+
     .blue {
     	color: blue;
     }
-    
+
     #purple {
     	color: rebeccapurple;
     }
@@ -178,7 +178,7 @@ The `!imporant` rule can be added to any style to force it to override other sty
     .green {
     	color: green !important;
     }
-    
+
     #purple {
     	color: rebeccapurple;
     }
@@ -202,7 +202,7 @@ The one exception where it _might_ make sense to use `!important`: on modifier c
     	font-size: 3em;
     	font-weight: bold;
     }
-    
+
     .no-bold {
     	font-weight: normal !important;
     }

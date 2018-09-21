@@ -1,4 +1,4 @@
-import * as Handlebars from 'handlebars';
+// import * as Handlebars from 'handlebars';
 import { CommonService } from './categories.service'
 import { Utils } from './utils';
 

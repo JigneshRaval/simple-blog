@@ -5,7 +5,7 @@ title: "Authentication with Redirect"
 tags: ["React", "Authentication", "Redirect"]
 category: "React"
 categoryColor: '#F3C610'
-excerpt: "Since the advent of the modern web, performance has been a key consideration when designing a website or a web app. When a website requires no server interaction whatsoever, what is hosted on the web is served to a user as is, this is referred to as a static site."
+excerpt: "Since the advent of the modern web, performance has been a key consideration when designing a website or a web app."
 coverImage: '/assets/images/paper_boat_by_eredel.jpg'
 sourceUrl: 'https://scotch.io/courses/using-react-router-4/authentication-with-redirect'
 type: 'Post'

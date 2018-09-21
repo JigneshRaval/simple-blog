@@ -1,10 +1,11 @@
 <!-- START : Partial template for Categories -->
 {{#if categories}}
+<p class="category-list__header"><strong>Categories</strong></p>
 <ul class="category-list">
     {{#each categories}}
     <li class="category-list__item">
         <a href="/pages/{{this}}/index.html">
-            {{this}}
+            <i class="tag-list__icon icon-technology"><img src="/assets/images/icons/{{this}}.svg" /></i> {{this}}
         </a>
     </li>
     {{/each}}

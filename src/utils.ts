@@ -52,11 +52,95 @@ export class Utils {
             if (bodyElem.classList.contains('isIndexNavOpened')) {
                 // Left sidebar navigation closed
                 bodyElem.classList.remove('isIndexNavOpened');
-                // this.updateLocalStorage('isIndexNavOpened', 'false');
+                this.updateLocalStorage('isIndexNavOpened', 'false');
             } else {
                 bodyElem.classList.add('isIndexNavOpened');
-                // this.updateLocalStorage('isIndexNavOpened', 'true');
+                this.updateLocalStorage('isIndexNavOpened', 'true');
             }
+        }
+    }
+
+    public generatePagination() {
+        $(".pagination-holder").jPages({
+            containerID: "postList",
+            perPage: 8,
+            startPage: 1,
+            startRange: 1,
+            midRange: 5,
+            endRange: 1
+        });
+    }
+
+    public toggleTheme() {
+        const bodyElem = document.querySelector('body');
+        if (bodyElem) {
+            if (bodyElem.classList.contains('darkTheme')) {
+                // Left sidebar navigation closed
+                bodyElem.classList.remove('darkTheme');
+                this.updateLocalStorage('isIndexNavOpened', 'false');
+            } else {
+                bodyElem.classList.add('darkTheme');
+                this.updateLocalStorage('isIndexNavOpened', 'false');
+            }
+        }
+    }
+
+    public updateLocalStorage(key, value) {
+        if ('localStorage' in (<any>window) && (<any>window)['localStorage'] !== null) {
+            localStorage.setItem(key, value);
+        }
+    }
+
+    public switchTotheme(event, themeName = 'default') {
+
+        const body = document.querySelector('body');
+        document.querySelector('body').classList.remove(`theme-default`);
+        document.querySelector('body').classList.remove(`theme-red`);
+        document.querySelector('body').classList.remove(`theme-yellow`);
+
+        this.updateLocalStorage('blogTheme', themeName);
+        document.querySelector('body').classList.add(`theme-${themeName}`);
+
+        if ('localStorage' in (<any>window) && (<any>window)['localStorage'] !== null) {
+            if (localStorage.getItem('blogTheme')) {
+                this.updateLocalStorage('blogTheme', localStorage.getItem('blogTheme'));
+                document.querySelector('body').classList.add(`theme-${localStorage.getItem('blogTheme')}`);
+            } else {
+                this.updateLocalStorage('blogTheme', themeName);
+                document.querySelector('body').classList.add(`theme-${themeName}`);
+            }
+        } else {
+            this.updateLocalStorage('blogTheme', themeName);
+            document.querySelector('body').classList.add(`theme-${themeName}`);
+        }
+
+        if (event && event.target) {
+            const dropdownLinks = document.querySelectorAll('dropdown--themes li a');
+            [].forEach.call(dropdownLinks, (link) => {
+                link.classList.remove('isActive');
+            });
+
+            if (event.target.classList.contains('isActive')) {
+
+            } else {
+                event.target.classList.add('isActive');
+            }
+        }
+    }
+
+    /**
+     * @function : Toggle settings dropdown in styleguide header section
+     * @param event
+     */
+    public toggleDropdown(event) {
+        let node = event.currentTarget.nextElementSibling;
+
+        if (event.target.classList.contains('isActive')) {
+            event.target.classList.remove('isActive');
+            node.classList.remove('styleguide-dropdown-active');
+        } else {
+            event.target.classList.add('isActive');
+            node.classList.add('styleguide-dropdown-active');
         }
     }
 }

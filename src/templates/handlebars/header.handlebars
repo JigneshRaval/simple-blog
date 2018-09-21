@@ -2,14 +2,21 @@
 <div class="header-main">
     <h5 class="header-title">
         <a id="toggleSidebar" href="javascript:void(0);">&#9776;</a>
-        <a href="/">Main Header</a>
+        <a href="/">WEBGEMS <span>Developer Resources</span></a>
     </h5>
     <ul class="main-navigation">
-        <li><a href="/">Our Work</a></li>
-        <li><a href="/">Blog</a></li>
-        <li><a href="/">About Us</a></li>
-        <li><a href="/">Contact Us</a></li>
-        <li><a href="/html-to-markdown.html">Html To Markdown</a></li>
+        <li><a class="main-navigation__item" href="/">Our Work</a></li>
+        <li><a class="main-navigation__item" href="/">Blog</a></li>
+        <li><a class="main-navigation__item" href="/">About Us</a></li>
+        <li><a class="main-navigation__item dropdown-toggle" href="javascript:void(0)" id="toggleTheme" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">Toggle Theme</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Default Theme</a>
+                <a class="dropdown-item" href="#">Dark Theme</a>
+                <a class="dropdown-item" href="#">Other Theme</a>
+            </div>
+        </li>
+        <li><a class="main-navigation__item" href="/html-to-markdown.html">Html To Markdown</a></li>
     </ul>
 </div>
 <!-- END : Header -->

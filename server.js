@@ -85,8 +85,7 @@ http.createServer(function (req, res) {
 
                 let parsedData = JSON.parse(body);
 
-                let filePath = '../src/' + parsedData.filePath || '../src/pages/test.html'
-                let markdownCode = parsedData.frontmatter + parsedData.markdownCode;
+
                 let imageNewName = cleanImageName(parsedData.coverImage);
 
                 // Save image to disk from URL
@@ -95,29 +94,8 @@ http.createServer(function (req, res) {
                     // downloadImageToUrl(parsedData.coverImage, `../src/assets/images/${'123_'+imageNewName}`, function () {});
                 }
 
-                fs.exists(path.join(__dirname, `../src/pages/${parsedData.category}`), function (exists) {
+                generateMarkdownFile(parsedData);
 
-                    if (!exists) {
-                        fs.mkdirSync(path.join(__dirname, `../src/pages/${parsedData.category}`));
-                        // Generate .md file
-                        fs.writeFile(filePath, markdownCode, 'utf8', function (err) {
-
-                            if (err) {
-                                return console.log(err);
-                            }
-                            console.log("The file was saved!");
-                        });
-                    } else {
-                        // Generate .md file
-                        fs.writeFile(filePath, markdownCode, 'utf8', function (err) {
-
-                            if (err) {
-                                return console.log(err);
-                            }
-                            console.log("The file was saved!");
-                        });
-                    }
-                });
 
 
                 /* let responseBody = {
@@ -133,6 +111,9 @@ http.createServer(function (req, res) {
 
 }).listen(parseInt(port));
 
+
+// Cleanup image name
+// ==============================
 function cleanImageName(imagename) {
     let imageName = imagename.split('/').pop();
     if (imageName.includes('?')) {
@@ -141,6 +122,41 @@ function cleanImageName(imagename) {
     imageName = imageName.replace(/[*!@#$%^&()\[\]_]/, '-');
     return imageName;
 }
+
+
+// Generate Markdown file from HTML and save to disk
+// ==============================
+function generateMarkdownFile(parsedData) {
+
+    let filePath = '../src/' + parsedData.filePath || '../src/pages/test.html'
+    let markdownCode = parsedData.frontmatter + parsedData.markdownCode;
+    let dirName = parsedData.category.toLowerCase().trim();
+
+    fs.exists(path.join(__dirname, `../src/pages/${dirName}`), function (exists) {
+
+        if (!exists) {
+            fs.mkdirSync(path.join(__dirname, `../src/pages/${dirName}`));
+            // Generate .md file
+            fs.writeFile(filePath, markdownCode, 'utf8', function (err) {
+
+                if (err) {
+                    return console.log(err);
+                }
+                console.log(`Markdown file generated successfully in ${filePath}`);
+            });
+        } else {
+            // Generate .md file
+            fs.writeFile(filePath, markdownCode, 'utf8', function (err) {
+
+                if (err) {
+                    return console.log(err);
+                }
+                console.log(`Markdown file generated successfully in ${filePath}`);
+            });
+        }
+    });
+}
+
 
 // Method 1 : Node.js Function to save image from External URL.
 // Note : Getting error in writing file to local disk while behind VPN
@@ -168,6 +184,7 @@ function saveImageToDisk(url, localPath) {
         .on('error', function (err) { console.error('Error', err); })
         .on('end', function () { console.log('All done!'); });
 }
+
 
 /*
 // Method 2 :

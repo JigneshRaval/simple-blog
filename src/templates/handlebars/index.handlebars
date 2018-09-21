@@ -6,13 +6,12 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="manifest" href="../../manifest.json">
     <title>{{htmlWebpackPlugin.options.title}}</title>
 </head>
 
 <body class="isIndexNavOpened">
-    <header>
 
-    </header>
 
     {{!--
     <nav class="tags-wrapper tags-wrapper--top">
@@ -26,34 +25,60 @@
     <main class="wrapper">
         <div class="container-fluid">
 
-            <aside class="tags-wrapper tags-wrapper--aside">
+            <aside class="sidebar-panel">
+                <nav class="category-wrapper category-wrapper--aside">
 
+                </nav>
+                <nav class="tags-wrapper tags-wrapper--aside">
+
+                </nav>
             </aside>
 
-            <section class="post-list__wrapper">
+            <section class="content-wrapper">
+                <header>
 
-                <!-- START: Display list of Posts -->
-                {{#if htmlWebpackPlugin.options.posts}}
-                <ul class="post-list">
-                    {{#each htmlWebpackPlugin.options.posts}}
-                    <li class="post-list__item">
-                        {{#if coverImage}}
-                        <div class="post-list__cover-image">
-                            <img src="{{coverImage}}" />
-                        </div>
-                        {{/if}}
-                        <div class="post-list__content">
-                            <span class="post-list__category">{{category}}</span>
-                            <h2 class="post-list__title"><a href="/pages/{{path}}.md.html">{{title}}</a></h2>
-                            <p class="post-list__excerpt">{{excerpt}}</p>
-                        </div>
+                </header>
 
-                    </li>
-                    {{/each}}
-                </ul>
-                {{/if}}
-                <!-- END: Display list of Posts -->
+                <div class="post-list__wrapper">
 
+                    <!-- START: Display list of Posts -->
+                    {{#if htmlWebpackPlugin.options.posts}}
+                    <ul class="post-list" id="postList">
+                        {{#each htmlWebpackPlugin.options.posts}}
+                        <li class="post-list__item" data-category="{{category}}">
+                            {{#if coverImage}}
+                            <div class="post-list__cover-image" style="background-color: {{categoryColor}}; background-image: url({{coverImage}})">
+                                <span class="post-list__category">{{category}}</span>
+                                {{!-- <img src="{{coverImage}}" /> --}}
+                            </div>
+                            {{else}}
+                            <div class="post-list__cover-image" style="background-color: {{categoryColor}}">
+                                <span class="post-list__category">{{category}}</span>
+                            </div>
+                            {{/if}}
+
+                            <div class="post-list__content">
+                                <h2 class="post-list__title"><a href="/pages/{{path}}.md.html">{{title}}</a></h2>
+                                <p class="post-list__excerpt">{{excerpt}}</p>
+                            </div>
+                            <div class="post-list__footer">
+                                {{#each tags}}
+                                <span class="post-list__tags">{{this}}</span>
+                                {{/each}}
+                            </div>
+
+                        </li>
+                        {{/each}}
+                    </ul>
+                    {{/if}}
+                    <!-- END: Display list of Posts -->
+
+                    <div class="pagination">
+                        <!-- Future navigation panel -->
+                        <div class="pagination-holder"></div>
+                    </div>
+
+                </div>
             </section>
 
             {{{htmlWebpackPlugin.options.bodyHTML}}}

@@ -40,7 +40,22 @@ class App {
 
         htmlToMarkdown.init();
 
+        this.utils.generatePagination();
+
+        let toggleTheme = document.querySelector('header');
+        if (toggleTheme) {
+            toggleTheme.addEventListener('click', (e) => {
+                console.log('Toggle Theme', e);
+                if (e.target.id === 'toggleTheme') {
+                    this.utils.toggleTheme();
+                }
+
+            });
+        }
+
     }
+
+
 
 }
 

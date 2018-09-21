@@ -27,19 +27,19 @@
                         <div class="col-12 col-md-6 col-sm-6">
                             <div class="form-group">
                                 <label for="txtPostTitle">Title</label>
-                                <input type="text" class="form-control" name="txtPostTitle" id="txtPostTitle" placeholder="Post Title" required>
+                                <input type="text" class="form-control" name="txtPostTitle" id="txtPostTitle" placeholder="Post Title" >
                             </div>
                         </div>
                         <div class="col-12 col-md-2 col-sm-6">
                             <div class="form-group">
                                 <label for="txtCategory">Category</label>
-                                <input type="text" class="form-control" name="txtCategory" id="txtCategory" placeholder="Category" value="JavaScript" required>
+                                <input type="text" class="form-control" name="txtCategory" id="txtCategory" placeholder="Category" value="JavaScript" >
                             </div>
                         </div>
                         <div class="col-12 col-md-2 col-sm-6">
                             <div class="form-group">
                                 <label for="txtTags">Tags</label>
-                                <input type="text" class="form-control" name="txtTags" id="txtTags" placeholder="Tags" value="JavaScript, ES6" required>
+                                <input type="text" class="form-control" name="txtTags" id="txtTags" placeholder="Tags" value="JavaScript, ES6" >
                             </div>
                         </div>
                         <div class="col-12 col-md-2 col-sm-6">
@@ -54,13 +54,13 @@
                         <div class="col-12 col-md-6 col-sm-6">
                             <div class="form-group">
                                 <label for="txtWebsiteUrl">Website URL</label>
-                                <input type="text" class="form-control" name="txtWebsiteUrl" id="txtWebsiteUrl" placeholder="Website URL" required>
+                                <input type="text" class="form-control" name="txtWebsiteUrl" id="txtWebsiteUrl" placeholder="Website URL" >
                             </div>
                         </div>
                         <div class="col-12 col-md-4 col-sm-6">
                             <div class="form-group">
                                 <label for="txtSavePostToPath">Path to Save</label>
-                                <input type="text" class="form-control" name="txtSavePostToPath" id="txtSavePostToPath" value="my-md-file" required/>
+                                <input type="text" class="form-control" name="txtSavePostToPath" id="txtSavePostToPath" value="my-md-file" />
                             </div>
                         </div>
                         <div class="col-12 col-md-2 col-sm-6">
@@ -84,7 +84,7 @@
                         <div class="col-12 col-md-6 col-sm-6">
                             <div class="form-group">
                                 <label for="txtareaHtmlCode">HTML code</label>
-                                <textarea class="form-control" rows="10" name="txtareaHtmlCode" id="txtareaHtmlCode" required></textarea>
+                                <textarea class="form-control" rows="10" name="txtareaHtmlCode" id="txtareaHtmlCode" ></textarea>
                             </div>
                         </div>
                         <div class="col-12 col-md-6 col-sm-6">
@@ -95,7 +95,10 @@
                         </div>
                     </div>
 
-                    <button id="convertToMarkdown" class="btn btn-primary">Convert</button>
+                    <p class="text-right">
+                        <button id="convertToMarkdown" class="btn btn-primary">Convert</button>
+                        <button id="btnResetConvertForm" class="btn btn-secondary">Reset Form</button>
+                    </p>
                 </form>
 
             </div>

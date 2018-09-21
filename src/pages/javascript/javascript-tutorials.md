@@ -5,8 +5,8 @@ title: "Javascript Example"
 tags: ["JavaScript", "Array"]
 category: "JavaScript"
 categoryColor: '#F3C610'
-excerpt: "Since the advent of the modern web, performance has been a key consideration when designing a website or a web app. When a website requires no server interaction whatsoever, what is hosted on the web is served to a user as is, this is referred to as a static site."
-coverImage: '/images/fpxoowbr6ls-matthew-henry.jpg'
+excerpt: "Since the advent of the modern web, performance has been a key consideration when designing a website or a web app."
+coverImage: ''
 sourceUrl: 'https://medium.com/front-end-hacking/getting-unique-values-in-javascript-arrays-17063080f836'
 type: 'Snippet'
 ---

@@ -1,7 +1,7 @@
-import * as Handlebars from 'handlebars';
+// import * as Handlebars from 'handlebars';
 import { CommonService } from './categories.service'
 let headerTemplate = require("./templates/handlebars/header.handlebars");
-
+let categoryTemplate = require("./templates/handlebars/categories.handlebars");
 
 export class CategoriesListingComponent {
     public uniqeCategories: any;
@@ -35,6 +35,15 @@ export class CategoriesListingComponent {
         let context = {
             categories: categories
         }
+
+        // Generate list of tags in the sidebar panel
+        let categoryListContainer = document.querySelectorAll('.category-wrapper');
+        if (categoryListContainer) {
+            [].forEach.call(categoryListContainer, (container: any) => {
+                container.innerHTML = categoryTemplate(context);
+            });
+        }
+
         let header = document.querySelector('header');
         if (header) {
             header.innerHTML = headerTemplate(context);
