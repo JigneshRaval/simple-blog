@@ -67,7 +67,8 @@ export class Utils {
             startPage: 1,
             startRange: 1,
             midRange: 5,
-            endRange: 1
+            endRange: 1,
+            minHeight: false,
         });
     }
 
@@ -141,6 +142,15 @@ export class Utils {
         } else {
             event.target.classList.add('isActive');
             node.classList.add('styleguide-dropdown-active');
+        }
+    }
+
+    public toggleGrid() {
+        let body = document.querySelector('body');
+        if (!body.classList.contains('showVerticalGrid')) {
+            body.classList.add('showVerticalGrid');
+        } else {
+            body.classList.remove('showVerticalGrid');
         }
     }
 }

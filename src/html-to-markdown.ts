@@ -8,7 +8,11 @@ export class HtmlToMarkdown {
     constructor() {
         this.turndownService = new TurndownService({
             codeBlockStyle: 'fenced',
-            fence: '```'
+            fence: '```',
+            filter: 'br',
+            replacement: function (content: any) {
+                return '\n\n' + content + '\n\n'
+            }
         });
     }
 
@@ -36,7 +40,7 @@ export class HtmlToMarkdown {
         if (txtPostTitle) {
             txtPostTitle.addEventListener("blur", e => {
                 //e.preventDefault();
-                this.postPath = e.target.value.toLowerCase().replace(/[\s:\(\)\[\]_\*]/gi, '-');
+                this.postPath = e.target.value.toLowerCase().replace(/[\s:\(\)\[\]_,\*]/gi, '-').replace('--', '-');
                 txtSavePostToPath.value = this.postPath;
             });
         }
@@ -88,6 +92,7 @@ export class HtmlToMarkdown {
             path: `${formData.get('txtCategory') + '/'}${formData.get('txtSavePostToPath')}`,
             category: formData.get('txtCategory'),
             tags: tags,
+            excerpt: formData.get('txtExcerpt'),
             date: formData.get('txtPostDate'),
             coverImage: formData.get('txtCoverImage'),
             type: formData.get('txtPostType')
@@ -145,10 +150,10 @@ export class HtmlToMarkdown {
 path: "${frontmatterObj.path}"
 date: "${frontmatterObj.date}"
 title: "${frontmatterObj.title}"
-tags: [${frontmatterObj.tags.map(tag=>`"${tag.trim()}"`)}]
+tags: [${frontmatterObj.tags.map(tag => `"${tag.trim()}"`)}]
 category: "${frontmatterObj.category}"
 categoryColor: "#F3C610"
-excerpt: ""
+excerpt: "${frontmatterObj.excerpt}"
 coverImage: "${frontmatterObj.coverImage}"
 sourceUrl: "${frontmatterObj.sourceUrl}"
 type: "${frontmatterObj.type}"

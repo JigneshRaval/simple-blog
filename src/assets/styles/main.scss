@@ -9,8 +9,15 @@
 
 @import './_healpers';
 
+@import './_mixins';
 @import './variables';
 
 @import './_categories-color';
+
+@import './_header';
+@import './_sidebar';
+@import './_post-list';
+@import './_footer';
+@import './_article';
 @import './_pagination';
 @import './styles';

@@ -10,7 +10,12 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ConvertMarkdown = require('./configs/markdown-convertor');
+const HelloWorld = require('./configs/hello-world.plugin');
+const MarkDownConvertor = require('./configs/markdown-convertor.plugin');
+
+
 const converter = new showdown.Converter();
+// converter.setOption('ghCompatibleHeaderId', true);
 converter.setOption('ghCompatibleHeaderId', true);
 
 const PATHS = {
@@ -27,10 +32,12 @@ const headerTemplate = fs.readFileSync(`${PATHS.templates}/${TEMPLATE_TYPE}/head
 const footerTemplate = fs.readFileSync(`${PATHS.templates}/${TEMPLATE_TYPE}/footer.${TEMPLATE_TYPE}`);
 const categoriesTemplate = fs.readFileSync(`${PATHS.templates}/${TEMPLATE_TYPE}/categories.${TEMPLATE_TYPE}`);
 
-let markdownFileList = ConvertMarkdown();
+// let markdownFileList = ConvertMarkdown();
+let markdownFileListTemp = new MarkDownConvertor();
+let markdownFileList = markdownFileListTemp.compileMarkdownFiles();
 
 let postLists = [];
-
+let testData = [];
 /* class MyPlugin {
     constructor(options) {
         this.options = options;
@@ -102,7 +109,6 @@ const pagesByCategories = (category) => {
 module.exports = {
     context: __dirname,
     mode: 'development',
-    watch: true,
     watchOptions: {
         aggregateTimeout: 300,
         poll: 1000,
@@ -192,7 +198,17 @@ module.exports = {
     },
     devtool: "source-map",
     plugins: [
-        // new MyPlugin(),
+        new HelloWorld({
+            test: () => {
+                console.log('TEST OPTION =============');
+            }
+        }),
+        new MarkDownConvertor({
+            test: (data) => {
+                console.log('==== NEW MARKDOWN ADDED :: =============\n\n', data);
+                markdownFileList = data;
+            }
+        }),
         // Copy all the static files like images, html, fonts etc.., from SRC folder to DIST folder
         new CopyWebpackPlugin([
             { from: './server.js', to: './' },
@@ -220,7 +236,7 @@ module.exports = {
 
         // Generate Template for each .md files
         ...markdownFileList.map(({ fileName, filePath, fileNameWithoutExt, markdown, frontmatter }, index) => {
-            console.log(fileName, '=====', filePath)
+            // console.log(fileName, '=====', filePath)
 
             return (
                 new HtmlWebpackPlugin({

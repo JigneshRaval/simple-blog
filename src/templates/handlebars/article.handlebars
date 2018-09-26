@@ -35,12 +35,21 @@
                         <h1>{{htmlWebpackPlugin.options.title}}</h1>
                     </header>
 
+                    <div class="article__meta">{{htmlWebpackPlugin.options.post.date}} | <a href="{{htmlWebpackPlugin.options.post.sourceUrl}}"
+                            target="_blank">View Original</a></div>
                     <article class="article__content">
+
                         {{{htmlWebpackPlugin.options.bodyHTML}}}
                     </article>
 
                     <footer class="article__footer">
-
+                        <div class="article__tags">
+                            <ul class="article__tags-list clearfix">
+                                {{#each htmlWebpackPlugin.options.post.tags}}
+                                <li><a href="/pages/{{this}}/index.html">{{this}}</a></li>
+                                {{/each}}
+                            </ul>
+                        </div>
                     </footer>
 
                 </section>

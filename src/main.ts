@@ -50,12 +50,14 @@ class App {
                     this.utils.toggleTheme();
                 }
 
+                if (e.target.id === 'showGrid') {
+                    this.utils.toggleGrid();
+                }
+
             });
         }
 
     }
-
-
 
 }
 
