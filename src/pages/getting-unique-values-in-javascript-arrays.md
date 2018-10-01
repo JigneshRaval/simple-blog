@@ -21,9 +21,9 @@ type: 'Snippet'
 
 ## Method 2: The cooler ES6 way!
 
-ES6 introduced two new data structures: Map and set. We’ll use Set for our task here.
+ES6 introduced two new data structures: Map and set. We'll use Set for our task here.
 
-A set is a collection of values which can be iterated upon in the order of insertion. A value in the set may only occur once; it is unique in the set’s collection.
+A set is a collection of values which can be iterated upon in the order of insertion. A value in the set may only occur once; it is unique in the set's collection.
 
     const sampleValues = [1, 4, 5, 2, 'a', 'e', 'b', 'e', 2, 2, 4];
     const uniqueValues = [...new Set(sampleValues)];

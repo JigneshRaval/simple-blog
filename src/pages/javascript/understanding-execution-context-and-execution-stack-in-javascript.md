@@ -15,22 +15,22 @@ If you are or want to be a JavaScript developer, then you must know how the Java
 
 Properly understanding the concept of execution context and execution stack will make you a much better JavaScript developer.
 
-So without further ado, let’s get started :)
+So without further ado, let's get started :)
 
 * * *
 
 
 ### What is an Execution Context?
 
-Simply put, an execution context is an abstract concept of an environment where the Javascript code is evaluated and executed. Whenever any code is run in JavaScript, it’s run inside an execution context.
+Simply put, an execution context is an abstract concept of an environment where the Javascript code is evaluated and executed. Whenever any code is run in JavaScript, it's run inside an execution context.
 
 #### Types of Execution Context
 
 There are three types of execution context in JavaScript.
 
 *   **Global Execution Context — **This is the default or base execution context. The code that is not inside any function is in the global execution context. It performs two things: it creates a global object which is a window object (in case of browsers) and sets the value of `this` to equal to the global object. There can only be one global execution context in a program.
-*   **Functional Execution Context —** Every time a function is invoked, a brand new execution context is created for that function. Each function has its own execution context, but it’s created when the function is invoked or called. There can be any number of function execution contexts. Whenever a new execution context is created, it goes through a series of steps in a defined order which I will discuss later in this article.
-*   **Eval Function Execution Context —** Code executed inside an `eval` function also gets its own execution context, but as `eval` isn’t usually used by JavaScript developers, so I will not discuss it here.
+*   **Functional Execution Context —** Every time a function is invoked, a brand new execution context is created for that function. Each function has its own execution context, but it's created when the function is invoked or called. There can be any number of function execution contexts. Whenever a new execution context is created, it goes through a series of steps in a defined order which I will discuss later in this article.
+*   **Eval Function Execution Context —** Code executed inside an `eval` function also gets its own execution context, but as `eval` isn't usually used by JavaScript developers, so I will not discuss it here.
 
 ### Execution Stack
 
@@ -40,7 +40,7 @@ When the JavaScript engine first encounters your script, it creates a global exe
 
 The engine executes the function whose execution context is at the top of the stack. When this function completes, its execution stack is popped off from the stack, and the control reaches to the context below it in the current stack.
 
-Let’s understand this with a code example below:
+Let's understand this with a code example below:
 
 ```
 let a = 'Hello World!';
@@ -71,7 +71,7 @@ When the `first()` finishes, its execution stack is removed from the stack and c
 
 ### How is the Execution Context created?
 
-Up until now, we have seen how the JavaScript engine manages the execution context, Now let’s understand how an execution context is created by the JavaScript engine.
+Up until now, we have seen how the JavaScript engine manages the execution context, Now let's understand how an execution context is created by the JavaScript engine.
 
 The execution context is created in two phases: **1) Creation Phase** and **2) Execution Phase.**
 
@@ -129,7 +129,7 @@ Now, within the Lexical Environment, there are two components: (1) the **environ
 
 There are two types of _lexical environment_:
 
-*   A **global environment** (in a global execution context) is a Lexical Environment which does not have an outer environment. The global environment’s outer environment reference is **null**. It has global object (window object) and its associated methods and properties (eg. array methods) inside the environment record as well as any user-defined global variables, and the value of `this` refers to the global object.
+*   A **global environment** (in a global execution context) is a Lexical Environment which does not have an outer environment. The global environment's outer environment reference is **null**. It has global object (window object) and its associated methods and properties (eg. array methods) inside the environment record as well as any user-defined global variables, and the value of `this` refers to the global object.
 *   A **function environment**, in which the user-defined variables inside the function are stored in the **environment record**. And the reference to the outer environment can be the global environment, or an outer function environment that contains the inner function.
 
 **Note — **For **function environment**, the _environment record_ also contains an `arguments` object that contains mapping between indexes and arguments passed to the function and the _length(number)_ of the arguments passed into the function. For example, an argument object for the below function looks like this:
@@ -173,13 +173,13 @@ FunctionExectionContext = {
 
 #### Variable Environment:
 
-It’s also a Lexical Environment whose EnvironmentRecord holds bindings created by _VariableStatements_ within this execution context.
+It's also a Lexical Environment whose EnvironmentRecord holds bindings created by _VariableStatements_ within this execution context.
 
 As written above, the variable environment is also a lexical environment, So it has all the properties of a lexical environment as defined above.
 
 In ES6, one difference between **LexicalEnvironment** component and the **VariableEnvironment** component is that the former is used to store function declaration and variable (`let` and `const`) bindings, while the latter is used to store only variable `(var)` bindings.
 
-Let’s look at some code example to understand the above concepts:
+Let's look at some code example to understand the above concepts:
 
 ```
 let a = 20;
@@ -261,10 +261,10 @@ This is, what we call hoisting.
 
 This is the simplest part of this entire article. In this phase assignments to all those variables are done, and the code is finally executed.
 
-**Note —** During the execution phase, if the JavaScript engine couldn’t find the value of `let` variable at the actual place it was declared in the source code, then it will assign it the value of `undefined`.
+**Note —** During the execution phase, if the JavaScript engine couldn't find the value of `let` variable at the actual place it was declared in the source code, then it will assign it the value of `undefined`.
 
 ### Conclusion
 
-So we have discussed how JavaScript programs are executed internally. While it’s not necessary that you learn all these concepts to be an awesome JavaScript developer, having decent understanding of the above concepts will help you to understand other concepts such as Hoisting, Scope, and Closures more easily and deeply.
+So we have discussed how JavaScript programs are executed internally. While it's not necessary that you learn all these concepts to be an awesome JavaScript developer, having decent understanding of the above concepts will help you to understand other concepts such as Hoisting, Scope, and Closures more easily and deeply.
 
-That’s it and if you found this article helpful, please hit the 👏 button and feel free to comment below! I’d be happy to talk 😃
+That's it and if you found this article helpful, please hit the 👏 button and feel free to comment below! I'd be happy to talk 😃

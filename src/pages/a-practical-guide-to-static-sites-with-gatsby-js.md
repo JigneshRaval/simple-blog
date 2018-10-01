@@ -43,7 +43,7 @@ Gatsby is simply a robust and fast static site generator which uses React.js to 
 Gatsby is said to be robust in a way that the static content rendered can be sourced from a large number of sources and formats including markdown, CSV and from CMS like Wordpress and Drupal. All that is required are plugins to handle the data transformation. Plugins in Gatsby are of three categories.
 
 *   Functional Plugins: These plugins simply extend the ability of Gatsby. An example is the gatsby-plugin-react-helmet which allows the manipulation of the Head of our document.
-*   Source Plugins: This plugin ‘finds’ files in a Gatsby project and creates File Nodes for each of this files, these files can then be manipulated by transformer plugins. An example is the gatsby-source-filesystem which ‘sources’ files in the filesystem of a Gatsby project and creates File Nodes containing information about the file.
+*   Source Plugins: This plugin 'finds' files in a Gatsby project and creates File Nodes for each of this files, these files can then be manipulated by transformer plugins. An example is the gatsby-source-filesystem which 'sources' files in the filesystem of a Gatsby project and creates File Nodes containing information about the file.
 *   Transformer Plugins: Like we saw earlier, data in Gatsby can come from multiple sources and transformer plugins are responsible for converting these files to formats recognizable by Gatsby. An example is the gatsby-transformer-remark plugin which converts Markdown File Nodes from the filesystem into MarkdownRemark which can be utilized by Gatsby. Other plugins exist for various data sources and you can find them [here](https://www.gatsbyjs.org/docs/plugins/).
 
     ## [# Prerequisites](#toc-prerequisites)
@@ -61,7 +61,7 @@ node -v && npm -v
 
 Else, install Node from [here](https://nodejs.org/en/).
 
-Gatsby offers a powerful CLI tool for a faster build of static sites. The Gatsby CLI installs packages known as ‘starters’. These starters come as pre-packaged projects with essential files to speed up the development process of the static site. Install the Gatsby CLI with:
+Gatsby offers a powerful CLI tool for a faster build of static sites. The Gatsby CLI installs packages known as 'starters'. These starters come as pre-packaged projects with essential files to speed up the development process of the static site. Install the Gatsby CLI with:
 
 Related Course: [Getting Started with JavaScript for Web Development](https://bit.ly/2rVqDcs)
 
@@ -87,7 +87,7 @@ This starts a local server on port 8000.
 
 The web page looks like:
 
-Gatsby’s default starter comes with all essential files we require for development. You can find other starters [here](https://www.gatsbyjs.org/docs/gatsby-starters/) and even create or contribute to a starter.
+Gatsby's default starter comes with all essential files we require for development. You can find other starters [here](https://www.gatsbyjs.org/docs/gatsby-starters/) and even create or contribute to a starter.
 
 For a simple blog all we require are:
 
@@ -106,7 +106,7 @@ npm install --save gatsby-transformer-remark gatsby-source-filesystem
 
 > Note: The gatsby-plugin-react-helmet comes preinstalled with the default Gatsby starter
 
-**Configure Plugins** Before we go ahead to create pages, let’s configure the installed plugins. Navigate to gatsby-config.js in the root directory of your project and edit it to:
+**Configure Plugins** Before we go ahead to create pages, let's configure the installed plugins. Navigate to gatsby-config.js in the root directory of your project and edit it to:
 
 ```js
 module.exports = {
@@ -176,7 +176,7 @@ TemplateWrapper.propTypes = {
 export default TemplateWrapper
 ```
 
-`<Helmet/>` is a component provided by the react-helmet plugin shipped originally with Gatsby’s default starter. A `Header` component is imported and the `div` to contain all page elements is styled in-line. Gatsby offers the flexibility of creating custom components in react and these components can as well be stateful or stateless. We will stick to using stateless components in this tutorial, like the `<Header/>` component.
+`<Helmet/>` is a component provided by the react-helmet plugin shipped originally with Gatsby's default starter. A `Header` component is imported and the `div` to contain all page elements is styled in-line. Gatsby offers the flexibility of creating custom components in react and these components can as well be stateful or stateless. We will stick to using stateless components in this tutorial, like the `<Header/>` component.
 
 Navigate to the header component in `src/components/header/index.js` edit it to:
 
@@ -335,7 +335,7 @@ const IndexPage = ({data}) => {
 export default IndexPage
 ```
 
-The `.map()` method is used to traverse the data object for data to be passed to the components elements. We passed the title, author, date, time to read and excerpt to various JSX elements. We still haven’t queried this data. After the export statement create a GraphQL query with:
+The `.map()` method is used to traverse the data object for data to be passed to the components elements. We passed the title, author, date, time to read and excerpt to various JSX elements. We still haven't queried this data. After the export statement create a GraphQL query with:
 
 ```js
 export const  query = graphql`
@@ -385,7 +385,7 @@ The `sort` query is used to sort articles by date in an ascending order so we ha
 
 Restart the development server and we have:
 
-Alas, we have an awesome blog page with details and excerpt from the post content. We need to view each blog post on a separate page, let’s do that next.
+Alas, we have an awesome blog page with details and excerpt from the post content. We need to view each blog post on a separate page, let's do that next.
 
 ## [# Creating Blog Pages](#toc-creating-blog-pages)
 
@@ -396,7 +396,7 @@ To accomplish this, we will require two important APIs which ship with Gatsby an
 *   onCreateNode
 *   createPages
 
-We will simply be creating a ‘path’ otherwise known as ‘slug’ for each page and then creating the page itself from its slug. APIs in Gatsby are utilized by exporting a function from the Gatsby-node.js file in our root directory.
+We will simply be creating a 'path' otherwise known as 'slug' for each page and then creating the page itself from its slug. APIs in Gatsby are utilized by exporting a function from the Gatsby-node.js file in our root directory.
 
 In Gatsby-node.js, export the `onCreateNode` function and create the file path from each File node with:
 
@@ -419,7 +419,7 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
 
 The `createFilePath` function ships with the `gatsby-source-filesystem` and enables us to create a file path from the File nodes in our project. First, a conditional statement is used to filter only the markdown file nodes, while the `createFilePath` creates the slug for each File node. The `createNodeField` function from the API adds the slug as a field to each file node, in this case, Markdown File nodes. This new field created(slug) can then be queried with GraphQL.
 
-While we have a path to our page, we don’t have the page yet. To create the pages, export the `createPages` API which returns a Promise on execution.
+While we have a path to our page, we don't have the page yet. To create the pages, export the `createPages` API which returns a Promise on execution.
 
 ```js
 const path = require(`path`)
@@ -538,13 +538,13 @@ So far we have built out a simple static blog with blog content and pages. It wi
 
 Create an account with Github and Netlify. In Github, create an empty repository and push all files from your project folder to the repository.
 
-Netlify offers a login option with Github. Log into Netlify with your Github account or create a new account with Netlify. Click the ‘New site from Git’ button and select your Git provider.
+Netlify offers a login option with Github. Log into Netlify with your Github account or create a new account with Netlify. Click the 'New site from Git' button and select your Git provider.
 
 Github is the chosen Git Provider in this case.
 
 Select Github and choose the repository you wish to deploy, in this case, the repository for the static blog. Next, specify the branch to deploy from, build command, and publish directory.
 
-Click the ‘Deploy site’ Button to deploy the static site. This may take few minutes to deploy after which the static site is deployed to a Netlify sub-domain. Here is the demo of the static blog built earlier. [https://vigilant-bhaskara-66ed6e.netlify.com/](https://vigilant-bhaskara-66ed6e.netlify.com/).
+Click the 'Deploy site' Button to deploy the static site. This may take few minutes to deploy after which the static site is deployed to a Netlify sub-domain. Here is the demo of the static blog built earlier. [https://vigilant-bhaskara-66ed6e.netlify.com/](https://vigilant-bhaskara-66ed6e.netlify.com/).
 
 ## [# Conclusion](#toc-conclusion)
 

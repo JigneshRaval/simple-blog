@@ -47,7 +47,7 @@ var regexLiteral = /abc/;
 ```
 *   Here the flags are optional, I will explain these later in this article.
 
-There might also be cases where you want to create regular expressions dynamically, in which case regex literal won’t work, so you have to use a regular expression constructor.
+There might also be cases where you want to create regular expressions dynamically, in which case regex literal won't work, so you have to use a regular expression constructor.
 
 No matter which method you choose, the result is going to be a regex object. Both regex objects will have same methods and properties attached to them.
 
@@ -107,20 +107,20 @@ console.log(regex.test('hello world'));
 ```
 ### Special Characters
 
-Up until now we’ve created simple regular expression patterns. Now, let’s tap into the full power of regular expressions when handling more complex cases.
+Up until now we've created simple regular expression patterns. Now, let's tap into the full power of regular expressions when handling more complex cases.
 
-For example, instead of matching a specific email address let’s say we’d like to match a number of email addresses. That’s where special characters come into play. There are special symbols and characters that you have to memorize in order to fully understand the regular expressions.
+For example, instead of matching a specific email address let's say we'd like to match a number of email addresses. That's where special characters come into play. There are special symbols and characters that you have to memorize in order to fully understand the regular expressions.
 
 #### Flags:
 
-Regular expressions have five optional flags or modifiers. Let’s discuss the two most important flags:
+Regular expressions have five optional flags or modifiers. Let's discuss the two most important flags:
 
-*   **g** — Global search, don’t return after the first match
+*   **g** — Global search, don't return after the first match
 *   **i** — Case-insensitive search
 
-You can also combine the flags in a single regular expression. Note that their order doesn’t have any effect on the result.
+You can also combine the flags in a single regular expression. Note that their order doesn't have any effect on the result.
 
-Let’s look at some code examples:
+Let's look at some code examples:
 
 **Regular Expression Literal — **_Syntax_ `/pattern/flags`
 
@@ -343,7 +343,7 @@ console.log(regex.test('foobar'));
 
 `\1` remembers and uses that match from first subexpression within parentheses.
 
-**(?:x) **— Matches x and does not remember the match. These are called non capturing groups. Here `\1` won’t work, it will match the literal `\1`.
+**(?:x) **— Matches x and does not remember the match. These are called non capturing groups. Here `\1` won't work, it will match the literal `\1`.
 
 var regex = /(?:foo)bar\\1/;
 console.log(regex.test('foobarfoo'));
@@ -366,7 +366,7 @@ In the above example, match will occur only if `Red`is followed by `Apple`.
 
 ### Practicing Regex:
 
-Let’s practice some of the concepts that we have learned above.
+Let's practice some of the concepts that we have learned above.
 
 *   **Match any 10 digit number :**
 
@@ -375,7 +375,7 @@ var regex = /^\\d{10}$/;
 console.log(regex.test('9995484545'));
 // true
 
-Let’s break that down and see what’s going on up there.
+Let's break that down and see what's going on up there.
 
 1.  If we want to enforce that the match must span the whole string, we can add the quantifiers `^` and `$`. The caret `^` matches the start of the input string, whereas the dollar sign `$` matches the end. So it would not match if string contain for than 10 digits.
 2.  `\d` matches any digit character.
@@ -391,7 +391,7 @@ console.log(regex.test('01-01-90'));
 console.log(regex.test('01-01-190'));
 // false
 
-Let’s break that down and see what’s going on up there.
+Let's break that down and see what's going on up there.
 
 1.  Again, we have wrapped the entire regular expression inside `^` and `$`, so that the match spans entire string.
 2.  `(` start of first subexpression.
@@ -400,7 +400,7 @@ Let’s break that down and see what’s going on up there.
 5.  `)` end of first subexpression.
 6.  `{2}` match the first subexpression exactly two times.
 7.  `\d{2}` matches exactly two digits.
-8.  `(\d{2})?` matches exactly two digits. But it’s optional, so either year contains 2 digits or 4 digits.
+8.  `(\d{2})?` matches exactly two digits. But it's optional, so either year contains 2 digits or 4 digits.
 
 *   **Matching Anything But a Newline**
 
@@ -417,7 +417,7 @@ console.log(regex.test('1243.446.abc.def'));
 console.log(regex.test('abc.def.ghi.jkl'));
 // true
 
-Let’s break that down and see what’s going on up there.
+Let's break that down and see what's going on up there.
 
 1.  We have wrapped entire regular expression inside `^` and `$`, so that the match spans entire string.
 2.  `(` start of first sub expression
@@ -433,4 +433,4 @@ Regular expression can be fairly complex at times, but having a proper understan
 
 * * *
 
-**That’s it and if you found this article helpful, please hit the 👏 button (a few times) and share the article, so that others can find it easily :) You can also follow me on** [**Medium**](http://medium.com/@sukhjinder) **and** [**Twitter**](https://twitter.com/sukhjinder_95/)** :)**Learn more
+**That's it and if you found this article helpful, please hit the 👏 button (a few times) and share the article, so that others can find it easily :) You can also follow me on** [**Medium**](http://medium.com/@sukhjinder) **and** [**Twitter**](https://twitter.com/sukhjinder_95/)** :)**Learn more

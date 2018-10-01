@@ -65,7 +65,7 @@ The idea is really simple. The AbstractFactory defers creation of a product obje
 
 The abstract factory classes are often implemented with [Factory Method pattern](https://itnext.io/easy-patterns-factory-method-5f27385ac5c). ConcreteFactory is often a [Singleton](https://itnext.io/easy-patterns-singleton-283356fb29bf) (that is reasonable from the perspective that ConcreteFactory should create a concrete family of classes).
 
-In example we are creating several products: CodeSnippets and CodeParsers. Each code snippet should correspond to specific code parser. That’s why it makes sense to create CodeProcessorFactories that create code snippet and code parser in tandem.
+In example we are creating several products: CodeSnippets and CodeParsers. Each code snippet should correspond to specific code parser. That's why it makes sense to create CodeProcessorFactories that create code snippet and code parser in tandem.
 
 ![](https://i.embed.ly/1/display/resize?url=https%3A%2F%2Favatars3.githubusercontent.com%2Fu%2F3177052%3Fs%3D400%26v%3D4&key=a19fcc184b9711e1b4764040d3dc5c07&width=40)
 
@@ -75,11 +75,11 @@ This pattern isolates concrete classes. It helps you to control the classes of o
 
 This makes it easy to change the concrete factory an application uses. It can use different product configurations simply by changing the concrete factory.
 
-It promotes consistency among products. When the products across in a family are designed to work together, it’s important that an application uses objects from only one family at a time.
+It promotes consistency among products. When the products across in a family are designed to work together, it's important that an application uses objects from only one family at a time.
 
 ### Weak places
 
-Extending abstract factories to produce new kinds of Products isn’t easy. AbstractFactory interface fixes the set of products that can be created. Supporting new kinds of products requires extending the AbstractFactory interface, which involves changing of all its subclasses as well.
+Extending abstract factories to produce new kinds of Products isn't easy. AbstractFactory interface fixes the set of products that can be created. Supporting new kinds of products requires extending the AbstractFactory interface, which involves changing of all its subclasses as well.
 
 ### Conclusion
 

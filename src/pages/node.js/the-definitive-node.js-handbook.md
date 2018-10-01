@@ -80,35 +80,35 @@ Node.js is a **runtime environment for JavaScript** that runs on the **server**.
 
 Node.js is an open source cross-platform. Since its introduction in 2009, it got hugely popular and now plays a significant role in the web development scene. If GitHub stars are one popularity indication factor, having 46,000+ stars means it is very popular.
 
-Node.js is built on top of the Google Chrome V8 JavaScript engine, and it’s mainly used to create web servers — but it’s not limited to that.
+Node.js is built on top of the Google Chrome V8 JavaScript engine, and it's mainly used to create web servers — but it's not limited to that.
 
-#### It’s fast
+#### It's fast
 
 One of the main selling points of Node.js is **speed**. JavaScript code running on Node.js (depending on the benchmark) can be twice as fast as compiled languages like C or Java, and orders of magnitude faster than interpreted languages like Python or Ruby, because of its non-blocking paradigm.
 
-#### It’s simple
+#### It's simple
 
 Node.js is simple. Extremely simple, actually.
 
-#### It’s JavaScript
+#### It's JavaScript
 
 Node.js runs JavaScript code. This means that millions of front-end developers that already use JavaScript in the browser are able to run the server-side code and client-side code using the same programming language without the need to learn a completely different tool.
 
-The paradigms are all the same, and in Node.js the new ECMAScript standards can be used first, as you don’t have to wait for all your users to update their browsers — you decide which ECMAScript version to use by changing the Node.js version.
+The paradigms are all the same, and in Node.js the new ECMAScript standards can be used first, as you don't have to wait for all your users to update their browsers — you decide which ECMAScript version to use by changing the Node.js version.
 
 #### It runs on V8
 
 Running on the Google V8 JavaScript engine, which is open source — Node.js is able to leverage the work of thousands of engineers that made (and will continue to make) the Chrome JavaScript runtime blazing fast.
 
-#### It’s an asynchronous platform
+#### It's an asynchronous platform
 
 In traditional programming languages (C, Java, Python, PHP) all instructions are blocking by default unless you explicitly “opt in” to perform asynchronous operations. If you perform a network request to read some JSON, the execution of that particular thread is blocked until the response is ready.
 
-JavaScript allows to create **asynchronous and non-blocking code** in a very simple way, by using a single thread, callback functions and event-driven programming. Every time an expensive operation occurs, we pass a callback function that will be called once we can continue with the processing. We’re not waiting for that to finish before going on with the rest of the program.
+JavaScript allows to create **asynchronous and non-blocking code** in a very simple way, by using a single thread, callback functions and event-driven programming. Every time an expensive operation occurs, we pass a callback function that will be called once we can continue with the processing. We're not waiting for that to finish before going on with the rest of the program.
 
-Such mechanism derives from the browser. We can’t wait until something loads from an AJAX request before being able to intercept click events on the page. **It all must happen in real time** to provide a good experience to the user.
+Such mechanism derives from the browser. We can't wait until something loads from an AJAX request before being able to intercept click events on the page. **It all must happen in real time** to provide a good experience to the user.
 
-If you’ve created an onclick handler for a web page you’ve already used asynchronous programming techniques with event listeners.
+If you've created an onclick handler for a web page you've already used asynchronous programming techniques with event listeners.
 
 This allows Node.js to handle thousands of concurrent connections with a single server without introducing the burden of managing threads concurrency, which would be a major source of bugs.
 
@@ -201,7 +201,7 @@ In comparison, JavaScript is 23 years old and the web as we know it (after the i
 
 9 years is such a little amount of time for a technology, but Node.js seems to have been around forever.
 
-I’ve had the pleasure to work with Node.js since the early days when it was just 2 years old, and despite the little information available, you could already feel it was a huge thing.
+I've had the pleasure to work with Node.js since the early days when it was just 2 years old, and despite the little information available, you could already feel it was a huge thing.
 
 In this section, I want to draw the big picture of Node.js in its history, to put things in perspective.
 
@@ -209,11 +209,11 @@ In this section, I want to draw the big picture of Node.js in its history, to pu
 
 JavaScript is a programming language that was created at Netscape as a scripting tool to manipulate web pages inside their browser, [Netscape Navigator](https://en.wikipedia.org/wiki/Netscape_Navigator).
 
-Part of the business model of Netscape was to sell Web Servers, which included an environment called “Netscape LiveWire”, which could create dynamic pages using server-side JavaScript. So the idea of server-side JavaScript was not introduced by Node.js, it’s old just like JavaScript — but at the time it was not successful.
+Part of the business model of Netscape was to sell Web Servers, which included an environment called “Netscape LiveWire”, which could create dynamic pages using server-side JavaScript. So the idea of server-side JavaScript was not introduced by Node.js, it's old just like JavaScript — but at the time it was not successful.
 
 One key factor that led to the rise of Node.js was timing. A few years ago, JavaScript was starting to be considered a serious language, thanks for the “Web 2.0” applications that showed the world what a modern experience on the web could be like (think Google Maps or GMail).
 
-The JavaScript engines performance bar raised considerably thanks to the browser competition battle, which is still going strong. Development teams behind each major browser work hard every day to give us better performance, which is a huge win for JavaScript as a platform. Chrome V8, the engine that Node.js uses under the hood, is one of those and in particular it’s the Chrome JavaScript engine.
+The JavaScript engines performance bar raised considerably thanks to the browser competition battle, which is still going strong. Development teams behind each major browser work hard every day to give us better performance, which is a huge win for JavaScript as a platform. Chrome V8, the engine that Node.js uses under the hood, is one of those and in particular it's the Chrome JavaScript engine.
 
 But of course, Node.js is not popular just because of pure luck or timing. It introduced much innovative thinking on how to program in JavaScript on the server.
 
@@ -307,13 +307,13 @@ Other package managers for Linux and Windows are listed [here](https://nodejs.or
 
 It is also very useful to test your code with old Node.js versions.
 
-My suggestion is to use the official installer if you are just starting out and you don’t use Homebrew already. Otherwise, Homebrew is my favorite solution.
+My suggestion is to use the official installer if you are just starting out and you don't use Homebrew already. Otherwise, Homebrew is my favorite solution.
 
 ### How much JavaScript do you need to know to use Node.js?
 
 If you are just starting out with JavaScript, how deeply do you need to know the language?
 
-As a beginner, it’s hard to get to a point where you are confident enough in your programming abilities.
+As a beginner, it's hard to get to a point where you are confident enough in your programming abilities.
 
 While learning to code, you might also be confused at where does JavaScript end, and where Node.js begins, and vice versa.
 
@@ -345,7 +345,7 @@ The following concepts are also key to understand asynchronous programming, whic
 *   Closures
 *   The Event Loop
 
-Luckily I wrote a free ebook that explains all those topics, and it’s called [JavaScript Fundamentals](https://flaviocopes.com/javascript/). It’s the most compact resource you’ll find to learn all of this.
+Luckily I wrote a free ebook that explains all those topics, and it's called [JavaScript Fundamentals](https://flaviocopes.com/javascript/). It's the most compact resource you'll find to learn all of this.
 
 ### Differences between Node.js and the Browser
 
@@ -355,25 +355,25 @@ Both the browser and Node use JavaScript as their programming language.
 
 Building apps that run in the browser is a completely different thing than building a Node.js application.
 
-Despite the fact that it’s always JavaScript, there are some key differences that make the experience radically different.
+Despite the fact that it's always JavaScript, there are some key differences that make the experience radically different.
 
 A front-end developer that writes Node.js apps has a huge advantage — the language is still the same.
 
-You have a huge opportunity because we know how hard it is to fully, deeply learn a programming language. By using the same language to perform all your work on the web — both on the client and on the server — you’re in a unique position of advantage.
+You have a huge opportunity because we know how hard it is to fully, deeply learn a programming language. By using the same language to perform all your work on the web — both on the client and on the server — you're in a unique position of advantage.
 
 What changes is the ecosystem.
 
-In the browser, most of the time what you are doing is interacting with the DOM, or other Web Platform APIs like Cookies. Those do not exist in Node.js, of course. You don’t have the `document`, `window` and all the other objects that are provided by the browser.
+In the browser, most of the time what you are doing is interacting with the DOM, or other Web Platform APIs like Cookies. Those do not exist in Node.js, of course. You don't have the `document`, `window` and all the other objects that are provided by the browser.
 
-And in the browser, we don’t have all the nice APIs that Node.js provides through its modules, like the file system access functionality.
+And in the browser, we don't have all the nice APIs that Node.js provides through its modules, like the file system access functionality.
 
-Another big difference is that in Node.js you control the environment. Unless you are building an open source application that anyone can deploy anywhere, you know which version of Node.js you will run the application on. Compared to the browser environment, where you don’t get the luxury to choose what browser your visitors will use, this is very convenient.
+Another big difference is that in Node.js you control the environment. Unless you are building an open source application that anyone can deploy anywhere, you know which version of Node.js you will run the application on. Compared to the browser environment, where you don't get the luxury to choose what browser your visitors will use, this is very convenient.
 
 This means that you can write all the modern ES6–7–8–9 JavaScript that your Node version supports.
 
 Since JavaScript moves so fast, but browsers can be a bit slow and users a bit slow to upgrade — sometimes on the web, you are stuck using older JavaScript/ECMAScript releases.
 
-You can use Babel to transform your code to be ES5-compatible before shipping it to the browser, but in Node.js, you won’t need that.
+You can use Babel to transform your code to be ES5-compatible before shipping it to the browser, but in Node.js, you won't need that.
 
 Another difference is that Node.js uses the [CommonJS](https://flaviocopes.com/commonjs/) module system, while in the browser we are starting to see the ES Modules standard being implemented.
 
@@ -381,11 +381,11 @@ In practice, this means that for the time being you use `require()` in Node.js a
 
 ### The V8 JavaScript Engine
 
-V8 is the name of the JavaScript engine that powers Google Chrome. It’s the thing that takes our JavaScript and executes it while browsing with Chrome.
+V8 is the name of the JavaScript engine that powers Google Chrome. It's the thing that takes our JavaScript and executes it while browsing with Chrome.
 
 V8 provides the runtime environment in which JavaScript executes. The DOM, and the other Web Platform APIs are provided by the browser.
 
-The cool thing is that the JavaScript engine is independent by the browser in which it’s hosted. This key feature enabled the rise of Node.js. V8 was chosen for being the engine chosen by Node.js back in 2009, and as the popularity of Node.js exploded, V8 became the engine that now powers an incredible amount of server-side code written in JavaScript.
+The cool thing is that the JavaScript engine is independent by the browser in which it's hosted. This key feature enabled the rise of Node.js. V8 was chosen for being the engine chosen by Node.js back in 2009, and as the popularity of Node.js exploded, V8 became the engine that now powers an incredible amount of server-side code written in JavaScript.
 
 The Node.js ecosystem is huge and thanks to it V8 also powers desktop apps, with projects like [Electron](https://electronjs.org/).
 
@@ -403,13 +403,13 @@ All those engines implement the ECMA ES-262 standard, also called ECMAScript, th
 
 #### The quest for performance
 
-V8 is written in C++, and it’s continuously improved. It is portable and runs on Mac, Windows, Linux and several other systems.
+V8 is written in C++, and it's continuously improved. It is portable and runs on Mac, Windows, Linux and several other systems.
 
 In this V8 introduction, I will ignore the implementation details of V8. They can be found on more authoritative sites, including the [V8 official site](https://developers.google.com/v8/), and they change over time, often radically.
 
 V8 is always evolving, just like the other JavaScript engines around, to speed up the Web and the Node.js ecosystem.
 
-On the web, there is a race for performance that’s been going on for years, and we (as users and developers) benefit a lot from this competition because we get faster and more optimized machines year after year.
+On the web, there is a race for performance that's been going on for years, and we (as users and developers) benefit a lot from this competition because we get faster and more optimized machines year after year.
 
 #### Compilation
 
@@ -423,7 +423,7 @@ This might seem counter-intuitive,. But since the introduction of Google Maps in
 
 Our applications now can run for hours inside a browser, rather than being just a few form validation rules or simple scripts.
 
-In this **new world**, compiling JavaScript makes perfect sense because while it might take a little bit more to have the JavaScript **ready**, once done it’s going to be much more performant that purely interpreted code.
+In this **new world**, compiling JavaScript makes perfect sense because while it might take a little bit more to have the JavaScript **ready**, once done it's going to be much more performant that purely interpreted code.
 
 ### How to exit from a Node.js program
 
@@ -431,13 +431,13 @@ There are various ways to terminate a Node.js application.
 
 When running a program in the console you can close it with `ctrl-C`, but what I want to discuss here is programmatically exiting.
 
-Let’s start with the most drastic one, and see why you’re better off **not** using it.
+Let's start with the most drastic one, and see why you're better off **not** using it.
 
 The `process` core module is provides a handy method that allows you to programmatically exit from a Node.js program: `process.exit()`.
 
 When Node.js runs this line, the process is immediately forced to terminate.
 
-This means that any callback that’s pending, any network request still being sent, any file system access, or processes writing to `stdout` or `stderr` — all is going to be ungracefully terminated right away.
+This means that any callback that's pending, any network request still being sent, any file system access, or processes writing to `stdout` or `stderr` — all is going to be ungracefully terminated right away.
 
 If this is fine for you, you can pass an integer that signals the operating system the exit code:
 
@@ -522,7 +522,7 @@ I will list the options from simplest and constrained to more complex and powerf
 
 #### Simplest option ever: local tunnel
 
-Even if you have a dynamic IP, or you’re under a NAT, you can deploy your app and serve the requests right from your computer using a local tunnel.
+Even if you have a dynamic IP, or you're under a NAT, you can deploy your app and serve the requests right from your computer using a local tunnel.
 
 This option is suited for some quick testing, demo a product or sharing of an app with a very small group of people.
 
@@ -536,7 +536,7 @@ Another service you can use is [localtunnel](https://github.com/localtunnel/loca
 
 #### Glitch
 
-[Glitch](https://glitch.com/) is a playground and a way to build your apps faster than ever, and see them live on their own glitch.com subdomain. You cannot currently have a a custom domain, and there are a few [restrictions](https://glitch.com/faq#restrictions) in place, but it’s really great to prototype. It looks fun (and this is a plus), and it’s not a dumbed down environment — you get all the power of Node.js, a CDN, secure storage for credentials, GitHub import/export and much more.
+[Glitch](https://glitch.com/) is a playground and a way to build your apps faster than ever, and see them live on their own glitch.com subdomain. You cannot currently have a a custom domain, and there are a few [restrictions](https://glitch.com/faq#restrictions) in place, but it's really great to prototype. It looks fun (and this is a plus), and it's not a dumbed down environment — you get all the power of Node.js, a CDN, secure storage for credentials, GitHub import/export and much more.
 
 Provided by the company behind FogBugz and Trello (and co-creators of Stack Overflow).
 
@@ -563,7 +563,7 @@ PAAS stands for Platform As A Service. These platforms take away a lot of things
 
 #### Zeit Now
 
-[Zeit](https://zeit.co/now) is an interesting option. You just type `now` in your terminal, and it takes care of deploying your application. There is a free version with limitations, and the paid version is more powerful. You simply forget that there’s a server, you just deploy the app.
+[Zeit](https://zeit.co/now) is an interesting option. You just type `now` in your terminal, and it takes care of deploying your application. There is a free version with limitations, and the paid version is more powerful. You simply forget that there's a server, you just deploy the app.
 
 #### Nanobox
 
@@ -605,7 +605,7 @@ Another solution is to get a [bare metal server](https://en.wikipedia.org/wiki/B
 
 ### How to use the Node.js REPL
 
-REPL stands for Read-Evaluate-Print-Loop, and it’s a great way to explore the Node.js features in a quick way.
+REPL stands for Read-Evaluate-Print-Loop, and it's a great way to explore the Node.js features in a quick way.
 
 The `node` command is the one we use to run our Node.js scripts:
 
@@ -643,7 +643,7 @@ We can now enter a new line of JavaScript.
 
 #### Use the tab to autocomplete
 
-The cool thing about the REPL is that it’s interactive.
+The cool thing about the REPL is that it's interactive.
 
 As you write your code, if you press the `tab` key the REPL will try to autocomplete what you wrote to match a variable you already defined or a predefined one.
 
@@ -838,7 +838,7 @@ const oranges = ['orange', 'orange']const apples = ['just one apple']oranges.for
 
 #### Print the stack trace
 
-There might be cases where it’s useful to print the call stack trace of a function, maybe to answer the question: “How did you reach that part of the code?”
+There might be cases where it's useful to print the call stack trace of a function, maybe to answer the question: “How did you reach that part of the code?”
 
 You can do so using `console.trace()`:
 
@@ -846,7 +846,7 @@ You can do so using `console.trace()`:
 const function2 = () => console.trace()const function1 = () => function2()function1()
 ```
 
-This will print the stack trace. This is what’s printed if I try this in the Node REPL:
+This will print the stack trace. This is what's printed if I try this in the Node REPL:
 
 ```
 Trace    at function2 (repl:1:33)    at function1 (repl:1:25)    at repl:1:1    at ContextifyScript.Script.runInThisContext (vm.js:44:33)    at REPLServer.defaultEval (repl.js:239:29)    at bound (domain.js:301:14)    at REPLServer.runBound [as eval] (domain.js:314:12)    at REPLServer.onLine (repl.js:440:10)    at emitOne (events.js:120:20)    at REPLServer.emit (events.js:210:7)
@@ -862,7 +862,7 @@ const doSomething = () => console.log('test')const measureDoingSomething = () =>
 
 #### stdout and stderr
 
-As we saw console.log is great for printing messages in the Console. This is what’s called the standard output, or `stdout`.
+As we saw console.log is great for printing messages in the Console. This is what's called the standard output, or `stdout`.
 
 `console.error` prints to the `stderr` stream.
 
@@ -926,9 +926,9 @@ The `question()` method shows the first parameter (a question) and waits for the
 
 In this callback function, we close the readline interface.
 
-`readline` offers several other methods, and I’ll let you check them out on the package documentation I linked above.
+`readline` offers several other methods, and I'll let you check them out on the package documentation I linked above.
 
-If you need to require a password, it’s best to now echo it back, but instead showing a `*`symbol.
+If you need to require a password, it's best to now echo it back, but instead showing a `*`symbol.
 
 The simplest way is to use the readline-sync [package](https://www.npmjs.com/package/readline-sync) which is very similar in terms of the API and handles this out of the box.
 
@@ -950,7 +950,7 @@ inquirer.prompt(questions).then(answers => {  console.log(`Hi ${answers['name']}
 
 Inquirer.js lets you do many things like asking multiple choices, having radio buttons, confirmations, and more.
 
-It’s worth knowing all the alternatives, especially the built-in ones provided by Node.js, but if you plan to take CLI input to the next level, Inquirer.js is an optimal choice.
+It's worth knowing all the alternatives, especially the built-in ones provided by Node.js, but if you plan to take CLI input to the next level, Inquirer.js is an optimal choice.
 
 ### Expose functionality from a Node.js file using exports
 
@@ -974,7 +974,7 @@ Any other object or variable defined in the file by default is private and not e
 
 This is what the `module.exports` API offered by the `module` [system](https://nodejs.org/api/modules.html) allows us to do.
 
-When you assign an object or a function as a new `exports` property, that is the thing that’s being exposed. As such, it can be imported in other parts of your app, or in other apps as well.
+When you assign an object or a function as a new `exports` property, that is the thing that's being exposed. As such, it can be imported in other parts of your app, or in other apps as well.
 
 You can do so in 2 ways.
 
@@ -1012,7 +1012,7 @@ or directly
 exports.car = {  brand: 'Ford',  model: 'Fiesta'}
 ```
 
-And in the other file, you’ll use it by referencing a property of your import:
+And in the other file, you'll use it by referencing a property of your import:
 
 ```
 const items = require('./items')items.car
@@ -1024,7 +1024,7 @@ or
 const car = require('./items').car
 ```
 
-What’s the difference between `module.exports` and `exports`?
+What's the difference between `module.exports` and `exports`?
 
 The first exposes **the object** it points to. The latter exposes **the properties** of the object it points to.
 
@@ -1050,7 +1050,7 @@ If a project has a `packages.json` file, by running
 npm install
 ```
 
-it will install everything the project needs, in the `node_modules` folder, creating it if it’s not existing already.
+it will install everything the project needs, in the `node_modules` folder, creating it if it's not existing already.
 
 #### Installing a single package
 
@@ -1060,7 +1060,7 @@ You can also install a specific package by running
 npm install <package-name>
 ```
 
-Often you’ll see more flags added to this command:
+Often you'll see more flags added to this command:
 
 *   `--save` installs and adds the entry to the `package.json` file `dependencies`
 *   `--save-dev` installs and adds the entry to the `package.json` file `devDependencies`
@@ -1087,7 +1087,7 @@ npm update <package-name>
 
 In addition to plain downloads, `npm` also manages **versioning**, so you can specify any specific version of a package, or require a version higher or lower than what you need.
 
-Many times you’ll find that a library is only compatible with a major release of another library.
+Many times you'll find that a library is only compatible with a major release of another library.
 
 Or a bug in the latest release of a lib, still unfixed, is causing an issue.
 
@@ -1109,7 +1109,7 @@ For example:
 {  "scripts": {    "start-dev": "node lib/server-development",    "start": "node lib/server-production"  }}
 ```
 
-It’s very common to use this feature to run Webpack:
+It's very common to use this feature to run Webpack:
 
 ```
 {  "scripts": {    "watch": "webpack --watch --progress --colors --config webpack.conf.js",    "dev": "webpack --progress --colors --config webpack.conf.js",    "prod": "NODE_ENV=production webpack -p --config webpack.conf.js",  }}
@@ -1144,7 +1144,7 @@ A global installation is performed using the `-g` flag:
 npm install -g lodash
 ```
 
-When this happens, npm won’t install the package under the local folder, but instead, it will use a global location.
+When this happens, npm won't install the package under the local folder, but instead, it will use a global location.
 
 Where, exactly?
 
@@ -1202,15 +1202,15 @@ and npx will find the package location.
 
 The package.json file is a key element in lots of app codebases based on the Node.js ecosystem.
 
-If you work with JavaScript, or you’ve ever interacted with a JavaScript project, Node.js or a front-end project, you surely met the `package.json` file.
+If you work with JavaScript, or you've ever interacted with a JavaScript project, Node.js or a front-end project, you surely met the `package.json` file.
 
-What’s that for? What should you know about it, and what are some of the cool things you can do with it?
+What's that for? What should you know about it, and what are some of the cool things you can do with it?
 
-The `package.json` file is kind of a manifest for your project. It can do a lot of things, completely unrelated. It’s a central repository of configuration for tools, for example. It’s also where `[npm](https://flaviocopes.com/npm/)`and `[yarn](https://flaviocopes.com/yarn/)`store the names and versions of the package it installed.
+The `package.json` file is kind of a manifest for your project. It can do a lot of things, completely unrelated. It's a central repository of configuration for tools, for example. It's also where `[npm](https://flaviocopes.com/npm/)`and `[yarn](https://flaviocopes.com/yarn/)`store the names and versions of the package it installed.
 
 #### The file structure
 
-Here’s an example package.json file:
+Here's an example package.json file:
 
 ```
 {
@@ -1220,9 +1220,9 @@ Here’s an example package.json file:
 }
 ```
 
-It’s empty! There are no fixed requirements of what should be in a `package.json` file, for an application. The only requirement is that it respects the JSON format, otherwise it cannot be read by programs that try to access its properties programmatically.
+It's empty! There are no fixed requirements of what should be in a `package.json` file, for an application. The only requirement is that it respects the JSON format, otherwise it cannot be read by programs that try to access its properties programmatically.
 
-If you’re building a Node.js package that you want to distribute over `npm` things change radically, and you must have a set of properties that will help other people use it. We’ll see more about this later on.
+If you're building a Node.js package that you want to distribute over `npm` things change radically, and you must have a set of properties that will help other people use it. We'll see more about this later on.
 
 This is another package.json:
 
@@ -1230,9 +1230,9 @@ This is another package.json:
 {  "name": "test-project"}
 ```
 
-It defines a `name` property, which tells the name of the app, or package, that’s contained in the same folder where this file lives.
+It defines a `name` property, which tells the name of the app, or package, that's contained in the same folder where this file lives.
 
-Here’s a much more complex example, which I extracted this from a sample Vue.js application:
+Here's a much more complex example, which I extracted this from a sample Vue.js application:
 
 ```
 {  "name": "test-project",  "version": "1.0.0",  "description": "A Vue.js project",  "main": "src/main.js",  "private": true,  "scripts": {    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",    "start": "npm run dev",    "unit": "jest --config test/unit/jest.conf.js --coverage",    "test": "npm run unit",    "lint": "eslint --ext .js,.vue src test/unit",    "build": "node build/build.js"  },  "dependencies": {    "vue": "^2.5.2"  },  "devDependencies": {    "autoprefixer": "^7.1.2",    "babel-core": "^6.22.1",    "babel-eslint": "^8.2.1",    "babel-helper-vue-jsx-merge-props": "^2.0.3",    "babel-jest": "^21.0.2",    "babel-loader": "^7.1.1",    "babel-plugin-dynamic-import-node": "^1.2.0",    "babel-plugin-syntax-jsx": "^6.18.0",    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",    "babel-plugin-transform-runtime": "^6.22.0",    "babel-plugin-transform-vue-jsx": "^3.5.0",    "babel-preset-env": "^1.3.2",    "babel-preset-stage-2": "^6.22.0",    "chalk": "^2.0.1",    "copy-webpack-plugin": "^4.0.1",    "css-loader": "^0.28.0",    "eslint": "^4.15.0",    "eslint-config-airbnb-base": "^11.3.0",    "eslint-friendly-formatter": "^3.0.0",    "eslint-import-resolver-webpack": "^0.8.3",    "eslint-loader": "^1.7.1",    "eslint-plugin-import": "^2.7.0",    "eslint-plugin-vue": "^4.0.0",    "extract-text-webpack-plugin": "^3.0.0",    "file-loader": "^1.1.4",    "friendly-errors-webpack-plugin": "^1.6.1",    "html-webpack-plugin": "^2.30.1",    "jest": "^22.0.4",    "jest-serializer-vue": "^0.3.0",    "node-notifier": "^5.1.2",    "optimize-css-assets-webpack-plugin": "^3.2.0",    "ora": "^1.2.0",    "portfinder": "^1.0.13",    "postcss-import": "^11.0.0",    "postcss-loader": "^2.0.8",    "postcss-url": "^7.2.1",    "rimraf": "^2.6.0",    "semver": "^5.3.0",    "shelljs": "^0.7.6",    "uglifyjs-webpack-plugin": "^1.1.1",    "url-loader": "^0.5.8",    "vue-jest": "^1.0.2",    "vue-loader": "^13.3.0",    "vue-style-loader": "^3.0.1",    "vue-template-compiler": "^2.5.2",    "webpack": "^3.6.0",    "webpack-bundle-analyzer": "^2.9.0",    "webpack-dev-server": "^2.9.1",    "webpack-merge": "^4.1.0"  },  "engines": {    "node": ">= 6.0.0",    "npm": ">= 3.0.0"  },  "browserslist": [    "> 1%",    "last 2 versions",    "not ie <= 8"  ]}
@@ -1413,7 +1413,7 @@ You can use different version control systems:
 
 Sets the entry point for the package.
 
-When you import this package in an application, that’s where the application will search for the module exports.
+When you import this package in an application, that's where the application will search for the module exports.
 
 Example:
 
@@ -1498,7 +1498,7 @@ Example:
 
 #### `browserslist`
 
-Is used to tell which browsers (and their versions) you want to support. It’s referenced by Babel, Autoprefixer, and other tools, to only add the polyfills and fallbacks needed to the browsers you target.
+Is used to tell which browsers (and their versions) you want to support. It's referenced by Babel, Autoprefixer, and other tools, to only add the polyfills and fallbacks needed to the browsers you target.
 
 Example:
 
@@ -1543,7 +1543,7 @@ The package-lock.json file is automatically generated when installing node packa
 
 In version 5, npm introduced the `package-lock.json` file.
 
-What’s that? You probably know about the `package.json` file, which is much more common and has been around for much longer.
+What's that? You probably know about the `package.json` file, which is much more common and has been around for much longer.
 
 The goal of the file is to keep track of the exact version of every package that is installed so that a product is 100% reproducible in the same way even if packages are updated by their maintainers.
 
@@ -1553,7 +1553,7 @@ This solves a very specific problem that `package.json` left unsolved. In packag
 *   if you write `^0.13.0`, you want to update patch and minor releases: `0.13.1`, `0.14.0`and so on.
 *   if you write `0.13.0`, that is the exact version that will be used, always
 
-You don’t commit to Git your node\_modules folder, which is generally huge, and when you try to replicate the project on another machine by using the `npm install` command, if you specified the `~` syntax and a patch release of a package has been released, that one is going to be installed. Same for `^` and minor releases.
+You don't commit to Git your node\_modules folder, which is generally huge, and when you try to replicate the project on another machine by using the `npm install` command, if you specified the `~` syntax and a patch release of a package has been released, that one is going to be installed. Same for `^` and minor releases.
 
 If you specify exact versions, like `0.13.0` in the example, you are not affected by this problem.
 
@@ -1634,7 +1634,7 @@ This also works for dependencies of packages you installed:
 ❯ npm list minimist/Users/flavio/dev/node/cowsay└─┬ cowsay@1.3.1  └─┬ optimist@0.6.1    └── minimist@0.0.10
 ```
 
-If you want to see what’s the latest available version of the package on the npm repository, run `npm view [package_name] version`:
+If you want to see what's the latest available version of the package on the npm repository, run `npm view [package_name] version`:
 
 ```
 ❯ npm view cowsay version
@@ -1690,7 +1690,7 @@ When you install a package using `npm install <packagename>`, the latest availab
 
 npm calculates the dependencies and installs the latest available version of those as well.
 
-Let’s say you install `[cowsay](https://www.npmjs.com/package/cowsay)`, a cool command line tool that lets you make a cow say **things**.
+Let's say you install `[cowsay](https://www.npmjs.com/package/cowsay)`, a cool command line tool that lets you make a cow say **things**.
 
 When you `npm install cowsay`, this entry is added to the `package.json` file:
 
@@ -1712,7 +1712,7 @@ If there is a new minor or patch release and we type `npm update`, the installed
 
 To discover new releases of the packages, you run `npm outdated`.
 
-Here’s the list of a few outdated packages in one repository I didn’t update for quite a while:
+Here's the list of a few outdated packages in one repository I didn't update for quite a while:
 
 ![](https://cdn-images-1.medium.com/freeze/max/30/1*6Wdzb40QXmTCLYDOekL1Kg.png?q=20)
 
@@ -1720,7 +1720,7 @@ Here’s the list of a few outdated packages in one repository I didn’t update
 
 ![](https://cdn-images-1.medium.com/max/800/1*6Wdzb40QXmTCLYDOekL1Kg.png)
 
-Some of those updates are major releases. Running `npm update` won’t update the version of those. Major releases are never updated in this way because they (by definition) introduce breaking changes, and `npm` want to save you trouble.
+Some of those updates are major releases. Running `npm update` won't update the version of those. Major releases are never updated in this way because they (by definition) introduce breaking changes, and `npm` want to save you trouble.
 
 To update to a new major version all the packages, install the `npm-check-updates` package globally:
 
@@ -1752,7 +1752,7 @@ npm install
 
 Semantic Versioning is a convention used to provide a meaning to versions.
 
-If there’s one great thing in Node.js packages, is that all agreed on using Semantic Versioning for their version numbering.
+If there's one great thing in Node.js packages, is that all agreed on using Semantic Versioning for their version numbering.
 
 The Semantic Versioning concept is simple: all versions have 3 digits: `x.y.z`.
 
@@ -1760,7 +1760,7 @@ The Semantic Versioning concept is simple: all versions have 3 digits: `x.y.z`.
 *   the second digit is the minor version
 *   the third digit is the patch version
 
-When you make a new release, you don’t just up a number as you please, but you have rules:
+When you make a new release, you don't just up a number as you please, but you have rules:
 
 *   you up the major version when you make incompatible API changes
 *   you up the minor version when you add functionality in a backward-compatible manner
@@ -1784,7 +1784,7 @@ The rules use those symbols:
 *   `-`
 *   `||`
 
-Let’s see those rules in detail:
+Let's see those rules in detail:
 
 *   `^`: if you write `^0.13.0` when running `npm update` it can update to patch and minor releases: `0.13.1`, `0.14.0` and so on.
 *   `~`: if you write `~0.13.0`, when running `npm update` it can update to patch releases: `0.13.1` is ok, but `0.14.0` is not.
@@ -1856,9 +1856,9 @@ This makes sure you can have dozens of applications in your computer, all runnin
 
 Updating a global package would make all your projects use the new release, and as you can imagine this might cause nightmares in terms of maintenance, as some packages might break compatibility with further dependencies, and so on.
 
-All projects have their own local version of a package, even if this might appear like a waste of resources, it’s minimal compared to the possible negative consequences.
+All projects have their own local version of a package, even if this might appear like a waste of resources, it's minimal compared to the possible negative consequences.
 
-A package should be installed **globally** when it provides an executable command that you run from the shell (CLI), and it’s reused across projects.
+A package should be installed **globally** when it provides an executable command that you run from the shell (CLI), and it's reused across projects.
 
 You can also install executable commands locally and run them using [npx](https://flaviocopes.com/npx/), but some packages are just better installed globally.
 
@@ -1902,9 +1902,9 @@ You need to set the `--production` flag (`npm install --production`) to avoid in
 
 `npx` is a very cool way to run the Node.js codes, and provides many useful features.
 
-In this section, I want to introduce a very powerful command that’s been available in **npm** starting version 5.2, released in July 2017: **npx**.
+In this section, I want to introduce a very powerful command that's been available in **npm** starting version 5.2, released in July 2017: **npx**.
 
-If you don’t want to install npm, you can install npx as a [standalone package](https://www.npmjs.com/package/npx).
+If you don't want to install npm, you can install npx as a [standalone package](https://www.npmjs.com/package/npx).
 
 `npx` lets you run code built with Node.js and published through the npm registry.
 
@@ -1914,7 +1914,7 @@ Node.js developers used to publish most of the executable commands as global pac
 
 This was a pain because you could not really install different versions of the same command.
 
-Running `npx commandname` automatically finds the correct reference of the command inside the `node_modules` folder of a project, without needing to know the exact path, and without requiring the package to be installed globally and in the user’s path.
+Running `npx commandname` automatically finds the correct reference of the command inside the `node_modules` folder of a project, without needing to know the exact path, and without requiring the package to be installed globally and in the user's path.
 
 #### Installation-less command execution
 
@@ -1922,7 +1922,7 @@ There is another great feature of `npm`, which is allowing to run commands witho
 
 This is pretty useful, mostly because:
 
-1.  you don’t need to install anything
+1.  you don't need to install anything
 2.  you can run different versions of the same command, using the syntax `@version`
 
 A typical demonstration of using `npx` is through the `cowsay` command. `cowsay` will print a cow saying what you wrote in the command. For example:
@@ -1933,7 +1933,7 @@ A typical demonstration of using `npx` is through the `cowsay` command. `cowsay`
 _______< Hello > -------        \   ^__^         \  (oo)\_______            (__)\       )\/\                ||----w |                ||     ||
 ```
 
-Now, this if you have the `cowsay` command globally installed from npm previously, otherwise you’ll get an error when you try to run the command.
+Now, this if you have the `cowsay` command globally installed from npm previously, otherwise you'll get an error when you try to run the command.
 
 `npx` allows you to run that npm command without having it installed locally:
 
@@ -1976,11 +1976,11 @@ Of course, you need to be careful when running code that you do not control, as 
 
 The Event Loop is one of the most important aspects to understand about JavaScript. This section explains the inner details of how JavaScript works with a single thread, and how it handles asynchronous functions.
 
-I’ve programmed for years with JavaScript, yet I’ve never **fully** understood how things work under the hoods. It’s completely fine to not know this concept in detail. But as usual, it’s helpful to know how it works, and also you might just be a little curious at this point.
+I've programmed for years with JavaScript, yet I've never **fully** understood how things work under the hoods. It's completely fine to not know this concept in detail. But as usual, it's helpful to know how it works, and also you might just be a little curious at this point.
 
 Your JavaScript code runs single threaded. There is just one thing happening at a time.
 
-This is a limitation that’s actually very helpful, as it simplifies a lot of how you program without worrying about concurrency issues.
+This is a limitation that's actually very helpful, as it simplifies a lot of how you program without worrying about concurrency issues.
 
 You just need to pay attention to how you write your code and avoid anything that could block the thread, like synchronous network calls or infinite [loops](https://flaviocopes.com/javascript-loops/).
 
@@ -2000,7 +2000,7 @@ Almost all the I/O primitives in JavaScript are non-blocking. Network requests, 
 
 The call stack is a LIFO queue (Last In, First Out).
 
-The event loop continuously checks the **call stack** to see if there’s any function that needs to run.
+The event loop continuously checks the **call stack** to see if there's any function that needs to run.
 
 While doing so, it adds any function call it finds to the call stack and executes each one in order.
 
@@ -2016,7 +2016,7 @@ The browser looks up the function names in the call stack to inform you which fu
 
 #### A simple event loop explanation
 
-Let’s pick an example:
+Let's pick an example:
 
 ```
 const bar = () => console.log('bar')
@@ -2052,7 +2052,7 @@ At this point the call stack looks like this:
 
 ![](https://cdn-images-1.medium.com/max/800/1*Jw6-ttv6fWExUrcSV8cqng.png)
 
-The event loop on every iteration looks if there’s something in the call stack, and executes it:
+The event loop on every iteration looks if there's something in the call stack, and executes it:
 
 ![](https://cdn-images-1.medium.com/freeze/max/30/1*ykBMMZxvxZVJfV3Al9Rp_w.png?q=20)
 
@@ -2064,9 +2064,9 @@ until the call stack is empty.
 
 #### Queuing function execution
 
-The above example looks normal, there’s nothing special about it: JavaScript finds things to execute, runs them in order.
+The above example looks normal, there's nothing special about it: JavaScript finds things to execute, runs them in order.
 
-Let’s see how to defer a function until the stack is clear.
+Let's see how to defer a function until the stack is clear.
 
 The use case of `setTimeout(() => {}), 0)` is to call a function, but execute it once every other function in the code has executed.
 
@@ -2120,13 +2120,13 @@ When `setTimeout()` is called, the Browser or Node.js starts the timer. Once the
 
 The Message Queue is also where user-initiated events like click and keyboard events or fetch responses are queued before your code has the opportunity to react to them. Or also DOM events like `onLoad`.
 
-The loop gives priority to the call stack. It first processes everything it finds in the call stack, and once there’s nothing in there, it goes to pick up things in the event queue.
+The loop gives priority to the call stack. It first processes everything it finds in the call stack, and once there's nothing in there, it goes to pick up things in the event queue.
 
-We don’t have to wait for functions like `setTimeout`, fetch or other things to do their own work, because they are provided by the browser, and they live on their own threads. For example, if you set the `setTimeout` timeout to 2 seconds, you don’t have to wait 2 seconds - the wait happens elsewhere.
+We don't have to wait for functions like `setTimeout`, fetch or other things to do their own work, because they are provided by the browser, and they live on their own threads. For example, if you set the `setTimeout` timeout to 2 seconds, you don't have to wait 2 seconds - the wait happens elsewhere.
 
 #### ES6 Job Queue
 
-ECMAScript 2015 introduced the concept of the Job Queue, which is used by Promises (also introduced in ES6/ES2015). It’s a way to execute the result of an async function as soon as possible, rather than being put at the end of the call stack.
+ECMAScript 2015 introduced the concept of the Job Queue, which is used by Promises (also introduced in ES6/ES2015). It's a way to execute the result of an async function as soon as possible, rather than being put at the end of the call stack.
 
 Promises that resolve before the current function ends will be executed right after the current function.
 
@@ -2156,7 +2156,7 @@ This prints:
 foobazshould be right after foo, before barbar
 ```
 
-That’s a big difference between Promises (and `async/await`, which is built on promises) and plain old asynchronous functions through `setTimeout()` or other platform APIs.
+That's a big difference between Promises (and `async/await`, which is built on promises) and plain old asynchronous functions through `setTimeout()` or other platform APIs.
 
 ### Understanding process.nextTick()
 
@@ -2174,7 +2174,7 @@ The event loop is busy processing the current function code.
 
 When this operation ends, the JavaScript engine runs all the functions passed to `nextTick` calls during that operation.
 
-It’s the way we can tell the JavaScript engine to process a function asynchronously (after the current function), but as soon as possible, not queue it.
+It's the way we can tell the JavaScript engine to process a function asynchronously (after the current function), but as soon as possible, not queue it.
 
 Calling `setTimeout(() => {}, 0)` will execute the function in the next tick, much later than when using `nextTick()`.
 
@@ -2188,7 +2188,7 @@ When you want to execute some piece of code asynchronously, but as soon as possi
 setImmediate(() => {  //run something})
 ```
 
-Any function passed as the `setImmediate()` argument is a callback that’s executed in the next iteration of the event loop.
+Any function passed as the `setImmediate()` argument is a callback that's executed in the next iteration of the event loop.
 
 How is `setImmediate()` different from `setTimeout(() => {}, 0)` (passing a 0ms timeout), and from `process.nextTick()`?
 
@@ -2250,7 +2250,7 @@ will print `before after`.
 
 This is especially useful to avoid blocking the CPU on intensive tasks and let other functions be executed while performing a heavy calculation, by queuing functions in the scheduler.
 
-Some browsers (IE and Edge) implement a `setImmediate()` method that does this same exact functionality, but it’s not standard and [unavailable on other browsers](https://caniuse.com/#feat=setimmediate). But it’s a standard function in Node.js.
+Some browsers (IE and Edge) implement a `setImmediate()` method that does this same exact functionality, but it's not standard and [unavailable on other browsers](https://caniuse.com/#feat=setimmediate). But it's a standard function in Node.js.
 
 #### `setInterval()`
 
@@ -2270,7 +2270,7 @@ const id = setInterval(() => {  // runs every 2 seconds}, 2000)
 clearInterval(id)
 ```
 
-It’s common to call `clearInterval` inside the `setInterval` callback function, to let it auto-determine if it should run again or stop. For example this code runs something unless `App.somethingIWait` has the value `arrived`:
+It's common to call `clearInterval` inside the `setInterval` callback function, to let it auto-determine if it should run again or stop. For example this code runs something unless `App.somethingIWait` has the value `arrived`:
 
 ```
 const interval = setInterval(function() {  if (App.somethingIWait === 'arrived') {    clearInterval(interval)
@@ -2284,7 +2284,7 @@ const interval = setInterval(function() {  if (App.somethingIWait === 'arrived')
 
 `setInterval` starts a function every `n` milliseconds, without any consideration about when a function finished its execution.
 
-If a function takes always the same amount of time, it’s all fine:
+If a function takes always the same amount of time, it's all fine:
 
 ![](https://cdn-images-1.medium.com/freeze/max/30/1*-p6f7BrqUX2YtHsRxf7Clg.png?q=20)
 
@@ -2344,11 +2344,11 @@ Computers are asynchronous by design.
 
 Asynchronous means that things can happen independently of the main program flow.
 
-In the current consumer computers, every program runs for a specific time slot, and then it stops its execution to let another program continue its execution. This thing runs in a cycle so fast that’s impossible to notice, and we think our computers run many programs simultaneously, but this is an illusion (except on multiprocessor machines).
+In the current consumer computers, every program runs for a specific time slot, and then it stops its execution to let another program continue its execution. This thing runs in a cycle so fast that's impossible to notice, and we think our computers run many programs simultaneously, but this is an illusion (except on multiprocessor machines).
 
-Programs internally use **interrupts**, a signal that’s emitted to the processor to gain the attention of the system.
+Programs internally use **interrupts**, a signal that's emitted to the processor to gain the attention of the system.
 
-I won’t go into the internals of this, but just keep in mind that it’s normal for programs to be asynchronous, and halt their execution until they need attention, and the computer can execute other things in the meantime. When a program is waiting for a response from the network, it cannot halt the processor until the request finishes.
+I won't go into the internals of this, but just keep in mind that it's normal for programs to be asynchronous, and halt their execution until they need attention, and the computer can execute other things in the meantime. When a program is waiting for a response from the network, it cannot halt the processor until the request finishes.
 
 Normally, programming languages are synchronous, and some provide a way to manage asynchronicity, in the language or through libraries. C, Java, C#, PHP, Go, Ruby, Swift, Python, they are all synchronous by default. Some of them handle asynchronicity by using threads, spawning a new process.
 
@@ -2372,7 +2372,7 @@ More recently, Node.js introduced a non-blocking I/O environment to extend this 
 
 #### Callbacks
 
-You can’t know when a user is going to click a button, so what you do is **define an event handler for the click event**.
+You can't know when a user is going to click a button, so what you do is **define an event handler for the click event**.
 
 This event handler accepts a function, which will be called when the event is triggered:
 
@@ -2382,9 +2382,9 @@ document.getElementById('button').addEventListener('click', () => {  //item clic
 
 This is the so-called **callback**.
 
-A callback is a simple function that’s passed as a value to another function, and will only be executed when the event happens. We can do this because JavaScript has first-class functions, which can be assigned to variables and passed around to other functions (called **higher-order functions**)
+A callback is a simple function that's passed as a value to another function, and will only be executed when the event happens. We can do this because JavaScript has first-class functions, which can be assigned to variables and passed around to other functions (called **higher-order functions**)
 
-It’s common to wrap all your client code in a `load` event listener on the `window` object, which runs the callback function only when the page is ready:
+It's common to wrap all your client code in a `load` event listener on the `window` object, which runs the callback function only when the page is ready:
 
 ```
 window.addEventListener('load', () => {  //window loaded  //do what you want})
@@ -2428,7 +2428,7 @@ However, every callback adds a level of nesting. When you have lots of callbacks
 window.addEventListener('load', () => {  document.getElementById('button').addEventListener('click', () => {    setTimeout(() => {      items.forEach(item => {        //your code here      })    }, 2000)  })})
 ```
 
-This is just a simple 4-levels code, but I’ve seen much more levels of nesting and it’s not fun.
+This is just a simple 4-levels code, but I've seen much more levels of nesting and it's not fun.
 
 How do we solve this?
 
@@ -2449,7 +2449,7 @@ A promise is commonly defined as **a proxy for a value that will eventually beco
 
 Although being around for years, they have been standardized and introduced in ES2015, and now they have been superseded in ES2017 by async functions.
 
-**Async functions** use the promises API as their building block, so understanding them is fundamental even if in newer code you’ll likely use async functions instead of promises.
+**Async functions** use the promises API as their building block, so understanding them is fundamental even if in newer code you'll likely use async functions instead of promises.
 
 #### How promises work, in brief
 
@@ -2465,7 +2465,7 @@ In addition to your own code and libraries code, promises are used by standard m
 *   the [Fetch API](https://flaviocopes.com/fetch-api/)
 *   [Service Workers](https://flaviocopes.com/service-workers/)
 
-It’s unlikely that in modern JavaScript you’ll find yourself **not** using promises, so let’s start diving right into them.
+It's unlikely that in modern JavaScript you'll find yourself **not** using promises, so let's start diving right into them.
 
 #### Creating a promise
 
@@ -2479,7 +2479,7 @@ let done = true
 const isItDoneYet = new Promise(  (resolve, reject) => {    if (done) {      const workDone = 'Here is the thing I built'      resolve(workDone)    } else {      const why = 'Still working on something else'      reject(why)    }  })
 ```
 
-As you can see the promise checks the `done` global constant, and if that’s true, we return a resolved promise, otherwise a rejected promise.
+As you can see the promise checks the `done` global constant, and if that's true, we return a resolved promise, otherwise a rejected promise.
 
 Using `resolve` and `reject` we can communicate back a value, in the above case we just return a string, but it could be an object as well.
 
@@ -2487,7 +2487,7 @@ Using `resolve` and `reject` we can communicate back a value, in the above case 
 
 In the last section, we introduced how a promise is created.
 
-Now let’s see how the promise can be **consumed** or used:
+Now let's see how the promise can be **consumed** or used:
 
 ```
 const isItDoneYet = new Promise(  //...)
@@ -2530,7 +2530,7 @@ Running `fetch()` returns a [response](https://fetch.spec.whatwg.org/#concept-re
 
 `response` also has a `json()` method, which returns a promise that will resolve with the content of the body processed and transformed into JSON.
 
-So given those premises, this is what happens: the first promise in the chain is a function that we defined, called `status()`, that checks the response status and if it’s not a success response (between 200 and 299), it rejects the promise.
+So given those premises, this is what happens: the first promise in the chain is a function that we defined, called `status()`, that checks the response status and if it's not a success response (between 200 and 299), it rejects the promise.
 
 This operation will cause the promise chain to skip all the chained promises listed and will skip directly to the `catch()` statement at the bottom, logging the `Request failed` text along with the error message.
 
@@ -2622,7 +2622,7 @@ Async functions are a combination of promises and generators, and basically, the
 
 #### Why were async/await introduced?
 
-They reduce the boilerplate around promises, and the “don’t break the chain” limitation of chaining promises.
+They reduce the boilerplate around promises, and the “don't break the chain” limitation of chaining promises.
 
 When Promises were introduced in ES2015, they were meant to solve a problem with asynchronous code, and they did, but over the 2 years that separated ES2015 and ES2017, it was clear that promises could not be the final solution.
 
@@ -2630,7 +2630,7 @@ Promises were introduced to solve the famous callback hell problem, but they int
 
 They were good primitives around which a better syntax could be exposed to the developers, so when the time was right we got **async functions**.
 
-They make the code look like it’s synchronous, but it’s asynchronous and non-blocking behind the scenes.
+They make the code look like it's synchronous, but it's asynchronous and non-blocking behind the scenes.
 
 #### How it works
 
@@ -2642,7 +2642,7 @@ const doSomethingAsync = () => {    return new Promise((resolve) => {        set
 
 When you want to call this function you prepend `await`, and the calling code will stop **until the promise is resolved or rejected**. One caveat: the client function must be defined as `async`.
 
-Here’s an example:
+Here's an example:
 
 ```
 const doSomething = async () => {    console.log(await doSomethingAsync())}
@@ -2674,7 +2674,7 @@ BeforeAfterI did something //after 3s
 
 Prepending the `async` keyword to any function means that the function will return a promise.
 
-Even if it’s not doing so explicitly, it will internally make it return a promise.
+Even if it's not doing so explicitly, it will internally make it return a promise.
 
 This is why this code is valid:
 
@@ -2686,7 +2686,7 @@ const aFunction = async () => {  return 'test'}
 aFunction().then(alert) // This will alert 'test'
 ```
 
-and it’s the same as:
+and it's the same as:
 
 ```
 const aFunction = async () => {  return Promise.resolve('test')}
@@ -2702,7 +2702,7 @@ As you can see in the example above, our code looks very simple. Compare it to c
 
 And this is a very simple example, the major benefits will arise when the code is much more complex.
 
-For example, here’s how you would get a JSON resource and parse it, using promises:
+For example, here's how you would get a JSON resource and parse it, using promises:
 
 ```
 const getFirstUserData = () => {  return fetch('/users.json') // get users list    .then(response => response.json()) // parse JSON    .then(users => users[0]) // pick first user    .then(user => fetch(`/users/${user.name}`)) // get user data    .then(userResponse => response.json()) // parse JSON}
@@ -2752,7 +2752,7 @@ I did something and I watched and I watched as well
 
 Debugging promises is hard because the debugger will not step over asynchronous code.
 
-`async/await` makes this very easy because to the compiler it’s just like synchronous code.
+`async/await` makes this very easy because to the compiler it's just like synchronous code.
 
 ### The Node.js Event Emitter
 
@@ -2762,7 +2762,7 @@ If you worked with JavaScript in the browser, you know how much of the interacti
 
 On the back-end side, Node.js offers us the option to build a similar system using the `events`[module](https://nodejs.org/api/events.html).
 
-This module, in particular, offers the `EventEmitter` class, which we’ll use to handle our events.
+This module, in particular, offers the `EventEmitter` class, which we'll use to handle our events.
 
 You initialize that using:
 
@@ -2773,9 +2773,9 @@ const eventEmitter = require('events').EventEmitter()
 This object exposes, among many others, the `on` and `emit` methods.
 
 *   `emit` is used to trigger an event
-*   `on` is used to add a callback function that’s going to be executed when the event is triggered
+*   `on` is used to add a callback function that's going to be executed when the event is triggered
 
-For example, let’s create a `start` event, and as a matter of providing a sample, we react to that by just logging to the console:
+For example, let's create a `start` event, and as a matter of providing a sample, we react to that by just logging to the console:
 
 ```
 eventEmitter.on('start', () => {  console.log('started')})
@@ -2823,11 +2823,11 @@ This section describes how browsers perform page requests using the HTTP/1.1 pro
 
 If you ever did an interview, you might have been asked: “What happens when you type something into the Google search box and press enter?”.
 
-It’s one of the most popular questions you get asked. People just want to see if you can explain some rather basic concepts and if you have any clue how the internet actually works.
+It's one of the most popular questions you get asked. People just want to see if you can explain some rather basic concepts and if you have any clue how the internet actually works.
 
-In this section, I’ll analyze what happens when you type an URL in the address bar of your browser and press enter.
+In this section, I'll analyze what happens when you type an URL in the address bar of your browser and press enter.
 
-It’s a very interesting topic to dissect in this handbook, as it touches many technologies I can dive into in separate articles.
+It's a very interesting topic to dissect in this handbook, as it touches many technologies I can dive into in separate articles.
 
 This is tech that is very rarely changed, and powers one the most complex and wide ecosystems ever built by humans.
 
@@ -2835,7 +2835,7 @@ This is tech that is very rarely changed, and powers one the most complex and wi
 
 I analyze URL requests only.
 
-Modern browsers have the capability of knowing if the thing you wrote in the address bar is an actual URL or a search term, and they will use the default search engine if it’s not a valid URL.
+Modern browsers have the capability of knowing if the thing you wrote in the address bar is an actual URL or a search term, and they will use the default search engine if it's not a valid URL.
 
 I assume you type an actual URL.
 
@@ -2880,7 +2880,7 @@ TCP and UDP are two of the foundational protocols of computer networking. They s
 
 How the UDP request is performed is not in the scope of this handbook.
 
-The DNS server might have the domain IP in the cache. It not, it will ask the **root DNS server**. That’s a system (composed of 13 actual servers, distributed across the planet) that drives the entire internet.
+The DNS server might have the domain IP in the cache. It not, it will ask the **root DNS server**. That's a system (composed of 13 actual servers, distributed across the planet) that drives the entire internet.
 
 The DNS server does **not** know the address of each and every domain name on the planet.
 
@@ -2924,7 +2924,7 @@ Once the connection is established, we can send the request
 
 The request is a plain text document structured in a precise way determined by the communication protocol.
 
-It’s composed of 3 parts:
+It's composed of 3 parts:
 
 *   the request line
 *   the request header
@@ -2973,7 +2973,7 @@ The header part is terminated by a blank line.
 
 The request body is optional, not used in GET requests but very much used in POST requests and sometimes in other verbs too, and it can contain data in JSON format.
 
-Since we’re now analyzing a GET request, the body is blank and we’ll not look more into it.
+Since we're now analyzing a GET request, the body is blank and we'll not look more into it.
 
 #### The response
 
@@ -2991,7 +2991,7 @@ The request might return a different status code and message, like one of these:
 404 Not Found403 Forbidden301 Moved Permanently500 Internal Server Error304 Not Modified401 Unauthorized
 ```
 
-The response then contains a list of HTTP headers and the response body (which, since we’re making the request in the browser, is going to be HTML).
+The response then contains a list of HTTP headers and the response body (which, since we're making the request in the browser, is going to be HTML).
 
 #### Parse the HTML
 
@@ -3003,7 +3003,7 @@ The browser now has received the HTML and starts to parse it, and will repeat th
 *   JavaScript files
 *   …
 
-How browsers render the page then is out of the scope, but it’s important to understand that the process I described is not just for the HTML pages, but for any item that’s served over HTTP.
+How browsers render the page then is out of the scope, but it's important to understand that the process I described is not just for the HTML pages, but for any item that's served over HTTP.
 
 ### Build an HTTP Server with Node.js
 
@@ -3025,17 +3025,17 @@ const server = http.createServer((req, res) => {  res.statusCode = 200  res.setH
 server.listen(port, () => {  console.log(`Server running at http://${hostname}:${port}/`)})
 ```
 
-Let’s analyze it briefly. We include the `http` [module](https://nodejs.org/api/http.html).
+Let's analyze it briefly. We include the `http` [module](https://nodejs.org/api/http.html).
 
 We use the module to create an HTTP server.
 
 The server is set to listen on the specified port, `3000`. When the server is ready, the `listen`callback function is called.
 
-The callback function we pass is the one that’s going to be executed upon every request that comes in. Whenever a new request is received, the `request` [event](https://nodejs.org/api/http.html#http_event_request) is called, providing two objects: a request (an `[http.IncomingMessage](https://nodejs.org/api/http.html#http_class_http_incomingmessage)`object) and a response (an `[http.ServerResponse](https://nodejs.org/api/http.html#http_class_http_serverresponse)`object).
+The callback function we pass is the one that's going to be executed upon every request that comes in. Whenever a new request is received, the `request` [event](https://nodejs.org/api/http.html#http_event_request) is called, providing two objects: a request (an `[http.IncomingMessage](https://nodejs.org/api/http.html#http_class_http_incomingmessage)`object) and a response (an `[http.ServerResponse](https://nodejs.org/api/http.html#http_class_http_serverresponse)`object).
 
 `request` provides the request details. Through it, we access the request headers and request data.
 
-`response` is used to populate the data we’re going to return to the client.
+`response` is used to populate the data we're going to return to the client.
 
 In this case with:
 
@@ -3209,7 +3209,7 @@ const countBreeds = async () => {  const breeds = await getBreeds()
 countBreeds()
 ```
 
-If you don’t want to use `async/await` you can use the [Promises](https://flaviocopes.com/javascript-promises/) syntax:
+If you don't want to use `async/await` you can use the [Promises](https://flaviocopes.com/javascript-promises/) syntax:
 
 ```
 const axios = require('axios')
@@ -3308,7 +3308,7 @@ connection.onopen = () => {
   //...
 }
 
-If there’s any error, the `onerror` function callback is fired:
+If there's any error, the `onerror` function callback is fired:
 
 connection.onerror = error => {
   console.log(\`WebSocket error: ${error}\`)
@@ -3336,7 +3336,7 @@ connection.onmessage = e => {
 
 [ws](https://github.com/websockets/ws "https://github.com/websockets/ws") is a popular WebSockets library for Node.js.
 
-We’ll use it to build a WebSockets server. It can also be used to implement a client, and use WebSockets to communicate between two backend services.
+We'll use it to build a WebSockets server. It can also be used to implement a client, and use WebSockets to communicate between two backend services.
 
 Easily install it using:
 
@@ -3366,9 +3366,9 @@ This code creates a new server on port 8080 (the default port for WebSockets), a
 
 ### Working with file descriptors in Node.js
 
-Before you’re able to interact with a file that sits in your file system, you must get a file descriptor.
+Before you're able to interact with a file that sits in your file system, you must get a file descriptor.
 
-A file descriptor is what’s returned by opening the file using the `open()` method offered by the `fs` module:
+A file descriptor is what's returned by opening the file using the `open()` method offered by the `fs` module:
 
 ```
 const fs = require('fs')
@@ -3382,7 +3382,7 @@ Notice the `r` we used as the second parameter to the `fs.open()` call.
 
 That flag means we open the file for reading.
 
-Other flags you’ll commonly use are
+Other flags you'll commonly use are
 
 *   `r+` open the file for reading and writing
 *   `w+` open the file for reading and writing, positioning the stream at the beginning of the file. The file is created if not existing
@@ -3427,7 +3427,7 @@ A lot, including:
 *   if the file is a symbolic link using `stats.isSymbolicLink()`
 *   the file size in bytes using `stats.size`.
 
-There are other advanced methods, but the bulk of what you’ll use in your day-to-day programming is this:
+There are other advanced methods, but the bulk of what you'll use in your day-to-day programming is this:
 
 ```
 const fs = require('fs')fs.stat('/Users/flavio/test.txt', (err, stats) => {  if (err) {    console.error(err)    return  }
@@ -3503,7 +3503,7 @@ In this case Node.js will simply append `/flavio.txt` to the current working dir
 path.resolve('tmp', 'flavio.txt')// '/Users/flavio/tmp/flavio.txt' if run from my home folder
 ```
 
-If the first parameter starts with a slash, that means it’s an absolute path:
+If the first parameter starts with a slash, that means it's an absolute path:
 
 ```
 path.resolve('/etc', 'flavio.txt')// '/etc/flavio.txt'
@@ -3587,7 +3587,7 @@ You can modify the default by specifying a flag:
 fs.writeFile('/Users/flavio/test.txt', content, { flag: 'a+' }, (err) => {})
 ```
 
-The flags you’ll likely use are:
+The flags you'll likely use are:
 
 *   `r+` open the file for reading and writing
 *   `w+` open the file for reading and writing, positioning the stream at the beginning of the file. The file is created if not existing
@@ -3702,7 +3702,7 @@ Use `fs.rmdir()` or `fs.rmdirSync()` to remove a folder.
 
 Removing a folder that has content can be more complicated than you need.
 
-In this case I recommend installing the `fs-extra` module, which is very popular and well maintained, and it’s a drop-in replacement of the `fs` module, providing more features on top of it.
+In this case I recommend installing the `fs-extra` module, which is very popular and well maintained, and it's a drop-in replacement of the `fs` module, providing more features on top of it.
 
 In this case the `remove()` method is what you want.
 
@@ -3753,7 +3753,7 @@ const fs = require('fs')
 Once you do so, you have access to all its methods, which include:
 
 *   `fs.access()`: check if the file exists and Node can access it with its permissions
-*   `fs.appendFile()`: append data to a file. If the file does not exist, it’s created
+*   `fs.appendFile()`: append data to a file. If the file does not exist, it's created
 *   `fs.chmod()`: change the permissions of a file specified by the filename passed. Related: `fs.lchmod()`, `fs.fchmod()`
 *   `fs.chown()`: change the owner and group of a file specified by the filename passed. Related: `fs.fchown()`, `fs.lchown()`
 *   `fs.close()`: close a file descriptor
@@ -3792,7 +3792,7 @@ This makes a huge difference in your application flow.
 
 Node 10 includes [experimental support](https://nodejs.org/api/fs.html#fs_fs_promises_api) for a promise based API.
 
-For example let’s examine the `fs.rename()` method. The asynchronous API is used with a callback:
+For example let's examine the `fs.rename()` method. The asynchronous API is used with a callback:
 
 ```
 const fs = require('fs')
@@ -3858,7 +3858,7 @@ require('path').dirname('/test/something') // ''require('path').dirname('/test/s
 
 #### `path.isAbsolute()`
 
-Returns true if it’s an absolute path:
+Returns true if it's an absolute path:
 
 ```
 require('path').isAbsolute('/test/something') // truerequire('path').isAbsolute('./test/something') // false
@@ -3926,7 +3926,7 @@ By specifying a second parameter, `resolve` will use the first as a base for the
 path.resolve('tmp', 'flavio.txt')//'/Users/flavio/tmp/flavio.txt' if run from my home folder
 ```
 
-If the first parameter starts with a slash, that means it’s an absolute path:
+If the first parameter starts with a slash, that means it's an absolute path:
 
 ```
 path.resolve('/etc', 'flavio.txt')//'/etc/flavio.txt'
@@ -3950,7 +3950,7 @@ When I say Linux and macOS I mean POSIX platforms. For simplicity I exclude othe
 
 You can read them all [here](https://nodejs.org/api/os.html#os_signal_constants).
 
-Let’s now see the main methods that `os` provides:
+Let's now see the main methods that `os` provides:
 
 *   `os.arch()`
 *   `os.cpus()`
@@ -4118,7 +4118,7 @@ The event listener eats its own dog food and uses these events:
 *   `newListener` when a listener is added
 *   `removeListener` when a listener is removed
 
-Here’s a detailed description of the most useful methods:
+Here's a detailed description of the most useful methods:
 
 *   `emitter.addListener()`
 *   `emitter.emit()`
@@ -4173,7 +4173,7 @@ Alias for `emitter.removeListener()` added in Node 10.
 
 #### `emitter.on()`
 
-Adds a callback function that’s called when an event is emitted.
+Adds a callback function that's called when an event is emitted.
 
 Usage:
 
@@ -4183,7 +4183,7 @@ door.on('open', () => {
 
 #### `emitter.once()`
 
-Adds a callback function that’s called when an event is emitted for the first time after registering this. This callback is only going to be called once, never again.
+Adds a callback function that's called when an event is emitted for the first time after registering this. This callback is only going to be called once, never again.
 
 const EventEmitter = require('events')
 const ee = new EventEmitter()
@@ -4254,7 +4254,7 @@ This property lists all the HTTP status codes and their description:
 
 Points to the global instance of the Agent object, which is an instance of the `http.Agent`class.
 
-It’s used to manage connections persistence and reuse for HTTP clients, and it’s a key component of Node.js HTTP networking.
+It's used to manage connections persistence and reuse for HTTP clients, and it's a key component of Node.js HTTP networking.
 
 More in the `http.Agent` class description later on.
 
@@ -4326,7 +4326,7 @@ Commonly known and used in code as `res`:
 const server = http.createServer((req, res) => {  //res is an http.ServerResponse object})
 ```
 
-The method you’ll always call in the handler is `end()`, which closes the response, the message is complete and the server can send it to the client. It must be called on each response.
+The method you'll always call in the handler is `end()`, which closes the response, the message is complete and the server can send it to the client. It must be called on each response.
 
 These methods are used to interact with HTTP headers:
 
@@ -4342,7 +4342,7 @@ After processing the headers you can send them to the client by calling `respons
 
 To send data to the client in the response body, you use `write()`. It will send buffered data to the HTTP response stream.
 
-If the headers were not sent yet using `response.writeHead()`, it will send the headers first, with the status code and message that’s set in the request, which you can edit by setting the `statusCode` and `statusMessage` properties values:
+If the headers were not sent yet using `response.writeHead()`, it will send the headers first, with the status code and message that's set in the request, which you can edit by setting the `statusCode` and `statusMessage` properties values:
 
 ```
 response.statusCode = 500response.statusMessage = 'Internal Server Error'
@@ -4384,7 +4384,7 @@ The Node.js `stream` [module](https://nodejs.org/api/stream.html) provides the f
 
 Streams basically provide two major advantages using other data handling methods:
 
-*   **Memory efficiency**: you don’t need to load large amounts of data in memory before you are able to process it
+*   **Memory efficiency**: you don't need to load large amounts of data in memory before you are able to process it
 *   **Time efficiency**: it takes way less time to start processing data as soon as you have it, rather than waiting till the whole data payload is available to start
 
 #### An example of a stream
@@ -4401,7 +4401,7 @@ const http = require('http')const fs = require('fs')
 const server = http.createServer(function (req, res) {  fs.readFile(__dirname + '/data.txt', (err, data) => {    res.end(data)  })})server.listen(3000)
 ```
 
-`readFile()` reads the full contents of the file, and invokes the callback function when it’s done.
+`readFile()` reads the full contents of the file, and invokes the callback function when it's done.
 
 `res.end(data)` in the callback will return the file contents to the HTTP client.
 
@@ -4570,7 +4570,7 @@ MySQL is one of the most popular relational databases in the world.
 
 The Node.js ecosystem has several different packages that allow you to interface with MySQL, store data, retrieve data, and so on.
 
-We’ll use `[mysqljs/mysql](https://github.com/mysqljs/mysql "https://github.com/mysqljs/mysql")`, a package that has over 12,000 GitHub stars and has been around for years.
+We'll use `[mysqljs/mysql](https://github.com/mysqljs/mysql "https://github.com/mysqljs/mysql")`, a package that has over 12,000 GitHub stars and has been around for years.
 
 #### Installing the Node.js MySql package
 
@@ -4698,13 +4698,13 @@ This makes sure any pending query gets sent, and the connection is gracefully te
 
 You can have different configurations for production and development environments.
 
-Node.js assumes it’s always running in a development environment. You can signal Node.js that you are running in production by setting the `NODE_ENV=production`environment variable.
+Node.js assumes it's always running in a development environment. You can signal Node.js that you are running in production by setting the `NODE_ENV=production`environment variable.
 
 This is usually done by executing the command:
 
 export NODE\_ENV=production
 
-in the shell, but it’s better to put it in your shell configuration file (like `.bash_profile` with the Bash shell) because otherwise the setting does not persist in case of a system restart.
+in the shell, but it's better to put it in your shell configuration file (like `.bash_profile` with the Bash shell) because otherwise the setting does not persist in case of a system restart.
 
 You can also apply the environment variable by prepending it to your application initialization command:
 
@@ -4743,4 +4743,4 @@ app.configure('production', () => {
 
 ### Closing words
 
-I hope this introduction to Node.js will help you get started using it, or help you grasp some of its concepts. And hopefully now you’ll know enough to start building some great things!
+I hope this introduction to Node.js will help you get started using it, or help you grasp some of its concepts. And hopefully now you'll know enough to start building some great things!

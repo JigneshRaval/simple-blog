@@ -9,13 +9,13 @@ const showdown = require('showdown');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ConvertMarkdown = require('./configs/markdown-convertor');
-const HelloWorld = require('./configs/hello-world.plugin');
+// const ConvertMarkdown = require('./configs/markdown-convertor');
+// const HelloWorld = require('./configs/hello-world.plugin');
 const MarkDownConvertor = require('./configs/markdown-convertor.plugin');
-
+const myTest = require('./configs/example')
 
 const converter = new showdown.Converter();
-// converter.setOption('ghCompatibleHeaderId', true);
+// converter.setOption('ghCompatibleHeaderId', false);
 converter.setOption('ghCompatibleHeaderId', true);
 
 const PATHS = {
@@ -37,22 +37,6 @@ let markdownFileListTemp = new MarkDownConvertor();
 let markdownFileList = markdownFileListTemp.compileMarkdownFiles();
 
 let postLists = [];
-let testData = [];
-/* class MyPlugin {
-    constructor(options) {
-        this.options = options;
-      }
-    apply() {
-        if ('hooks' in compiler) {
-            compiler.hooks.shouldEmit.tap('MyPlugin', compilation => {
-                console.log('Synchronously tapping the compile hook.');
-                console.log('should I emit?');
-                return true;
-            });
-        }
-    }
-} */
-
 
 // Generate index pages for posts matching by Tags
 // ====================================================
@@ -198,17 +182,34 @@ module.exports = {
     },
     devtool: "source-map",
     plugins: [
-        new HelloWorld({
+        /* new HelloWorld({
             test: () => {
                 console.log('TEST OPTION =============');
             }
+        }), */
+        // myTest(),
+
+
+        new HtmlWebpackPlugin({
+            title: 'My Plugin DEmo page 111',
+            template: './src/templates/handlebars/index.handlebars',
+            filename: 'pages/test1100.html', //relative to root of the application
         }),
+
+        // TODO : Find solution to run HtmlWebpackPlugin from inside this plugin
         new MarkDownConvertor({
+            title: 'Replacement title',
             test: (data) => {
-                console.log('==== NEW MARKDOWN ADDED :: =============\n\n', data);
                 markdownFileList = data;
             }
         }),
+
+        // Generates an `index.html` file with the <script> injected.
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: './src/templates/handlebars/index.handlebars',
+        }),
+
         // Copy all the static files like images, html, fonts etc.., from SRC folder to DIST folder
         new CopyWebpackPlugin([
             { from: './server.js', to: './' },
@@ -234,10 +235,7 @@ module.exports = {
             allChunks: true
         }),
 
-        // Generate Template for each .md files
-        ...markdownFileList.map(({ fileName, filePath, fileNameWithoutExt, markdown, frontmatter }, index) => {
-            // console.log(fileName, '=====', filePath)
-
+        ...markdownFileListTemp.compileMarkdownFiles().map(({ fileName, filePath, frontmatter }, index) => {
             return (
                 new HtmlWebpackPlugin({
                     inject: true,
@@ -255,6 +253,29 @@ module.exports = {
             )
         }),
 
+
+
+        // Generate Template for each .md files
+        /* ...markdownFileList.map(({ fileName, filePath, fileNameWithoutExt, markdown, frontmatter }, index) => {
+            // console.log(fileName, '==========', filePath)
+
+            return (
+                new HtmlWebpackPlugin({
+                    inject: true,
+                    title: frontmatter.attributes.title,
+                    template: './src/templates/handlebars/article.handlebars',
+                    filename: `${filePath}.html`, //relative to root of the application
+                    path: filePath,
+                    header: headerTemplate,
+                    footer: footerTemplate,
+                    categories: categoriesTemplate,
+                    post: frontmatter.attributes,
+                    // Parses the markdown string and converts to HTML string
+                    bodyHTML: converter.makeHtml(frontmatter.body)
+                })
+            )
+        }), */
+
         function generatePostListJson() {
             var obj = {
                 posts: postLists
@@ -262,22 +283,11 @@ module.exports = {
 
             fs.writeFile('./dist/posts.json', JSON.stringify(obj), 'utf8');
         },
-        /*  new HtmlWebpackPlugin({
-             inject: true,
-             title: 'Post list by tags 123',
-             template: './src/templates/handlebars/posts-by-tag.handlebars',
-             filename: `pages/${tag}/index.html`, //relative to root of the application
-             header: headerTemplate,
-             footer: footerTemplate,
-             posts: postLists.filter(post => {
-                 if (post.tags.includes(tag)) {
-                     return post
-                 }
-             })
-         }), */
 
+        // Generate pages to display list of Posts filtered by Tags
         ...uniqueTags.map(pagesByTags),
 
+        // Generate pages to display list of Posts filtered by Category
         // ...uniqueCategories.map(pagesByCategories),
 
         // Generate Template for Index.html in root folder

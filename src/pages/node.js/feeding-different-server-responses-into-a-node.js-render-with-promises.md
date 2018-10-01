@@ -11,13 +11,13 @@ sourceUrl: "http://blog.ricardofilipe.com/post/multiple-responses-into-node-rend
 type: "Post"
 ---
 
-_Despite the fact that I’ve been working with Node.js and express for quite a while now, I have never come across the need to feed an **Express View the result of two server responses** before. While this is an easy problem to solve, I wanted to find an elegant (and technically relevant) solution to it. And like so, `Promises` to the rescue!_
+_Despite the fact that I've been working with Node.js and express for quite a while now, I have never come across the need to feed an **Express View the result of two server responses** before. While this is an easy problem to solve, I wanted to find an elegant (and technically relevant) solution to it. And like so, `Promises` to the rescue!_
 
 Code: [Direct link to the full Gist](https://gist.github.com/magalhini/e23dd1dc69ee843c0eef590d31534441)
 
 ### The problem
 
-Let’s say your `home.hbs` view expects a `user` and its `books` information, but they’re coming from two different server calls. You can send only one `res.send()` to the view, of course… so how do you chain the two calls and feed them into the view?
+Let's say your `home.hbs` view expects a `user` and its `books` information, but they're coming from two different server calls. You can send only one `res.send()` to the view, of course… so how do you chain the two calls and feed them into the view?
 
 Two calls are needed: `/api/books` will return a `books` object and `/api/user` will return the `user` object. Basically we want to make this work:
 
@@ -37,7 +37,7 @@ One simple and elegant way to make this work is using `Promise.all`.
 
 ### Create a helper get() using node-fetch
 
-To help us make both our calls, let’s create a simple wrapper around fetch, like so:
+To help us make both our calls, let's create a simple wrapper around fetch, like so:
 
 ```javascript
 function get(url) {
@@ -56,9 +56,9 @@ This simply wraps the server call in a Promise. We can use it like:
 
 ### Promise.all
 
-`Promise.all` receives an array of Promises and resolves only when all of them have been successfully resolved (or at least one has failed). You can then consume all the individual responses since they’re all in order.
+`Promise.all` receives an array of Promises and resolves only when all of them have been successfully resolved (or at least one has failed). You can then consume all the individual responses since they're all in order.
 
-So let’s try this in our main route:
+So let's try this in our main route:
 
 ```javascript
 app.get('/', (req, res) => {
@@ -78,7 +78,7 @@ Now, `res.send` will only feed the responses to the View **once both Promise cal
 
 ### A complete example
 
-Here’s my full example, [also available as a Gist](https://gist.github.com/magalhini/e23dd1dc69ee843c0eef590d31534441):
+Here's my full example, [also available as a Gist](https://gist.github.com/magalhini/e23dd1dc69ee843c0eef590d31534441):
 
 ```javascript
 const express = require('express')
@@ -124,4 +124,4 @@ You can also read more about `Promise.all` at [MDN](https://developer.mozilla.or
 
 * * *
 
-Anything I might have overlooked or gotten wrong? Don’t be afraid to ping me on [Twitter](http://twitter.com/magalhini).
+Anything I might have overlooked or gotten wrong? Don't be afraid to ping me on [Twitter](http://twitter.com/magalhini).

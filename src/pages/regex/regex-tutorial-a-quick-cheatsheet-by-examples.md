@@ -15,9 +15,9 @@ Regular expressions (regex or regexp) are extremely useful in **extracting infor
 
 Fields of application range from validation to parsing/replacing strings, passing through translating data to other formats and web scraping.
 
-One of the most interesting features is that once you’ve learned the syntax, you can actually use this tool in (almost) all programming languages ​​(JavaScript, Java, VB, C #, C / C++, Python, Perl, Ruby, Delphi, R, Tcl, and many others) with the slightest distinctions about the support of the most advanced features and syntax versions supported by the engines).
+One of the most interesting features is that once you've learned the syntax, you can actually use this tool in (almost) all programming languages ​​(JavaScript, Java, VB, C #, C / C++, Python, Perl, Ruby, Delphi, R, Tcl, and many others) with the slightest distinctions about the support of the most advanced features and syntax versions supported by the engines).
 
-Let’s start by looking at some examples and explanations.
+Let's start by looking at some examples and explanations.
 
 ### Basic topics
 
@@ -65,7 +65,7 @@ a**(bc){2,5}** matches a string that has **a followed by 2 up to 5 copies of the
 
 **.** matches **any character** \->  [**Try it!**](https://regex101.com/r/cO8lqs/5)
 
-Use the `.` operator carefully since often class or negated character class (which we’ll cover next) are faster and more precise.
+Use the `.` operator carefully since often class or negated character class (which we'll cover next) are faster and more precise.
 
 `\d`, `\w` and `\s` also present their negations with `\D`, `\W` and `\S` respectively.
 

@@ -14,7 +14,7 @@ type: 'Post'
 
 One thing I need to do a lot in my plugins is find a parent element with a particular selector.
 
-For example, when someone clicks on a link in an accordion, I need to get the parent container for all of the other content sections. I don’t always know exactly what the markup structure will look like, so I can’t just use `.parentNode` to get it.
+For example, when someone clicks on a link in an accordion, I need to get the parent container for all of the other content sections. I don't always know exactly what the markup structure will look like, so I can't just use `.parentNode` to get it.
 
     <div class="accordion">
     	<div>
@@ -31,21 +31,21 @@ For example, when someone clicks on a link in an accordion, I need to get the pa
     	</div>
     </div>
 
-In this example, when someone clicks an `.accordion-toggle` link, I want to get the `.accordion` element, but I don’t neccessarily know how many nested `div`’s will be in the markup.
+In this example, when someone clicks an `.accordion-toggle` link, I want to get the `.accordion` element, but I don't neccessarily know how many nested `div`'s will be in the markup.
 
 Creating a helper function [#](#creating-a-helper-function)
 -----------------------------------------------------------
 
-To do this, we can setup a `for` loop to climb up the DOM. On each loop, we’ll grab the element’s `.parentNode` and see if it has our selector. If it doesn’t, we’ll jump to the next `.parentNode` and repeat.
+To do this, we can setup a `for` loop to climb up the DOM. On each loop, we'll grab the element's `.parentNode` and see if it has our selector. If it doesn't, we'll jump to the next `.parentNode` and repeat.
 
-First, let’s setup a helper function.
+First, let's setup a helper function.
 
     var getClosest = function () {
     	// Code goes here...
     };
 
 
-Next, let’s create our loop.
+Next, let's create our loop.
 
     var getClosest = function (elem) {
     	for ( ; elem && elem !== document; elem = elem.parentNode ) {
@@ -54,16 +54,16 @@ Next, let’s create our loop.
     };
 
 
-Normally, you’d set a variable in the first part of your for loop (something like `var i = 0`), but we don’t need any for this loop.
+Normally, you'd set a variable in the first part of your for loop (something like `var i = 0`), but we don't need any for this loop.
 
-The next part (between the two semicolons) is where we evaluate our criteria for continuing the loop. We want to make sure that an `elem` exists and that it’s not the `document` element (which means we’ve reached the top of the page with no results).
+The next part (between the two semicolons) is where we evaluate our criteria for continuing the loop. We want to make sure that an `elem` exists and that it's not the `document` element (which means we've reached the top of the page with no results).
 
-Finally, the last part (after the second semicolon) is where we tell the loop what to do after each iteration. We want to set the `elem` variable to the current element’s parent (this is how we climb up the DOM).
+Finally, the last part (after the second semicolon) is where we tell the loop what to do after each iteration. We want to set the `elem` variable to the current element's parent (this is how we climb up the DOM).
 
 Matching by selector [#](#matching-by-selector)
 -----------------------------------------------
 
-Inside our loop, we want to check and see if the current element matches our selector. For a class we might use `classList`. For an ID we’d use `elem.id === 'our-id'`. And so on. To make things easy, though, let’s use the `.matches()` method, which checks any valid CSS selector.
+Inside our loop, we want to check and see if the current element matches our selector. For a class we might use `classList`. For an ID we'd use `elem.id === 'our-id'`. And so on. To make things easy, though, let's use the `.matches()` method, which checks any valid CSS selector.
 
     var getClosest = function (elem, selector) {
     	for ( ; elem && elem !== document; elem = elem.parentNode ) {
@@ -73,12 +73,12 @@ Inside our loop, we want to check and see if the current element matches our sel
     };
 
 
-If there’s a matching element, our helper function will return it. If it makes it through the whole loop without a match, it returns `null`.
+If there's a matching element, our helper function will return it. If it makes it through the whole loop without a match, it returns `null`.
 
 Browser compatibility [#](#browser-compatibility)
 -------------------------------------------------
 
-There’s one last thing we need to do, though. Many browsers implemented `.matches()` with proprietary prefixes. Others didn’t implement it but support `querySelectorAll`. In both cases, a lightweight polyfill bolts in `.matches()` support.
+There's one last thing we need to do, though. Many browsers implemented `.matches()` with proprietary prefixes. Others didn't implement it but support `querySelectorAll`. In both cases, a lightweight polyfill bolts in `.matches()` support.
 
     var getClosest = function (elem, selector) {
 

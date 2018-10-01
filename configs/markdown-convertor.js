@@ -2,7 +2,6 @@ const fs = require('fs');
 const path = require('path');
 const frontMatter = require('front-matter');
 
-
 const MarkdownConvertor = () => {
     console.log('Initiated Markdown Convertor...');
 

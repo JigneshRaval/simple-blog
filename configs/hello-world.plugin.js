@@ -9,12 +9,26 @@ class HelloWorld {
             console.log("======= Hello world : Compiler Hooks ===========");
             var plugin = { name: 'HelloWorld' };
 
-            compiler.hooks.watchRun.tap('HelloWorld', (compilation, callback) => {
-                console.log("======= Hello world 1 : Compile ===========");
+            compiler.hooks.compile.tap('HelloWorld', (compilation, callback) => {
+                console.log("======= Hello world 1 : compile  ===========");
                 if (callback) {
                     callback();
                 }
-            })
+            });
+
+            compiler.hooks.watchRun.tap('HelloWorld', (compilation, callback) => {
+                console.log("======= Hello world 1 : watchRun ===========");
+                if (callback) {
+                    callback();
+                }
+            });
+
+            compiler.hooks.beforeCompile .tap('HelloWorld', (compilation, callback) => {
+                console.log("======= Hello world 1 : beforeCompile  ===========");
+                if (callback) {
+                    callback();
+                }
+            });
 
             compiler.hooks.emit.tapAsync('HelloWorld', (compilation, done) => {
                 this.options.test();
@@ -39,5 +53,20 @@ class HelloWorld {
     }
 
 }
+
+/* class MyPlugin {
+    constructor(options) {
+        this.options = options;
+      }
+    apply() {
+        if ('hooks' in compiler) {
+            compiler.hooks.shouldEmit.tap('MyPlugin', compilation => {
+                console.log('Synchronously tapping the compile hook.');
+                console.log('should I emit?');
+                return true;
+            });
+        }
+    }
+} */
 
 module.exports = HelloWorld;

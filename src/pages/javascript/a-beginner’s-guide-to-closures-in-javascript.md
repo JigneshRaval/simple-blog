@@ -1,7 +1,7 @@
 ---
-path: "JavaScript/a-beginner’s-guide-to-closures-in-javascript"
+path: "JavaScript/a-beginner's-guide-to-closures-in-javascript"
 date: "2018-09-25"
-title: "A Beginner’s Guide to Closures in JavaScript"
+title: "A Beginner's Guide to Closures in JavaScript"
 tags: ["JavaScript","Closures"]
 category: "JavaScript"
 categoryColor: "#F3C610"
@@ -11,13 +11,13 @@ sourceUrl: "https://blog.bitsrc.io/a-beginners-guide-to-closures-in-javascript-9
 type: "Post"
 ---
 
-Closures are a fundamental concept of JavaScript that every JavaScript developer should know and understand. Yet, it’s a concept that confuses many new JavaScript developers.
+Closures are a fundamental concept of JavaScript that every JavaScript developer should know and understand. Yet, it's a concept that confuses many new JavaScript developers.
 
 Having a proper understanding of closures will help you to write better, more efficient and clean code. Which will, in turn, help you to become a better JavaScript developer.
 
 So in this article, I will try to explain the internals of closures and how they really work in JavaScript.
 
-So without further ado, Let’s get started :)
+So without further ado, Let's get started :)
 
 * * *
 
@@ -25,7 +25,7 @@ So without further ado, Let’s get started :)
 
 A closure is a function that has access to its outer function scope even after the outer function has returned. This means a closure can remember and access variables and arguments of its outer function even after the function has finished.
 
-Before we dive into closures, let’s first understand the lexical scope.
+Before we dive into closures, let's first understand the lexical scope.
 
 #### What is a Lexical Scope?
 
@@ -49,7 +49,7 @@ let a = 'global';
 outer();
 console.log(a);         // prints 'global'
 
-Here the `inner` function can access the variables defined in its own scope, the `outer` function’s scope, and the global scope. And the `outer` function can access the variable defined in its own scope and the global scope.
+Here the `inner` function can access the variables defined in its own scope, the `outer` function's scope, and the global scope. And the `outer` function can access the variable defined in its own scope and the global scope.
 
 So a scope chain of the above code would be like this:
 
@@ -59,11 +59,11 @@ Global {
   }
 }
 
-Notice that `inner` function is surrounded by the lexical scope of `outer` function which is, in turn, surrounded by the global scope. That’s why the `inner` function can access the variables defined in `outer` function and the global scope.
+Notice that `inner` function is surrounded by the lexical scope of `outer` function which is, in turn, surrounded by the global scope. That's why the `inner` function can access the variables defined in `outer` function and the global scope.
 
 ### Practical Examples of Closure
 
-Let’s look at some practical examples of closures before diving into how closures work.
+Let's look at some practical examples of closures before diving into how closures work.
 
 #### Example 1#
 
@@ -78,9 +78,9 @@ function person() {
 let peter = person();
 peter(); // prints 'Peter'
 
-In this code, we are calling `person` function which returns inner function `displayName` and stores that inner function in `peter` variable. When we call `peter` function (which is actually referencing the `displayName` function), the name ‘Peter’ is printed to the console.
+In this code, we are calling `person` function which returns inner function `displayName` and stores that inner function in `peter` variable. When we call `peter` function (which is actually referencing the `displayName` function), the name 'Peter' is printed to the console.
 
-But we don’t have any variable named `name` in `displayName` function, so this function can somehow access the variable of its outer function `person` even after that function has returned. So the `displayName` function is actually a closure.
+But we don't have any variable named `name` in `displayName` function, so this function can somehow access the variable of its outer function `person` even after that function has returned. So the `displayName` function is actually a closure.
 
 #### Example 2#
 
@@ -101,17 +101,17 @@ Again we are storing the anonymous inner function returned by `getCounter` funct
 
 But notice that the value of the `counter` is not resetting to `0` on each `count` function call as it usually should.
 
-That’s because, at each call of `count()`, a new scope for the function is created, but there is only single scope created for `getCounter` function, because the `counter` variable is defined in the scope of `getCounter()`, it would get incremented on each `count` function call instead of resetting to `0`.
+That's because, at each call of `count()`, a new scope for the function is created, but there is only single scope created for `getCounter` function, because the `counter` variable is defined in the scope of `getCounter()`, it would get incremented on each `count` function call instead of resetting to `0`.
 
 ### How do Closures Work?
 
-Up until now, we have discussed what closures are and their practical examples. Now let’s understand how closures really work in JavaScript.
+Up until now, we have discussed what closures are and their practical examples. Now let's understand how closures really work in JavaScript.
 
 To really understand how closures work in JavaScript, we have to understand the two most important concepts in JavaScript, that is, 1) Execution Context and 2) Lexical Environment.
 
 #### Execution Context
 
-An execution context is an abstract environment where the JavaScript code is evaluated and executed. When the global code is executed, it’s executed inside the global execution context, and the function code is executed inside the function execution context.
+An execution context is an abstract environment where the JavaScript code is evaluated and executed. When the global code is executed, it's executed inside the global execution context, and the function code is executed inside the function execution context.
 
 There can only be one currently running execution context (Because JavaScript is single threaded language), which is managed by a stack data structure known as Execution Stack or Call Stack.
 
@@ -119,7 +119,7 @@ An execution stack is a stack with LIFO (Last in, first out) structure in which 
 
 The currently running execution context will be always on the top of the stack, and when the function which is currently running completes, its execution context is popped off from the stack and the control reaches to the execution context below it in the stack.
 
-Let’s look at a code snippet to better understand execution context and stack:
+Let's look at a code snippet to better understand execution context and stack:
 
 ![](https://cdn-images-1.medium.com/freeze/max/30/1*fYq9aQ9OMhO-THHrr7N54w.png?q=20)
 
@@ -164,7 +164,7 @@ lexicalEnvironment = {
   outer: < Reference to the parent lexical environment>
 }
 ```
-So let’s again take a look at above code snippet:
+So let's again take a look at above code snippet:
 ```
 let a = 'Hello World!';
 
@@ -203,7 +203,7 @@ The outer lexical environment of the function is set to the global lexical envir
 
 ### Detailed Closures Examples
 
-Now that we understand execution context and lexical environment, let’s get back to the closures.
+Now that we understand execution context and lexical environment, let's get back to the closures.
 
 #### Example 1#
 
@@ -246,7 +246,7 @@ displayNameLexicalEnvironment = {
   outer: <personLexicalEnvironment>
 }
 ```
-As there’s no variable in `displayName` function, its environment record will be empty. During the execution of this function, the JavaScript engine will try to find the variable `name` in the function’s lexical environment.
+As there's no variable in `displayName` function, its environment record will be empty. During the execution of this function, the JavaScript engine will try to find the variable `name` in the function's lexical environment.
 
 As there are no variables in the lexical environment of `displayName` function, it will look into the outer lexical environment, that is, the lexical environment of the `person` function which still there in the memory. The JavaScript engine finds the variable and `name` is printed to the console.
 
@@ -307,4 +307,4 @@ On each call to the `count` function, the JavaScript engine creates a new lexica
 
 So we have learned what closures are and how they really work. Closures are fundamental concepts of JavaScript that every JavaScript developer should understand. Having a good knowledge of these concepts will help you to become a much more effective and better JavaScript developer.
 
-That’s it and if you found this article helpful, please click the clap 👏button below, you can also follow me on [Medium](https://medium.com/@Sukhjinder) and [Twitter](https://twitter.com/sukhjinder_95), and if you have any doubt, feel free to comment! I’d be happy to help :)
+That's it and if you found this article helpful, please click the clap 👏button below, you can also follow me on [Medium](https://medium.com/@Sukhjinder) and [Twitter](https://twitter.com/sukhjinder_95), and if you have any doubt, feel free to comment! I'd be happy to help :)

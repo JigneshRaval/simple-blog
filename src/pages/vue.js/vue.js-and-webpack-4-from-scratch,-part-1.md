@@ -13,7 +13,7 @@ type: "Post"
 
 ### Part 1: Up and running
 
-My previous [article](http://medium.com/@petrefax66/getting-started-vue-js-and-visual-studio-code-6990f92e918a) described how to create a Vue.js application using the command line interface. This is the easiest way to get started and will be suitable for the majority of needs. However, it certainly doesn’t hurt to try taking the opposite road and build an application entirely from scratch. With the release of [Webpack 4](https://medium.com/webpack/webpack-4-released-today-6cdb994702d4) now is a good time to take this ambitious route and learn a bit more about the workings of the build and bundling process by crafting it entirely by hand.
+My previous [article](http://medium.com/@petrefax66/getting-started-vue-js-and-visual-studio-code-6990f92e918a) described how to create a Vue.js application using the command line interface. This is the easiest way to get started and will be suitable for the majority of needs. However, it certainly doesn't hurt to try taking the opposite road and build an application entirely from scratch. With the release of [Webpack 4](https://medium.com/webpack/webpack-4-released-today-6cdb994702d4) now is a good time to take this ambitious route and learn a bit more about the workings of the build and bundling process by crafting it entirely by hand.
 
 In this article I will start with an empty folder and create a webpack build for a Vue.js application including:
 
@@ -38,7 +38,7 @@ The first thing to do is create a new folder, cd into it and initialise NPM:
 
 `npm init`
 
-You will be asked to provide some information about the project, it’s safe to accept defaults at this stage, and once completed you will have a package.json file entirely empty of anything other than meta-information. Now we can begin adding our packages.
+You will be asked to provide some information about the project, it's safe to accept defaults at this stage, and once completed you will have a package.json file entirely empty of anything other than meta-information. Now we can begin adding our packages.
 
 `npm install --save vue vue-router`
 
@@ -68,7 +68,7 @@ When I create these, the folder structure should look like this:
 
 ![](https://cdn-images-1.medium.com/max/800/1*jRQYrW3t2qkOZYezwuPz5A.png)
 
-We’ll start our app.js with possibly the simplest entrypoint possible:
+We'll start our app.js with possibly the simplest entrypoint possible:
 
 import Vue from 'vue'
 import App from './App.vue'
@@ -103,7 +103,7 @@ Webpack 4 was just released with a ton of new features including:
 
 All this plus smaller bundle sizes and faster build times!
 
-Let’s try out a simple webpack build.
+Let's try out a simple webpack build.
 
 In the root of our project create a folder called build and add a file called webpack.config.dev.js. We will use this to configure a loader for our Vue single-file components.
 
